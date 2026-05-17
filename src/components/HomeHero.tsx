@@ -21,6 +21,7 @@ import { Hero, StatusBadge, Button } from "@poukai-inc/ui";
 export function HomeHero() {
   return (
     <Hero
+      size="intimate"
       status={
         /* D-12: byte-identical to the former public/index.html status line */
         <StatusBadge status="available">Currently taking conversations for Q3.</StatusBadge>
