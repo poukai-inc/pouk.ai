@@ -20,7 +20,7 @@ Four agents work on the pouk.ai ecosystem. Each has a single non-overlapping mis
 
 | Agent | Mission | Output |
 |---|---|---|
-| **Claude Design** (separate repo) | Builds `@poukai-inc/ui` | Components, tokens, marks |
+| **`@poukai-inc/poukai-ui` maintainers** (separate repo) | Builds `@poukai-inc/ui` | Components, tokens, marks |
 | **`pouk-ai-pm`** | Defines what the site does | Specs in `meta/specs/` |
 | **`pouk-ai-content`** | Drafts the words that ship | Content drafts in `meta/content/drafts/` |
 | **`pouk-ai-designer`** | Composes DS primitives into template recipes | Composition docs in `meta/compositions/` |
