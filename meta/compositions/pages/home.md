@@ -238,8 +238,8 @@ This revision introduces three DS-gap proposals against `@poukai-inc/ui@0.6.1`. 
 - **Tracked**: [poukai-ui#39](https://github.com/poukai-inc/poukai-ui/issues/39) — filed 2026-05-17, labels `proposal:from-consumer`, `consumer:pouk.ai`.
 - **Scope**: Add `size?: "display" | "intimate"` prop on `<Hero>` (default `"display"`, preserves current behavior on every existing consumer). At `"intimate"`, the Hero swaps its title font-size token from `--fs-tagline` (36–68px) to a new DS-defined token `--fs-tagline-intimate` (recommended range `clamp(2rem, 1.25rem + 2.5vw, 3.25rem)` — 32–52px). The Hero's internal rhythm tokens (`--space-6` status→title, `--space-8` title→lede) remain unchanged at `"intimate"`. Token addition is a DS-side **minor** version bump per ADR-0003.
 - **Where it appears**: `/` Hero (this composition). Future: `/principles` Hero is the most likely next consumer (the lower-density register suits a list page); `/roles` and `/why-ai` are open per their own amendments.
-- **Blocking dependency**: `@poukai-inc/poukai-ui` maintainers accepts and ships the prop + token before this composition moves from `Approved` to `Built`. The engineer waits.
-- **Workaround if rejected**: Fall back to PM amendment §4.2 Lever C (content rewrite). Out of scope for this composition's recommendation — Arian has rejected Lever C. If the DS rejects this gap, the amendment-side decision reopens.
+- **Blocking dependency**: ~~`@poukai-inc/poukai-ui` maintainers accepts and ships the prop + token before this composition moves from `Approved` to `Built`. The engineer waits.~~ **RESOLVED 2026-05-17**: DS shipped via [poukai-ui#41](https://github.com/poukai-inc/poukai-ui/pull/41) in `@poukai-inc/ui@0.7.0`. Site consumed at commit `38ee1e0` (`size="intimate"` on `<Hero>` in `src/components/HomeHero.tsx`).
+- **Workaround if rejected**: Not applicable — proposal accepted and shipped.
 
 ### 6.2 `<Hero illustration>` slot — universal editorial illustration contract
 

@@ -45,9 +45,9 @@ Five decisions resolved in a single sitting on 2026-05-17. Propagated changes:
 
 **Rejected alternatives**: Lever B (`titleScale` token override slot) — wrong shape, exposes DS internals. Lever C (content-layer rewrite) — does not address scale. Lever C.4 (line-break at caesura, designer's round-1 interim) — addresses perceived density, not actual scale.
 
-**Propagation**: composition §6.1 + PM amendment §4.2 lever choice + §6 dependency tracking. **Tracked**: [poukai-ui#39](https://github.com/poukai-inc/poukai-ui/issues/39).
+**Propagation**: composition §6.1 + PM amendment §4.2 lever choice + §6 dependency tracking. **Tracked**: [poukai-ui#39](https://github.com/poukai-inc/poukai-ui/issues/39) → closed via [poukai-ui#41](https://github.com/poukai-inc/poukai-ui/pull/41).
 
-**Blocking dependency**: `@poukai-inc/poukai-ui` maintainers accept #39, ship minor version bump, site bumps DS dep. Engineer waits before consuming `size="intimate"` on `/`.
+**Blocking dependency**: ~~`@poukai-inc/poukai-ui` maintainers accept #39, ship minor version bump, site bumps DS dep. Engineer waits before consuming `size="intimate"` on `/`.~~ **RESOLVED 2026-05-17**: DS shipped `<Hero size>` prop via [poukai-ui#41](https://github.com/poukai-inc/poukai-ui/pull/41) in `@poukai-inc/ui@0.7.0`. Site bumped dep + consumed `size="intimate"` at commit `38ee1e0` (third partial ship in the home-redesign sequence).
 
 ---
 
