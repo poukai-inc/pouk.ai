@@ -21,6 +21,8 @@ import { Hero, StatusBadge, Button } from "@poukai-inc/ui";
 export function HomeHero() {
   return (
     <Hero
+      size="intimate"
+      entrance="stagger"
       status={
         /* D-12: byte-identical to the former public/index.html status line */
         <StatusBadge status="available">Currently taking conversations for Q3.</StatusBadge>
@@ -48,7 +50,7 @@ export function HomeHero() {
         </>
       }
       cta={
-        <Button asChild>
+        <Button asChild size="sm">
           <a href="mailto:hello@pouk.ai">hello@pouk.ai</a>
         </Button>
       }

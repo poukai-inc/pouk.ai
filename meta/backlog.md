@@ -58,7 +58,7 @@ Closed by `pouk-ai-engineer` during the Astro round-1 build (commit `13f8668`). 
 - [x] `public/favicon-{16x16,32x32}.png`, `public/android-chrome-{192x192,512x512}.png`. Done 2026-05-13.
 - [x] **`index.html` favicon `<link>`** — **Closed 2026-05-17 as stale.** The holding `public/index.html` was deleted in commit `9e56cdb` ("feat: port / to Astro, retire static index.html") when `/` ported into Astro. There is no `index.html` to update — every route now flows through `BaseLayout.astro`, which already references `/favicon-32x32.png`, `/favicon-16x16.png`, and `/apple-touch-icon.png`. The original founder rule that gated this work no longer applies. Verified: `ls public/index.html` returns no such file.
 
-## DS-side coordination (Claude Design's lane)
+## DS-side coordination (`@poukai-inc/poukai-ui` maintainers' lane)
 
 Tracked here so the site engineer doesn't lose sight while the DS team works in parallel. None of these are this repo's lane to fix.
 
@@ -149,7 +149,7 @@ Tracked here so the site engineer doesn't lose sight while the DS team works in 
 
   **320px residual — known limitation, not a launch blocker.** iPhone SE 1st gen (the only 320px-class device that ever shipped, discontinued 2018) is ~0% of 2026 traffic. Every device shipped after iPhone 6 (2014) is 375px+. The LH `.lighthouserc.json` mobile config uses 360×640 — that's the breakpoint floor we target. Pages render fully usable at 320px; the only artefact is a 28px horizontal scroll on the header row.
 
-  **DS-side follow-up (file as bug in `poukai-ui` repo, not this one):** SiteShell should ship a `box-sizing: border-box` reset, and the Wordmark `height` prop should optionally scale down (or the SiteShell header should `flex-wrap` below ~360px). Both are owned by Claude Design.
+  **DS-side follow-up (file as bug in `poukai-ui` repo, not this one):** SiteShell should ship a `box-sizing: border-box` reset, and the Wordmark `height` prop should optionally scale down (or the SiteShell header should `flex-wrap` below ~360px). Both are owned by `@poukai-inc/poukai-ui` maintainers.
 - [x] **Confirm Instrument Serif fallback (Georgia) doesn't cause CLS on slow connections** — closed 2026-05-17. Subsumed by the Task L92 font-preload fix above. The original concern was the Instrument Serif → Georgia → Instrument Serif swap chain producing visible reflow on slow networks (the audit had measured CLS 0.077 on `/why-ai/` before the preload work). Two things now neutralize this:
   1. The DS no longer ships a Google Fonts request — Instrument Serif is self-hosted in `@poukai-inc/ui` and bundled via Astro to `/_astro/InstrumentSerif-Regular.<hash>.woff2`. The "Google Fonts request" framing in the original backlog item is stale.
   2. The Task L92 preload fix means the `<link rel="preload">` and the `@font-face` `url()` resolve to the *same* hashed file (one fetch, not two), and `as="font" crossorigin` starts that fetch in parallel with HTML parsing.

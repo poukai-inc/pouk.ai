@@ -86,7 +86,7 @@ The original draft's open questions (lede-extension treatment, status-line copy)
 Remaining dependencies blocking `Built`:
 
 - **DS dependency — `Hero` molecule, `SiteShell` organism, `StatusBadge` atom.** `Hero` and `SiteShell` are in scope for DS Phases 1.2 and 1.3 respectively. `StatusBadge` already exists. Confirm `Hero` API exposes `status` and `cta` slots, and that `SiteShell` accepts a route list and `currentRoute`. Tracked in `meta/masterplan.md` section 3.2.
-- **`SiteShell` current-route handling.** Confirm with Claude Design whether `currentRoute="/"` is a valid current state, or whether the home is the canonical no-current state. Affects nav visual on `/`.
+- **`SiteShell` current-route handling.** Confirm with `@poukai-inc/poukai-ui` maintainers whether `currentRoute="/"` is a valid current state, or whether the home is the canonical no-current state. Affects nav visual on `/`.
 - **Visual-parity gate — masterplan section 6.1.** This spec's success is bound to a screenshot-diff parity check before any DNS swap. Coordinate with the engineer's cutover checklist. The status-line parity check (per D-12) is part of this gate.
 - **Brand assets — backlog blockers.** `og.png`, `apple-touch-icon.png`, favicon, robots.txt, sitemap.xml are launch-blockers per the existing `meta/backlog.md`. They must land before `/` ships under the canonical domain.
 

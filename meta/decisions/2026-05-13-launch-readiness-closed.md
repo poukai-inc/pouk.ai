@@ -459,7 +459,7 @@ If you mark `accept all defaults` and check no boxes, here's what becomes `Appro
 
 What still blocks `Approved` even on the fully-deferred path:
 
-- DS components (`Hero`, `Stat`, `RoleCard`, `Principle`, `FailureMode`, `SiteShell`) must ship in `@poukai-inc/ui@0.1.0` before the page specs reach `Built`. That's Claude Design's lane.
+- DS components (`Hero`, `Stat`, `RoleCard`, `Principle`, `FailureMode`, `SiteShell`) must ship in `@poukai-inc/ui@0.1.0` before the page specs reach `Built`. That's `@poukai-inc/poukai-ui` maintainers' lane.
 - Launch infrastructure (Section 8) — separate execution path, not blocked by spec approval.
 
 ---
