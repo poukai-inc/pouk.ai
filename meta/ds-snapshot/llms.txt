@@ -4,7 +4,7 @@
 
 Poukai is a React component library organised by Atomic Design (tokens → atoms → molecules → organisms).
 
-Version: `0.8.0`
+Version: `0.9.0`
 
 ## LLM context
 

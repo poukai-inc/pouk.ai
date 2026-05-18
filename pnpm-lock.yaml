@@ -18,8 +18,8 @@ importers:
         specifier: 3.3.0
         version: 3.3.0
       '@poukai-inc/ui':
-        specifier: 0.8.0
-        version: 0.8.0(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(lucide-react@0.511.0(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 0.9.0
+        version: 0.9.0(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(lucide-react@0.511.0(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@vercel/analytics':
         specifier: 1.4.1
         version: 1.4.1(react@18.3.1)
@@ -1092,8 +1092,8 @@ packages:
     resolution: {integrity: sha512-h104Kh26rR8tm+a3Qkc5S4VLYint3FE48as7+/5oCEcKR2idC/pF1G6AhIXKI+eHPJa/3J9i5z0Al47IeGHPkA==}
     engines: {node: '>=12'}
 
-  '@poukai-inc/ui@0.8.0':
-    resolution: {integrity: sha512-26z88MbpyUA60kfTa6YNRDqvn+zpx0bzPuLfTkIE9cwOfgNXqlgG84GDRnGE7EEuPthoUPJQl7Dd0z2lTMPynA==, tarball: https://npm.pkg.github.com/download/@poukai-inc/ui/0.8.0/26debd1d5816aa4db9b1b9f2762dff2053a54d94}
+  '@poukai-inc/ui@0.9.0':
+    resolution: {integrity: sha512-TTCuHKlMGGh8Rcm9+jG+3jyFX5pdpb7oEP4hYEzFmYWTBnmJfKh2k2BhlUTruSIc5qufIJCyDgfRPZGhAvjt4Q==, tarball: https://npm.pkg.github.com/download/@poukai-inc/ui/0.9.0/a3317cfa7ce4044b5fc478d977e83dadd96a96dd}
     peerDependencies:
       lucide-react: '>=0.400.0'
       react: '>=18'
@@ -4772,7 +4772,7 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@poukai-inc/ui@0.8.0(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(lucide-react@0.511.0(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@poukai-inc/ui@0.9.0(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(lucide-react@0.511.0(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-dialog': 1.1.15(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot': 1.2.4(@types/react@18.3.28)(react@18.3.1)
