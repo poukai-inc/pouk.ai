@@ -282,85 +282,126 @@
   margin-block: var(--space-8);
 }
 
-/* ---------- About page — eyebrow + lede band (no <Hero>) ----------
-   Composition verdict (ii): /about skips <Hero> entirely.
-   Eyebrow + lede are site-side prose elements using DS tokens in their
-   documented roles. No new token values introduced.
-   See meta/compositions/pages/about.md §2 Section 2 and §6.1.       */
+/* ---------- About page v2 — orange portrait band ----------
+   Composition: meta/compositions/pages/about.md v2 (Approved 2026-05-18).
+   Unit 2 = <AboutBand> wrapping <Hero bleed="full" illustration={<Portrait>}>.
+   The orange surface is applied here because <Hero> has no surface prop —
+   this wrapper sets the background and cascades --fg-on-warm token values
+   so Hero's internal title/lede slots inherit correct foreground colors.
 
-.about-eyebrow-band {
-  margin-block-start: 0;
-  margin-block-end: var(--space-16);
+   NOTE: .about-band targets the wrapper div inside AboutBand.tsx, NOT the
+   Hero root element. The Hero's internal --bleed="full" mechanics handle
+   the viewport-width extension; .about-band provides the orange fill. */
+
+.about-band {
+  background-color: var(--bg-warm-accent);
+  /* Cascade warm foreground tokens into Hero's title and lede slots.
+     Hero reads color: inherit on its title/lede text nodes, so setting
+     these custom properties on the wrapper lets them flow through. */
+  --fg: var(--fg-on-warm);
+  --fg-muted: var(--fg-on-warm-muted);
 }
 
-.about-eyebrow {
+/* ---------- About page v2 — display statement font-size (site-side clamp) ----------
+   DS counter-proposal resolution §6.3 path (b): "site can clamp locally for
+   one-shot use; we don't bless 192 as a brand contract for one page."
+   This clamp (~56–128px) is intentionally larger than --fs-display (48–88px)
+   so the statement owns the first viewport at desktop — Direction A's
+   compositional identity. Scoped to .about-band only; does NOT propagate.
+
+   Selector targets the <h1> rendered by Hero's title slot. Hero applies
+   its title CSS via an internal class; we override font-size via the
+   cascade by targeting the h1 element inside .about-band directly.
+   This is a 2-level selector (within the .about-band scope) — within
+   the no-deeper-than-2-levels rule.
+
+   Re-proposal trigger: if a second editorial page needs this scale, the
+   site-side clamp becomes a second confirmed surface and --fs-display-lg
+   re-files against @poukai-inc/poukai-ui with stronger precedent.       */
+
+.about-band h1 {
+  font-size: clamp(3.5rem, 2rem + 5vw, 8rem); /* ~56–128px */
+}
+
+/* ---------- About page v2 — portrait caption ----------
+   Positioned below the Hero band, still inside .about-band background.
+   Renders at --fs-meta, using --fg-on-warm-muted (inherited via .about-band
+   --fg-muted cascade above). Max-width matches --hero-max text column width.
+   Composition §2 Unit 2: "≤12 words, --fg-muted at meta type".           */
+
+.about-band__caption {
   font-family: var(--font-sans);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: var(--fs-meta);
+  /* color resolves to var(--fg-on-warm-muted) via the .about-band cascade */
   color: var(--fg-muted);
+  padding-inline: var(--page-pad);
+  padding-block: var(--space-4) var(--space-8);
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+/* ---------- About page v2 — tail content (Units 3–5) ----------
+   .about-tail contains story body, Pouākai section, end CTA.
+   Returns to --bg canvas after the orange band.
+   padding-block-start reduced vs .site-page default because the band's
+   own bottom padding (--space-24 inside Hero) handles breathing.       */
+
+.about-tail {
+  padding-block-start: var(--space-12);
+}
+
+/* ---------- About page v2 — story body (Unit 3) ----------
+   Two short paragraphs at body type, max-width --hero-max (608px).
+   No <h2> heading (composition §2 Unit 3 — story reads as continuation
+   of the band's supporting line, not as a separate document section).
+   Paragraph gap: --space-4 (16px).                                     */
+
+.about-story__body {
+  max-width: var(--hero-max);
+}
+
+.about-story__body p {
+  font-size: var(--fs-body);
+  color: var(--fg);
   margin-block: 0;
 }
 
-.about-lede {
-  font-family: var(--font-sans);
+.about-story__body p + p {
+  margin-block-start: var(--space-4);
+}
+
+/* Operator line — final <p> in story body. Slight typographic distinction
+   via italic on the name is handled inline in the HTML (no separate class
+   needed — the italic is on the <em> wrapping "Arian Zargaran" only).     */
+
+.about-story__operator {
+  margin-block-start: var(--space-6);
   font-size: var(--fs-body);
-  color: var(--fg-muted);
-  max-width: var(--hero-max);
-  margin-block-start: var(--space-2);
-  margin-block-end: 0;
+  color: var(--fg);
 }
 
-/* ---------- About page — section headings + body ----------
-   h1 and h2 both render at --fs-tagline-intimate, Instrument Serif italic.
-   Semantic distinction (h1 vs h2) carries WCAG hierarchy; visual flatness
-   carries the editorial premise (three peer essays).
-   See meta/compositions/pages/about.md §2 Sections 3–5 and §3.       */
+/* ---------- About page v2 — Pouākai section (Unit 4) ----------
+   Standalone section with <h2> at --fs-tagline-intimate (32–52px),
+   Instrument Serif italic. Large editorial break above (--space-24).
+   Body single <p> at --fs-body, max-width --hero-max.                */
 
-.about-section {
-  margin-block-end: var(--space-16);
+.about-poukai {
+  margin-block-start: var(--space-24);
 }
 
-.about-section:last-of-type {
-  margin-block-end: 0;
-}
-
-.about-section-heading {
+.about-poukai__heading {
   font-family: var(--font-serif);
   font-style: italic;
-  /* Composition borrows --fs-tagline-intimate token value for the
-     site-side section headings on /about. Documented deliberate divergence
-     per meta/compositions/pages/about.md §3 visual-vs-semantic contract. */
-  font-size: clamp(2rem, 1.25rem + 2.5vw, 3.25rem);
+  font-size: var(--fs-tagline-intimate);
   line-height: 1.1;
   color: var(--fg);
   margin-block: 0 var(--space-6);
 }
 
-.about-body {
-  max-width: var(--content-max);
-}
-
-.about-body p {
+.about-poukai__body {
+  max-width: var(--hero-max);
   font-size: var(--fs-body);
   color: var(--fg);
-  margin-block: 0;
-}
-
-.about-body p + p {
-  margin-block-start: var(--space-4);
-}
-
-/* ---------- About page — end CTA ---------- */
-
-.about-end-cta {
-  margin-block-start: var(--space-16);
-}
-
-.about-end-cta p {
-  font-family: var(--font-sans);
-  font-size: var(--fs-body);
-  color: var(--fg-muted);
   margin-block: 0;
 }
 

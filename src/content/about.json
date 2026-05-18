@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "title": "About — pouk.ai",
+    "description": "pouk.ai is a small technical consultancy that builds and ships AI work in production. One operator. Direct contact at hello@pouk.ai.",
+    "canonical": "https://pouk.ai/about",
+    "ogTitle": "About — pouk.ai",
+    "ogDescription": "pouk.ai is a small technical consultancy that builds and ships AI work in production. One operator. Direct contact at hello@pouk.ai."
+  },
+  "band": {
+    "displayStatement": "pouk.ai builds AI that ships.",
+    "supportingLine": "Small consultancy. One operator. Custom work in production.",
+    "portrait": {
+      "src": "/about-portrait.jpg",
+      "alt": "Arian Zargaran, founder of pouk.ai. Cinematic editorial portrait, head-and-shoulders, saturated orange backdrop.",
+      "caption": "Arian Zargaran, founder.",
+      "aspect": "1:1",
+      "width": 1024
+    }
+  },
+  "story": {
+    "paragraphs": [
+      "pouk.ai builds custom AI systems, automations, and advisory engagements for teams that need the work to run in production, not in a report. Modern AI tools collapse what used to take a dev team six months into days, sometimes weeks for the harder parts. A small consultancy that has wired these tools into production codebases can do it again on a new team's stack — quickly, without a strategy retreat first.",
+      "Engagements are small and direct. pouk.ai works one team at a time. The output is a system the in-house team can run, not a deck that needs translation."
+    ],
+    "operatorLine": "Founded and run by Arian Zargaran. Direct contact at hello@pouk.ai."
+  },
+  "poukai": {
+    "heading": "Pouākai",
+    "anchor": "poukai",
+    "body": "Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height. The name comes from Māori tradition; the bird is real, extinct for around six hundred years, and the spelling carries the macron it was given. pouk.ai borrows the name as a reference point — a hunter that worked by altitude and timing — and stops there: no Māori visual motifs in the brand, no claim to the culture, no metaphor stretched past the one-line origin."
+  },
+  "endCta": {
+    "text": "For inbound work,",
+    "email": "hello@pouk.ai",
+    "href": "mailto:hello@pouk.ai"
+  },
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arian Zargaran",
+    "jobTitle": "Founder",
+    "url": "https://pouk.ai/about"
+  }
+}
