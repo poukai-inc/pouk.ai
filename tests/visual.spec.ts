@@ -17,6 +17,7 @@ const routes = [
   { name: "why-ai", path: "/why-ai/" },
   { name: "roles", path: "/roles/" },
   { name: "principles", path: "/principles/" },
+  { name: "about", path: "/about/" },
 ];
 
 for (const route of routes) {
