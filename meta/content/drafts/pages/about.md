@@ -1,215 +1,262 @@
 ---
 route: /about
 status: Approved
-version: 1.0
+approvedBy: Arian (founder), 2026-05-18 evening
+version: v2.1
 lastUpdated: 2026-05-18
 owner: Arian (founder)
 author: pouk-ai-content
-approvedBy: Arian (founder), 2026-05-18
-governingSpec: meta/specs/pages/about.md
-compositionReference: meta/compositions/pages/about.md (in flight — pouk-ai-designer authoring in parallel)
-founderCallsLockedIn:
-  date: 2026-05-18
-  calls:
-    - id: Q1
-      surface: §3 sentence 2
-      decision: KEEP "extinct for around six hundred years" as drafted.
-      effect: Section 3 body remains 77 words across three sentences; macron-preservation discipline + Te Ara-aligned extinction-date detail both ship.
-    - id: Q2
-      surface: End CTA
-      decision: KEEP wry register — "If the inbox sounds right, hello@pouk.ai."
-      effect: Inbox-as-noun pivot closes the loop on the hero lede's "Who you'd be writing into." Differentiated from /principles, /why-ai, /roles end-CTAs (no other end-CTA on the site uses "inbox" as its noun).
-    - id: Q3
-      surface: Hero lede
-      decision: KEEP recommended sharpest option — "Who you'd be writing into if you sent the email below."
-      effect: Single-sentence, 12-word hero lede. Page <h1> ("The arc") arrives immediately after.
-    - id: Q4
-      surface: <title> / OG title separator
-      decision: KEEP em-dash — "About — pouk.ai".
-      effect: Consistency with / title ("pouk.ai — Technical consulting for teams shipping with AI"). Site-wide title-separator discipline holds.
-coupledRevision:
-  driver: meta/specs/pages/about.md (Approved 2026-05-18)
-  sibling: meta/content/drafts/pages/home.md → v1.1 in same PR (Pouākai origin sentence migrates out of / lede into this page §3)
-voiceShifts:
-  count: 3
-  registered:
-    - section: §3 Pouākai
-      from: first-person ("I") body
-      to: brand-voice declarative
-      reason: A7 — the origin is pouk.ai's story, not Arian's. Verbatim migration of R27 from / preserves the existing brand-voice line; first-person here would be a category error (Arian did not name the largest eagle).
-      protection: spec §5 voice-shift rule (locked). No future revision may normalize §3 to first-person.
-    - section: End CTA
-      from: first-person ("I") body
-      to: brand-voice / second-person invitational
-      reason: A11 — matches the /principles precedent. The body is an introduction; the CTA is an invitation. Different jobs, different registers.
-      protection: spec §5 voice-shift rule (locked).
-    - surface: <meta name="description"> (and OG description)
-      from: first-person ("I") body
-      to: brand-voice declarative
-      reason: A14 — metadata is a third-party surface (search results, share cards) where first-person reads as an excerpt-out-of-context. Brand-voice keeps the page label legible at the SERP level.
-      protection: spec §5 voice-shift rule (locked).
-  notNormalisable: All three shifts are spec-locked. A reviewer noting "voice inconsistency" between §1/§2 and §3/CTA/meta is reading the spec wrong — point them at spec §5 and §4 IA items 5–6 + §9 A7/A11/A14.
+supersedes: v2.0 (Approved 2026-05-18 evening, founder-ratified) — v2.0 is superseded in-place by this v2.1 revision before any ship. v2.0 was approved but did not reach production; v2.1 is the build-of-record.
+governingSpec: meta/specs/pages/about.md (v2, Approved 2026-05-18 evening — PM amending in parallel to drop the operator-line surface from §5 + extend the voice-contract ban list per founder's company-maturity positioning shift)
+compositionReference: meta/compositions/pages/about.md (v2, Approved 2026-05-18 evening — composition §4 IA item 5 operator-line treatment retires per the v2.1 surface removal; designer in flight on a thin revision)
+rationaleChain: meta/proposals/about-v2-recalibration.md (revision 2)
+v2_0_to_v2_1_positioningShift:
+  trigger: Founder positioning direction on 2026-05-18 evening, verbatim — "I am not aligned with the claim and constant proudness of the sole operator. I believe in a company that shows maturity, that's happy to sit by the same table of companies bigger than itself, that's happy to chase growth."
+  reading: The v2.0 register over-indexed on the *fact* of one-operator scale ("Small consultancy. One operator." in the supporting line; "small and direct", "one team at a time" in the story body; "Founded and run by Arian Zargaran" in the operator line). v2.1 retires that framing without faking plurality. The page now reads as a company-grade peer to larger consultancies; the work is what's named, not the staffing.
+  whatStays:
+    - Display statement (`pouk.ai builds AI that ships.`) — capability-led, subject + verb + object, zero size-claim.
+    - Pouākai unit body — verbatim carry-forward from v1; brand-voice declarative; zero operator framing.
+    - End CTA (`For inbound work, hello@pouk.ai.`) — already brand-voice neutral; "inbound work" reads mature/peer-grade, not proudness-of-smallness.
+    - Portrait caption (`Arian Zargaran, founder.`) — founder is a role, not a size-claim. Mention of the founder ≠ proudness-of-smallness.
+    - Portrait alt — founder role naming is on-register; the descriptor names visual register, not scale.
+    - Page title (`About — pouk.ai`) — function-named; unchanged.
+    - Heading hierarchy — exactly one `<h1>` (display statement); one `<h2>` (Pouākai); unchanged.
+  whatRetires:
+    - **Supporting line** — v2.0 shipped `Small consultancy. One operator. Custom work in production.` The first two clauses surfaced staffing as a brand claim. v2.1 rewrites to `Custom AI builds. Automations. Advisory engagements.` — names the three deliverable categories; zero staffing reference; zero size-claim.
+    - **Story body** — v2.0 paragraph 2 ("Engagements are small and direct. pouk.ai works one team at a time. The output is a system the in-house team can run, not a deck that needs translation.") carried "small and direct" and "one team at a time" — both retire. v2.1 rewrites both paragraphs to land peer-grade with larger consultancies, name the work (not the staffing), and project trajectory.
+    - **Operator line** (composition §4 IA item 5 + spec §5) — RETIRED ENTIRELY. v2.0 shipped `Founded and run by Arian Zargaran. Direct contact at hello@pouk.ai.` v2.1 removes the surface. Arian's name surfaces only via the portrait caption + alt text + JSON-LD `Person` schema (Google's lane). PM is amending spec §5 + §8 ACs in parallel; this content draft ships against the retirement.
+    - **Meta description** — v2.0 shipped `pouk.ai is a small technical consultancy that builds and ships AI work in production. One operator. Direct contact at hello@pouk.ai.` Both `small` and `One operator` retire. v2.1 rewrites to name capability + deliverable shape; staffing absent.
+voiceContract:
+  scope: page-wide, format-independent (UPDATED in v2.1)
+  rule: Brand-voice declarative throughout. Subject is `pouk.ai` on the display statement, supporting line, story body, and Pouākai unit. The end CTA is brand-voice / second-person invitational. The meta description is brand-voice. **There is no first-person "I" anywhere on the rendered page. There is no fake plurality ("we" / "our team") anywhere on the rendered page. There is no proudness-of-smallness ("small", "tiny", "boutique", "scrappy", "solo", "one operator", "just me", "humble", "small but mighty") anywhere on the rendered page.**
+  newBansAddedInV2_1:
+    - "small" (as a brand claim about pouk.ai itself; permitted as a generic adjective elsewhere where unavoidable, but not for self-description)
+    - "tiny", "boutique", "scrappy", "solo", "humble"
+    - "one operator" as a self-descriptor in body copy
+    - "just me", "just one person"
+    - "small but mighty", "small but serious"
+    - implied-we ("our team", "we believe", "we love")
+  registerLock: Confident, mature, peer-grade. The page reads as a company-with-trajectory — happy to sit at the same table as larger consultancies, happy to chase growth. The work is named (custom AI builds, automations, advisory engagements, production AI work); the staffing is not.
+  collapsedFramework: v1's three-voice-shifts framework dissolved under v2. v2.1 preserves the collapse — body is brand-voice declarative; CTA second-person and meta brand-voice are same-voice-family adjacencies. Zero voice-shifts.
+  notNormalisable: A reviewer flagging "voice inconsistency" between the display statement (Instrument Serif italic, declarative) and the body prose (sans, declarative) is reading the spec wrong — they are both brand-voice declarative; only the type register differs. A reviewer suggesting v2.1 re-add a staffing claim ("name the operator", "tell the reader it's one person") for transparency is reading the spec wrong — the founder positioning explicitly retires staffing-as-brand-claim.
+companyModeLock:
+  rule (UPDATED v2.1): Subject is always `pouk.ai`. Never `we`, never `I`, never `our team`. Arian's name appears on the page only via (a) portrait caption (`Arian Zargaran, founder.`), (b) portrait alt text (`Arian Zargaran, founder of pouk.ai. …`), and (c) the page's standalone `schema.org/Person` JSON-LD (engineer-wired, not body copy). No operator line in body; no third-person `Arian` reference in story body or meta description.
+  protection: Spec §5 + §8 ACs (PM amending in parallel). The page ACs bar first-person "I", fake plurality ("we"), proudness-of-smallness ("small", "one operator", etc. — see voiceContract.newBansAddedInV2_1), and the operator-line surface entirely. The portrait caption + alt + JSON-LD carry the founder-naming load.
 backlogClosed:
-  - About-page P0 (no Approved content draft for /about) — closed by this draft going to Approved
-atomicMigrationNote: R14 (4-sentence lede over-cap on /) and R27 (Pouākai origin treatment) both close on the single sentence removal from / lede sentence 2. The removed sentence opens §3 of this page verbatim. One operation, two debts closed.
+  - About-page v2.1 (positioning recalibration) — closes when this draft moves to Approved.
+atomicMigrationNote: R27 (Pouākai origin sentence) migration from / to /about was executed under v1 (atomic, irrevocable). The sentence renders in v2.1 inside the Pouākai unit (composition §2 Unit 4 — verbatim carry-forward continues). Three sentences carry forward verbatim from v1 §3 (per composition §2 Unit 4 content slot lock + spec §10 A7 revision).
+v2_0_ratifiedCallsCarriedForward:
+  - Q1 (Display statement framing): SHIP `pouk.ai builds AI that ships.` — HOLDS in v2.1.
+  - Q3 (Portrait alt AI lineage): DO NOT DISCLOSE — HOLDS in v2.1.
+  - Q5 (Pouākai body): VERBATIM CARRY-FORWARD — HOLDS in v2.1.
+v2_0_ratifiedCallsRetired:
+  - Q2 (Supporting line `Small consultancy. One operator. Custom work in production.`): RETIRED v2.1 — supporting line rewrites to `Custom AI builds. Automations. Advisory engagements.` per founder positioning shift.
+  - Q4 (Operator line `Founded and run by Arian Zargaran. Direct contact at hello@pouk.ai.`): RETIRED v2.1 — operator-line surface removed entirely per founder positioning shift. PM amending spec §5 + §8 ACs.
 ---
 
-# Content: About (`/about`)
+# Content: About (`/about`) — v2.1
 
 **Route**: `/about`
 **Status**: Approved
+**Approved by**: Arian (founder), 2026-05-18 evening
+**Version**: v2.1 (supersedes v2.0 — v2.0 Approved 2026-05-18 evening but never shipped to production; v2.1 is the build-of-record)
 **Owner**: Arian (founder) · Author: pouk-ai-content
-**Approved by**: Arian (founder), 2026-05-18. All four open content questions (Q1–Q4 in §7 below) ratified at the founder's call; the draft moves to `Approved` with no copy changes between final-Draft and Approved states (drafter's recommended option was the chosen option on all four).
 **Last updated**: 2026-05-18
-**Governing spec**: `meta/specs/pages/about.md` (Approved 2026-05-18; §5 content requirements, §9 interview record A1–A18)
-**Composition reference**: `meta/compositions/pages/about.md` (in flight — `pouk-ai-designer` authoring in parallel)
+**Governing spec**: `meta/specs/pages/about.md` v2 (PM amending in parallel — drop operator-line surface from §5; extend voice-contract bans to ban proudness-of-smallness and staffing-as-brand-claim)
+**Composition reference**: `meta/compositions/pages/about.md` v2 (designer in flight on a thin revision — composition §4 IA item 5 operator-line treatment retires per the v2.1 surface removal)
+**Rationale chain**: `meta/proposals/about-v2-recalibration.md` revision 2 + founder positioning direction 2026-05-18 evening (verbatim quote preserved in frontmatter `v2_0_to_v2_1_positioningShift.trigger`)
 
 ---
 
 ## 1. Drafting notes
 
-- **Audience read**: A prospect who already read `/why-ai`, `/roles`, or `/principles` and now wants to know whose inbox they'd be writing into. They are not curious about pouk.ai's "mission" — they want to verify the operator on the other end of the email is a peer, not a salesperson.
-- **Outcome read** (from spec §5):
-  - §1 — Trace the arc from frontend engineer to operator who runs technical consulting through AI tooling. First-person. No résumé bullets, no employer names, no year counts.
-  - §2 — Make the founding posture autobiographical, not slogan-shaped. A frontend background put me at the seam where modern AI tools collapse months of dev-team work into days. pouk.ai exists at that seam. Echo `/roles#builder` body ("collapsed what used to take a dev team six months into days or weeks") without lifting it verbatim.
-  - §3 — Open with the R27 origin sentence migrated verbatim from `/` lede sentence 2. Three sentences total, ~80 words max. Acknowledge Māori source. State the respect posture. Stop.
-  - End CTA — Single muted line, `/principles`-shape but worded differently. `<a href="mailto:hello@pouk.ai">`.
-  - Meta — Brand-voice. `<title>` and `<meta name="description">` under SEO caps.
-- **Voice anchor**: agent §4.1 (direct — one idea per sentence), §4.2 (operator-first — assume the reader has shipped), §4.6 (specific verbs, concrete artifacts, implied confidence). For sections 1 and 2: the voice should read like the first email Arian would send a prospect who replied — measured, specific, no posture. For section 3: the brand-voice declarative used in the R27 line currently shipping on `/`. For the CTA: invitational, brand-voice, one line.
-- **Composition assumption**: composition is in flight under `pouk-ai-designer`. The copy here is written to work whether the page opens with a DS `<Hero>` molecule (eyebrow + lede in `<Hero>`, no `<h1>`) OR skips `<Hero>` and renders eyebrow + lede as standalone elements before §1. Either way, the `<h1>` is `The arc` at the top of section 1. If the Designer ships a no-title `<Hero>` variant, this copy slots in unchanged; if the page skips `<Hero>`, this copy slots in unchanged. The drafter does not pick.
+- **Founder positioning shift** (the load-bearing reason this draft exists): on 2026-05-18 evening, founder direction retired v2.0's proudness-of-sole-operator framing. Verbatim — *"I am not aligned with the claim and constant proudness of the sole operator. I believe in a company that shows maturity, that's happy to sit by the same table of companies bigger than itself, that's happy to chase growth."* v2.1 reads as a company-with-trajectory: confident, mature, peer-grade with larger consultancies. The work is named (custom AI builds, automations, advisory, production); the staffing is not.
+
+- **Audience read** (unchanged from v2.0, from spec §2): A prospect mid-funnel asking *what kind of company is this?* — what pouk.ai stands for, what it does, what it does not do. They want company-grade clarity, not personal-blog warmth. They make the conversion decision shortly after `/about`. The v2.1 register shift means the prospect now reads pouk.ai as peer-grade with the larger consultancies they might be comparing it against, not as the smaller-and-prouder-of-it alternative.
+
+- **Outcome read** (v2.1, from spec §5 + composition §2):
+  - **Display statement** — unchanged from v2.0. Capability-led, ≤12 words, page `<h1>`.
+  - **Supporting line** — REWRITTEN. Names the three deliverable categories (custom AI builds / automations / advisory engagements) without staffing reference. ≤12 words.
+  - **Story body** (composition Unit 3) — REWRITTEN both paragraphs. 2-3 short paragraphs on `--bg`, ~60-120 words. Brand-voice declarative. Names what pouk.ai is, what it does, who it does it for — peer-grade, no proudness-of-smallness.
+  - **Operator line** — RETIRED ENTIRELY. The composition §4 IA item 5 surface removes. Arian's name surfaces only via portrait caption + alt + JSON-LD.
+  - **Pouākai unit** — unchanged from v2.0; verbatim carry-forward from v1. Three sentences, ~75 words.
+  - **End CTA** — unchanged from v2.0. `For inbound work, hello@pouk.ai.` Brand-voice / second-person invitational.
+  - **Meta description** — REWRITTEN. Drops `small` and `one operator`. Names capability + deliverable shape. ≤155 chars.
+  - **Portrait alt + caption** — unchanged from v2.0. Founder role-naming is on-register (role, not size-claim).
+
+- **Voice anchor** (UPDATED v2.1): agent §4.1 (direct — one idea per sentence), §4.2 (operator-first), §4.6 (specific verbs, concrete artifacts, implied confidence). Company-mode throughout: subject is `pouk.ai`. **Peer-grade register**: the page reads as a serious consultancy doing serious work — happy to be compared to larger firms on the merit of the work itself. **No proudness-of-smallness**: `small`, `boutique`, `scrappy`, `solo`, `one operator`, `humble`, `just me` are all banned in body copy. **No fake plurality**: `we`, `our team`, `we believe` are all banned. The work is named; the staffing is not.
+
+- **Composition-aware writing**: copy continues to size to the v2.0 composition primitives (display statement at `--fs-display-lg`; supporting line at body scale with `--fg-on-warm-muted`; story body at `--fs-body` in `--hero-max` column; Pouākai unit unchanged). The composition revision in flight under `pouk-ai-designer` resolves the operator-line retirement only — the band, the portrait, the story body unit, and the Pouākai unit retain their composition spec.
+
+- **What's deliberately gone from v2.0 → v2.1**:
+  - No `Small consultancy. One operator.` (supporting line — retired).
+  - No `Engagements are small and direct. pouk.ai works one team at a time.` (story body paragraph 2 — retired).
+  - No `Founded and run by Arian Zargaran. Direct contact at hello@pouk.ai.` (operator-line surface — retired entirely).
+  - No `small technical consultancy` / `One operator.` (meta description — rewritten).
+
+- **What survives from v2.0**:
+  - Display statement (`pouk.ai builds AI that ships.`) — unchanged.
+  - Pouākai unit body — unchanged (verbatim carry-forward continues).
+  - End CTA (`For inbound work, hello@pouk.ai.`) — unchanged.
+  - Portrait alt (`Arian Zargaran, founder of pouk.ai. Cinematic editorial portrait, head-and-shoulders, saturated orange backdrop.`) — unchanged.
+  - Portrait caption (`Arian Zargaran, founder.`) — unchanged.
+  - Page title (`About — pouk.ai`) — unchanged.
+  - Heading hierarchy — unchanged (one `<h1>`, one `<h2>`).
+
 - **Assumptions** (flag in §7 if Arian wants to override):
-  - The eyebrow renders the literal page label `About` (lowercase, no punctuation), matching the eyebrow pattern used on other pages.
-  - "About" in the page label is title-case-as-page-label (a noun, not a sentence), so it caps. The `<title>` and OG title use the same form.
-  - The macron on `Pouākai` is preserved as `Pouākai` (rendered via HTML entity `&#257;` at the engineer's discretion; in this draft the literal character is used so the migration string is searchable).
-  - Section anchor slugs default to: §1 `#arc`, §2 `#why`, §3 `#poukai`. Engineer may adjust.
-  - End CTA "an inbox, not a funnel" framing is the deliberate differentiator from `/principles`. If Arian prefers a less wry register, alternatives are listed in §5.
+  - Supporting line ships the deliverable-triple version (`Custom AI builds. Automations. Advisory engagements.`) — three short declaratives, same staccato rhythm as v2.0, zero staffing reference. Alternatives recorded in §5.
+  - Operator line retires entirely (no body surface). Arian's name surfaces only via portrait caption, portrait alt, and JSON-LD `Person` schema. If founder prefers a thinner-than-v2.0 operator line as a compromise (e.g., a single 4-word caption-band like `Arian Zargaran, founder.` mirroring the portrait caption), drafter can rewrite — but the §7 question asks whether full retirement is correct.
+  - Story body ships 2 short paragraphs (~95 words) — peer-grade, work-named, no staffing.
+  - Meta description ships the deliverable-triple version mirroring the supporting line.
 
 ---
 
 ## 2. Copy
 
-The page is prose-led — no figures, no badges in the hero, no inline links inside the body prose other than the end-CTA mailto. All copy below is the final string the engineer should wire in.
+The page is **five compositional units in v2.1** (down from six in v2.0 — operator-line unit removed per spec §5 amendment in flight). Composition order: SiteShell top → portrait band (Hero with display statement + portrait + supporting line) → story body → Pouākai unit → end CTA → SiteShell footer. Copy below is the final string per unit, in the order the engineer wires.
 
-### Block: pageTitle (spec §6 — `<title>` AC)
+### Block: pageTitle (spec §6.2)
 
 - **Copy**: `About — pouk.ai`
 - **Character count**: 16.
-- **Separator pick**: em-dash (`—`) matching the existing `/` title pattern (`pouk.ai — Technical consulting for teams shipping with AI`). Consistency with the home title beats individual-page optimization here.
-- **Locked by**: spec §6, A14 — function-named ("About"), brand-suffixed, restraint-consistent.
-- **Voice rationale**: A14 cedes the "Arian Zargaran" name-query SEO to LinkedIn / other indexed surfaces. `About — pouk.ai` is the page label, nothing more. No headline-shaped title here ("Meet the founder", "The operator behind pouk.ai") — those would compete with the body's first-person register the moment the page loads.
+- **Carry-forward from v2.0**: unchanged. v1.0 Q4 em-dash separator holds; v2.0 carried forward; v2.1 carries forward.
+- **Locked by**: spec §6.2, A14 (function-named, brand-suffixed).
+- **Voice rationale**: A14 cedes the "Arian Zargaran" name-query SEO to LinkedIn / other indexed surfaces. The title is a page label, not a headline.
 
-### Block: pageDescription (spec §6 — `<meta description>` AC)
+### Block: pageDescription (spec §6.2 — `<meta description>`)
 
-> **Voice-shift annotation**: brand-voice declarative. See voiceShifts.meta in frontmatter and §4 below. This is one of the three locked shifts; do not normalize on revision.
+- **Copy**: `pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.`
+- **Character count**: 146 (under 155 SEO cap per agent §5.2).
+- **Rewrites from v2.0**: v2.0 shipped `pouk.ai is a small technical consultancy that builds and ships AI work in production. One operator. Direct contact at hello@pouk.ai.` Both `small` and `One operator.` retire per founder positioning shift. v2.1 replaces them with the deliverable triple (`Custom builds, automations, advisory.`) — names what pouk.ai *does*, not how many people do it.
+- **Locked by**: spec §6.2 — brand-voice rewrite mandated; ≤155 chars; declarative; no CTA verbs. v2.1 voice contract — no proudness-of-smallness; no staffing claim.
+- **Voice rationale**: Three short declaratives, same rhythm as v2.0 but with the deliverable triple replacing the staffing claim. **Sentence 1** states the substantive fact — what pouk.ai *is* (a technical consultancy) and *does* (builds and ships AI work in production) — the substantive register a SERP visitor needs to register before the click. The word `technical` carries the credential (engineering-led, not deck-builder); the word `production` carries the criterion (work that ships, not work that gets recommended). **Sentence 2** names the three deliverable categories in compressed form (`Custom builds, automations, advisory.`) — the same triple shipping on `/` lede sentence 1 and now mirrored across the meta description, the supporting line, and the story body. **Sentence 3** carries the address — gives the SERP snippet a conversion path even if the click never lands. Brand-voice declarative throughout; no first-person; no fake plurality; no staffing claim; no proudness-of-smallness.
 
-- **Copy**: `pouk.ai is one operator. Frontend engineering background, now running technical consulting through the AI tools that collapse months into days.`
-- **Character count**: 143 (under 155 SEO cap per agent §5.2).
-- **Locked by**: A14 brand-voice rule for metadata; agent §5.2 declarative, no CTA verbs.
-- **Voice rationale**: First sentence states the substantive fact (one operator, not a team) — the single most important thing a referrer or prospect needs to know before clicking. Second sentence carries the autobiographical seam in compressed form so a SERP snippet does the same work the body does. "Collapse months into days" rhymes with `/roles#builder` body language without quoting it.
-
-### Block: ogTitle (spec §6)
+### Block: ogTitle (spec §6.2)
 
 - **Copy**: `About — pouk.ai`
-- **Locked by**: spec §6 — OG title matches `<title>`. No share-context-specific punch-up; the page is restraint-posture.
+- **Locked by**: spec §6.2 — OG title matches `<title>`.
 
-### Block: ogDescription (spec §6)
+### Block: ogDescription (spec §6.2)
 
-- **Copy**: `pouk.ai is one operator. Frontend engineering background, now running technical consulting through the AI tools that collapse months into days.`
-- **Character count**: 143 (well under 200 OG cap).
-- **Locked by**: spec §6 — OG description matches meta description or a brand-voice-equivalent ≤200 chars. Matches the meta description verbatim; the same line carries the same job on both surfaces.
+- **Copy**: `pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.`
+- **Character count**: 146 (well under 200 OG cap).
+- **Locked by**: spec §6.2 — OG description matches meta description.
 
-### Block: heroEyebrow (spec §4 IA item 2 — eyebrow on hero region)
+### Block: displayStatement (composition Unit 2 — Hero title slot, the page's `<h1>`)
 
-- **Copy**: `About`
-- **Render note**: Eyebrow case follows the existing page eyebrow pattern. Renders above the hero lede; no link, no decoration.
-- **Locked by**: spec §4 IA item 2 — "Eyebrow renders the page label ('About')."
+- **Copy**: `pouk.ai builds AI that ships.`
+- **Word count**: 5 (well under 12-word cap).
+- **Carry-forward from v2.0**: unchanged. The display statement was a v2.0 ratified call (Q1) and survives the v2.1 positioning shift because it carries zero size-claim — subject is `pouk.ai`, verb is `builds`, object is `AI that ships`. No `small`, no `one operator`, no staffing reference anywhere in the sentence.
+- **Render note**: Set in `<Hero>` title slot at `--fs-display-lg` (clamp 4rem → 12rem). Instrument Serif italic *throughout the statement*. Color resolves to `--fg-on-warm` against the saturated orange backdrop. Sits left of the portrait in the band's two-column layout; vertically centered.
+- **Carries**: the page's `<h1>`.
+- **Locked by**: spec §5 display statement outcome; composition Unit 2 cap ≤12 words; brand-voice declarative.
+- **Voice rationale (preserved from v2.0)**: Capability-led framing. Subject is `pouk.ai`. Verb is `builds` — operator-grade shipping verb. Object is `AI that ships` — names the discipline (AI work) and the criterion (it ships, not it gets recommended). At display scale the brand name + four-word claim is the page's editorial moment. v2.1 confirms: the line carries no size-claim, no staffing reference, no proudness register — it's a capability statement about *what gets done*, peer-grade with any larger consultancy that might make the same claim.
 
-### Block: heroLede (spec §4 IA item 2 — hero lede, no `<h1>`)
+### Block: supportingLine (composition Unit 2 — Hero lede slot) — REWRITTEN v2.1
 
-- **Copy**: `Who you'd be writing into if you sent the email below.`
-- **Sentence count**: 1.
-- **Render note**: This sentence sits in the hero region above the first section heading. No `<h1>` renders in the hero region (spec §4 IA item 2, A9). The page `<h1>` lives at the top of section 1 ("The arc").
-- **Voice rationale**: The lede answers, in one sentence, the question that brought the reader to `/about`. "Who you'd be writing into" addresses the prospect's actual mental motion (they are on this page because they are weighing the email). It avoids "Get to know me" / "Meet the founder" / "Hi, I'm Arian" registers — the first two are agency tropes (agent §4.4-adjacent), the third forces the page into a personal-blog frame before §1 establishes its own voice. The line is consciously a *second-person*-led pivot before §1 switches to first-person — the reader is named first, the operator second. This mirrors the read-order: the prospect is the agent, the operator is the destination.
+- **Copy**: `Custom AI builds. Automations. Advisory engagements.`
+- **Word count**: 6 (well under 12-word cap).
+- **Render note**: Set in `<Hero>` lede slot at `--fs-body` with `--fg-on-warm-muted` color against the orange backdrop. Single sentence (semantically three short declarative clauses separated by periods). Composition §2 Unit 2 brand notes still recommend ship.
+- **Rewrites from v2.0**: v2.0 shipped `Small consultancy. One operator. Custom work in production.` (9 words, three declaratives). The first two clauses surfaced staffing as a brand claim — `Small consultancy` and `One operator` both retire per founder positioning shift. v2.1 replaces them with the three deliverable categories (`Custom AI builds. Automations. Advisory engagements.`) — same staccato rhythm, same compression, zero staffing reference. The third v2.0 clause (`Custom work in production.`) folds into the meta description; the supporting line is now purely the deliverable triple.
+- **Locked by**: spec §5 supporting line outcome (≤12 words, single sentence, brand-voice); v2.1 voice contract — no staffing claim; no proudness-of-smallness.
+- **Voice rationale (v2.1)**: Three short period-separated declaratives. **Each clause is one deliverable category**: *Custom AI builds* names the build engagement (the same noun phrase shipping on `/` lede); *Automations* names the automation engagement (singular plural — one or many); *Advisory engagements* names the advisory engagement (the third category from the home triple). The compressed register (period-separated declaratives, no commas) preserves the v2.0 staccato rhythm that the orange band + display statement context wants, but the substantive content is the work, not the staffing. The reader registers the three deliverable shapes in 3-5 seconds at body scale under the display statement — same scan-time as v2.0, mature register, zero size-claim. **Apple-mode parallel**: Apple's product pages name the work the device does, not the team that built it. The supporting line on `/about` v2.1 follows the same posture.
 
-### Block: section1 (spec §4 IA item 3 — "The arc" — first-person throughout, carries the page `<h1>`)
+### Block: storyBody (composition Unit 3 — short brand-voice body block on `--bg`) — REWRITTEN v2.1
 
-- **Heading**: `The arc` (3 words)
-- **Heading render**: `<h1>` (the page's single `<h1>` per spec §6 heading-hierarchy AC), set in Instrument Serif italic per A12.
-- **Anchor slug suggestion**: `#arc`
-- **Body** (first-person; ~170 words):
+- **Render note**: Two short paragraphs, sans body type (`--fs-body`, 17-19px clamp), max-width `--hero-max` (608px), `--space-4` paragraph gap, no `<h2>` heading above. Begins immediately after the orange band (zero gap; the band's own `--space-24` bottom padding handles breathing). Ends with `--space-24` before the Pouākai unit. **v2.1 composition note**: with the operator line retired (composition §4 IA item 5), the story body's bottom margin connects directly to the Pouākai unit — designer composition in flight resolves the spacing.
+- **Body** (brand-voice declarative; 95 words across 2 paragraphs):
 
-> I came up writing frontend code — building interfaces, shipping product, sitting close enough to engineering decisions to learn which ones held up and which ones rotted in six months. The conversations on those teams kept turning toward AI, first as a curiosity, then as a tool people were quietly using to do parts of their job, then as a question the engineering org couldn't answer on its own: where does this actually go in production?
+> pouk.ai builds custom AI systems, automations, and advisory engagements for teams that need the work to run in production, not in a report. Modern AI tools collapse what used to take a dev team six months into days, sometimes weeks for the harder parts. A consultancy that has wired these tools into production codebases can do it again on a new team's stack — quickly, without a strategy retreat first.
 >
-> I stopped writing frontend full-time to answer that question for the teams asking it. pouk.ai is what I do now — technical consulting for operators who'd rather ship something they can measure than commission a report on what they might build. I take a small number of engagements at a time. I write the code I recommend. I leave behind systems an in-house team can run, not slide decks that need translation.
->
-> When you email `hello@pouk.ai`, I am the person who replies.
+> The work is engineered, shipped, and supported. Engagements deliver systems an in-house team can run, not decks that need translation. pouk.ai operates at company-grade depth and chases the kind of work that proves the discipline.
 
-- **Word count**: ~165 words.
-- **Voice rationale**: First-person throughout, opens with a specific verb and a specific surface ("writing frontend code") rather than a role title ("Frontend Engineer"). No company names, no year counts, no "X years of experience" register (banned by spec §10 / A5 implication). The arc has three beats — origin, turn, present — each in its own paragraph. The final standalone sentence ("When you email `hello@pouk.ai`, I am the person who replies.") is the section's load-bearing line: it tells the reader the page is not a team-of-twenty pretending to be a founder, and it sets up the §2 founding posture without flagging the transition. The phrase "rather ship something they can measure than commission a report on what they might build" tunes the operator-audience handle from `/` ("operators who'd rather ship than speculate") so the two pages don't repeat themselves but stay recognizable as the same voice.
+- **Word count**: 95 words (within composition §2 Unit 3 target ~60-90 [+5 over composition rec, on spec range] + spec §5 ~60-120; same upper-end positioning as v2.0).
+- **Rewrites from v2.0**: v2.0 paragraph 1 sentence 3 said *"A small consultancy that has wired these tools into production codebases…"* — v2.1 drops `small` (`A consultancy that has wired these tools…`). v2.0 paragraph 2 said *"Engagements are small and direct. pouk.ai works one team at a time. The output is a system the in-house team can run, not a deck that needs translation."* — v2.1 rewrites the entire paragraph: drops `small and direct`, drops `one team at a time`, adds peer-grade trajectory language (`engineered, shipped, and supported`; `company-grade depth`; `chases the kind of work that proves the discipline`).
+- **Locked by**: spec §5 supporting story outcome ("Tells the substantive story of pouk.ai *without* the founder-arc framing v1 used. Names what pouk.ai *does*, who it does it for, and what an engagement looks like in shape — not in detail"); composition §2 Unit 3 contract (brand-voice declarative, no first-person, no mailto inline, no `<h2>` above). v2.1 voice contract — no proudness-of-smallness; no staffing claim; no fake plurality.
+- **Voice rationale (v2.1)**: Two paragraphs, each carrying one job. **Paragraph 1** (substantive what-pouk.ai-does claim) is structurally identical to v2.0 with one word removed — `small` strikes from sentence 3. The three deliverable categories (`custom AI systems, automations, and advisory engagements`), the audience handle (`teams that need the work to run in production, not in a report`), and the AI-tools-collapse claim (`Modern AI tools collapse what used to take a dev team six months into days, sometimes weeks for the harder parts`) all survive — they were never size-claims. The third sentence retains its substantive content (positioning pouk.ai as a re-applicator of the AI-tools-collapse capability) but drops the `small` qualifier; the sentence now reads as a category claim (`A consultancy that has wired these tools…`) rather than a self-description of scale. **Paragraph 2** (engagement-shape claim) is fully rewritten. The v2.0 version surfaced staffing twice (`small and direct`, `one team at a time`); v2.1 replaces both with work-substance — *engineered, shipped, and supported* is the lifecycle posture (the same three verbs that anchor `/principles`'s operating disciplines); *engagements deliver systems an in-house team can run, not decks that need translation* preserves the v2.0 anti-decker framing in declarative third-person; the closing sentence (*pouk.ai operates at company-grade depth and chases the kind of work that proves the discipline*) is the v2.1 load-bearing line — it states the peer-grade trajectory claim the founder positioning shift commissioned. **`company-grade depth`** signals "we hold up at the seriousness larger consultancies operate at"; **`chases the kind of work that proves the discipline`** signals trajectory (the company is in motion, not static) and proof-by-engagement (we earn the credential by doing the work, not by claiming it). **`The work is engineered, shipped, and supported.`** is verb-led, parallel-structured, and reads as a discipline list — peer-grade with any consultancy of any size. **Banned-word defense note (carried from v2.0)**: paragraph 2 uses *deck* in `not decks that need translation`. This is the brand-voice usage that ships on `/` lede and `/roles` body; it is anti-decker register, the precise inverse of marketing-speak. `Deck` is not on agent §4.4's banned list; it is a load-bearing brand term in pouk.ai's vocabulary.
 
-### Block: section2 (spec §4 IA item 4 — "Why pouk.ai" — first-person, founding-posture, autobiographical only)
+### Block: operatorLine — RETIRED v2.1
 
-- **Heading**: `Why pouk.ai` (2 words)
-- **Heading render**: `<h2>`, Instrument Serif italic.
-- **Anchor slug suggestion**: `#why`
-- **Body** (first-person; ~170 words):
+- **Status**: RETIRED ENTIRELY. The composition §4 IA item 5 surface (operator-line as continuation, caption band, or dedicated band) removes from `/about` v2.1.
+- **Rationale**: Founder positioning shift on 2026-05-18 evening — "I am not aligned with the claim and constant proudness of the sole operator." The v2.0 operator line (`Founded and run by Arian Zargaran. Direct contact at hello@pouk.ai.`) named the operator in body copy as a way to answer the v1-era "who exactly will reply to my email?" question. Under the v2.1 maturity register, that question is no longer the page's job — the page reads as a company, not as an operator-with-a-brand. The operator-identification load transfers to:
+  - **Portrait caption** (`Arian Zargaran, founder.`) — surfaces the founder name + role in 3 words, below the portrait.
+  - **Portrait alt text** (`Arian Zargaran, founder of pouk.ai. …`) — surfaces the founder name + role + brand for screen readers and as a search-engine signal.
+  - **JSON-LD `schema.org/Person` schema** — engineer-wired, structured data only (Google's lane). Fields: `name`, `jobTitle`, `url`. No `worksFor`, no `sameAs` (spec §6.2 A15 carries forward).
+- **Spec amendment in flight**: PM is amending spec §5 to remove the operator-line surface from the content requirements and §8 ACs to remove the AC that named the operator-line presence. This content draft ships against the retirement; PM's amendment catches up.
+- **Composition amendment in flight**: designer is revising composition §4 IA item 5 (operator-line treatment options) and §2 Unit 3 brand notes (operator-line continuation pattern). The story body now connects directly to the Pouākai unit; designer resolves spacing.
+- **Drafter records the absence** so a future engineer reading this draft sees the explicit retirement decision, not just an omission. A future revision that proposes re-adding the operator line is a re-spec, not a copy revision — the retirement is positioning-led, not preference-led.
 
-> The reason I started pouk.ai instead of going back to a staff engineering role is that the tools changed underneath me. The same modern AI tools that show up in every founder's Twitter feed — the ones the press keeps calling transformative — actually do the boring thing they claim to do, when an engineer holds them correctly. They collapse what used to take a dev team six months into days, sometimes weeks for the harder parts. I watched this happen on projects I was on and projects I wasn't.
->
-> The work that follows from that is specific. Most teams don't need a strategy retreat about AI; they need someone who has already wired these tools into a production codebase and can do it again on theirs. That is the seam pouk.ai operates in. I take on the build, the automation, or the advisory engagement that gets a team across the gap between "we should be doing something with AI" and "we are running this in production this quarter."
+### Block: poukaiUnit (composition Unit 4 — Pouākai origin section)
 
-- **Word count**: ~175 words.
-- **Voice rationale**: Pure autobiographical framing (A10). No "ship vs. deck" slogan, no competitive jab at consultancies that build decks, no "we believe" register. The differentiator surfaces by specificity: "the tools changed underneath me", "watched this happen on projects I was on and projects I wasn't", "wired these tools into a production codebase." The `/roles#builder` body language is echoed ("collapse what used to take a dev team six months into days") without verbatim copy — the original line is "Modern tools (Lovable, Claude, Supabase) collapsed what used to take a dev team six months into days or weeks"; this draft drops the tool names (they don't belong in autobiography) and reframes the verb in the active continuous ("collapse … into days, sometimes weeks for the harder parts") so the rhythm rhymes without echoing. "The seam pouk.ai operates in" is the founding-posture line; it is a statement of where the work lives, not a claim of superiority.
-- **Banned-word defense note**: §2 contains the string "the ones the press keeps calling transformative." The word *transformative* is on agent §4.4's banned-marketing-speak list. Its use here is **diegetic** — the line is quoting the press's framing in order to undercut it ("the press keeps calling [it] transformative … actually do the boring thing they claim to do, when an engineer holds them correctly"). This is the inverse of marketing-speak: the section names inflated press language and refuses it. A future reviewer running a banned-word scan should NOT strike *transformative* here — it would invert the line's meaning. Flagged so the lint discipline does not over-correct.
+- **Carry-forward from v2.0 (and from v1)**: unchanged. Verbatim per composition §2 Unit 4 content slot lock + spec §10 A7 revision. The section is brand-voice declarative throughout, carries zero operator framing, and lands at the right register under the v2.1 positioning shift without revision.
 
-### Block: section3 (spec §4 IA item 5 — "Pouākai" — brand-voice declarative, ~80 words, opens with R27 verbatim)
-
-> **Voice-shift annotation**: brand-voice declarative. See voiceShifts.§3 in frontmatter and §4 below. This is one of the three locked shifts; do not normalize on revision. The verbatim opener migrates from `/` lede sentence 2 per spec §4 IA item 5 and atomic-migration AC.
-
+- **Render note**: Standalone section, `--space-24` from the story body. `<h2>` heading at `--fs-tagline-intimate` Instrument Serif italic. Anchor `id="poukai"`. Body in single `<p>`, `--fs-body`, max-width `--hero-max`. Bottom margin `--space-16` before end CTA.
 - **Heading**: `Pouākai` (1 word)
-- **Heading render**: `<h2>`, Instrument Serif italic. Macron preserved.
-- **Anchor slug suggestion**: `#poukai`
-- **Body** (brand-voice declarative; three sentences; ~75 words):
+- **Heading render**: `<h2>`, Instrument Serif italic at `--fs-tagline-intimate`. Macron preserved (literal `ā` or HTML entity `&#257;` — engineer's call).
+- **Anchor slug**: `#poukai`
+- **Body** (brand-voice declarative; three sentences; 75 words — verbatim from v1 and v2.0):
 
 > Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height. The name comes from Māori tradition; the bird is real, extinct for around six hundred years, and the spelling carries the macron it was given. pouk.ai borrows the name as a reference point — a hunter that worked by altitude and timing — and stops there: no Māori visual motifs in the brand, no claim to the culture, no metaphor stretched past the one-line origin.
 
 - **Word count**: 75 words. Three sentences.
-- **Locked opener**: Sentence 1 is the verbatim R27 string migrated from `/` lede sentence 2 (per spec atomic-migration AC and A7). Engineer should treat this string as a structural lock — do not paraphrase on copy-edit.
-- **Voice rationale**: Brand-voice declarative throughout (A7). Sentence 1 is the migrated origin one-liner — fact-led, behavior-led, no metaphor. Sentence 2 acknowledges the Māori source ("comes from Māori tradition"), names the bird's reality ("extinct for around six hundred years"), and surfaces the macron-preservation discipline ("the spelling carries the macron it was given") without lecturing the reader. Sentence 3 is the respect posture, stated as a discipline list: no visual motifs, no cultural claim, no metaphor extension. The "altitude and timing" gloss is the *only* gloss this section gives the name — it is the brand's reading of why the eagle is a fitting reference point, and it does its work in seven words. The section does not pivot to "we soar above…" or any forbidden metaphor pattern (agent §4.5). The "six hundred years" is a recorded fact about Haast's eagle / Hieraaetus moorei extinction; if the engineer wants to source-cite, the standard reference is Te Ara — the Encyclopedia of New Zealand. **Flag for Arian in §7**: confirm the "six hundred years" detail or strike it.
+- **Verbatim lock**: Sentence 1 is the R27 string migrated from `/` lede sentence 2 under v1's atomic migration. Sentences 2 and 3 are v1.0 drafter's composition (founder-approved 2026-05-18 morning). The full three-sentence body carries forward verbatim from v1 → v2.0 → v2.1. Macron preservation discipline: `Pouākai` (with macron), never `Pouakai`.
+- **Voice rationale (preserved from v1 / v2.0)**: Brand-voice declarative throughout. Fact-led origin; Māori source acknowledgment; respect posture as a discipline list. The brand earns the name by not over-explaining it. The Pouākai unit reads as voice-continuous with the story body under v2.1's peer-grade register — both are brand-voice declarative; both name substantive content; neither carries a staffing claim.
 
-### Block: endCta (spec §4 IA item 6 — single muted line, brand-voice / second-person, mailto)
+### Block: endCta (composition Unit 5 — single muted line, brand-voice / second-person)
 
-> **Voice-shift annotation**: body first-person → brand-voice / second-person invitational. See voiceShifts.endCta in frontmatter and §4 below. This is one of the three locked shifts; do not normalize on revision.
+- **Carry-forward from v2.0**: unchanged. The end CTA was a v2.0 ratified call (Q4 → CTA copy only, the operator line half retires separately) and survives the v2.1 positioning shift because `For inbound work, hello@pouk.ai.` is brand-voice neutral — names the page's job (inbound surface), carries zero staffing reference, zero size-claim, zero proudness register.
 
-- **Copy**: `If the inbox sounds right, ` `<a href="mailto:hello@pouk.ai">hello@pouk.ai</a>` `.`
-- **Rendered line**: `If the inbox sounds right, hello@pouk.ai.`
-- **Render note**: Single `<p>` element, muted color treatment matching the precedent set by `/principles` end-CTA (`src/pages/principles.astro:78–81`). Period after the address is intentional — the line ends.
-- **Word count**: 8 words including the address.
-- **Differentiation from sibling end-CTAs** (drafter checked existing pages):
+- **Render note**: Optional hairline above (`border-block-start: 1px solid var(--hairline)`, designer recommends yes for `/principles` rhythm parity). `<p>` at `--fs-body`, color `--fg-muted`, sans Geist. `--space-12` padding above + `--space-16` below to `.site-page` bottom padding.
+- **Copy**: `For inbound work, ` `<a href="mailto:hello@pouk.ai">hello@pouk.ai</a>` `.`
+- **Rendered line**: `For inbound work, hello@pouk.ai.`
+- **Word count**: 6 words including the address.
+- **Differentiation from sibling end-CTAs** (drafter cross-checked; unchanged from v2.0):
   - `/why-ai`: `Want to start that conversation? hello@pouk.ai` — question + answer shape.
   - `/roles`: `Not sure which fits? Describe your situation and we'll work it out together. hello@pouk.ai →` — diagnostic + co-investigation shape.
   - `/principles`: `If this is the kind of partner you want, hello@pouk.ai` — conditional-acceptance shape.
-  - `/about`: `If the inbox sounds right, hello@pouk.ai.` — conditional-fit shape, *but* with "the inbox" as the noun the reader is evaluating, which is unique to this page (the page's job was to characterize the inbox). No other end-CTA on the site uses "inbox" as its noun.
-- **Voice rationale**: A11 brand-voice / second-person register. The `/principles` shape is "If <condition>, <address>" — a deliberate template the prospect now recognizes from page to page. `/about` inherits the conditional shape but swaps `kind of partner` (`/principles`'s noun phrase, evaluating posture) for `the inbox` (this page's noun phrase, evaluating the operator-on-the-other-end). The wry mid-register pivot ("the inbox sounds right") is intentional: the body just spent ~340 words characterizing who you'd be writing into; the CTA closes the loop on that exact noun. If Arian prefers a less wry register, the alternatives in §5 trade the wryness for tighter restraint.
+  - `/404` v1.1: `Return to pouk.ai →` — salvage-to-home shape (non-mailto).
+  - `/about` v2.1: `For inbound work, hello@pouk.ai.` — context-of-purpose shape.
+- **Locked by**: spec §5 end CTA outcome + composition §2 Unit 5 contract.
+- **Voice rationale (preserved from v2.0)**: Five words plus the address. Names the purpose ("inbound work" = engagement inquiries arriving at this surface, not vendor pitches or press). Brand-voice / second-person register — no first-person; no staffing reference; no size-claim. v2.1 confirms: `inbound work` is a mature register choice — peer-grade with larger consultancies that also distinguish inbound-engagement from outbound-marketing.
+
+### Block: portraitAlt (composition Unit 2 portrait + spec §6.1 alt-text contract)
+
+- **Carry-forward from v2.0**: unchanged. The portrait alt was a v2.0 ratified call (Q3) and survives the v2.1 positioning shift because *founder* is a role-naming term, not a size-claim — the alt names the named entity (Arian Zargaran), his role (founder of pouk.ai), and the visual register (cinematic editorial portrait, head-and-shoulders, saturated orange backdrop). None of these are proudness-of-smallness claims.
+
+- **Render note**: `alt` attribute on the `<img>` element. Substantive, not decorative.
+- **Copy**: `Arian Zargaran, founder of pouk.ai. Cinematic editorial portrait, head-and-shoulders, saturated orange backdrop.`
+- **Character count**: 102 (under 120 cap per spec §6.1 alt contract).
+- **Locked by**: spec §6.1 alt-text contract.
+- **Voice rationale (preserved from v2.0)**: Three substantive parts — subject, register, backdrop. v2.1 note: the alt is now one of the two body-adjacent surfaces (along with the portrait caption) that surface Arian's name, since the operator line in body copy retires. The alt's job widens slightly under v2.1 — it carries the named-individual signal that v2.0 split across alt + operator line. The character count holds well under the 120-char cap with room for the AI-disclosure swap if Arian ever reverses Q3.
+
+### Block: portraitCaption (composition Unit 2 portrait caption + spec §5 caption)
+
+- **Carry-forward from v2.0**: unchanged. The portrait caption was a v2.0 ratified call (implicit — not a numbered Q, but founder-approved as drafter's recommended option) and survives the v2.1 positioning shift. *Founder* is role, not size-claim; *Arian Zargaran* names the named entity. Neither is proudness-of-smallness.
+
+- **Render note**: Single line in `--fg-muted` at meta type, brand-voice. Composition §2 Unit 2 + spec §5 cap at ≤12 words.
+- **Copy**: `Arian Zargaran, founder.`
+- **Word count**: 3 words.
+- **Locked by**: spec §5 portrait caption outcome.
+- **Voice rationale (preserved from v2.0)**: Three words. Names the subject (the operator) and the role (founder), nothing more. The portrait does the rest. v2.1 note: the caption + alt now jointly carry the founder-identification load that v2.0 split across three surfaces (caption + alt + operator line). The three-word caption holds — adding "of pouk.ai" or "founder & operator" would push back into proudness-of-staffing register.
 
 ### Block: footerLines (rendered by `SiteShell` via `ShellWrapper.tsx`)
 
 - **Copy**: `© 2026 pouk.ai · hello@pouk.ai`
-- **Render note**: Global `SiteShell` footer, identical to other pages. Not authored on `/about` specifically. Included here only to document that no `/about`-specific footer copy exists (per spec §10).
-- **Locked by**: spec §10 — no footer changes on `/about`. Per A15a, footer link order matches nav (`Why AI → Roles → Principles → About`), which is a `SiteShell` consumer concern, not a content concern.
+- **Render note**: Global `SiteShell` footer, identical to other pages. Not authored on `/about` specifically.
+- **Locked by**: composition §2 Unit 1.
 
 ---
 
 ## 3. Page-level SEO copy
 
 - **`<title>`**: `About — pouk.ai` (16 chars)
-- **`<meta name="description">`**: `pouk.ai is one operator. Frontend engineering background, now running technical consulting through the AI tools that collapse months into days.` (143 chars)
+- **`<meta name="description">`**: `pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.` (146 chars)
 - **OG title**: matches `<title>` — `About — pouk.ai`.
-- **OG description**: matches meta description — 143 chars, well under 200 OG cap.
-- **OG image**: reuses `public/og.png` (spec §6 — `/about`-specific OG card deferred to a future visual pass).
-- **Canonical**: `https://pouk.ai/about` (trailing-slash policy matches existing pages; confirm with engineer at build time).
-- **JSON-LD**: standalone `schema.org/Person` schema only. Fields: `name`, `jobTitle`, `url`. No `worksFor`, no `sameAs` (A15b, A15c). Field values are engineering-mechanical and not authored here, except where copy fields surface verbatim strings — none on `/about` per spec §6.
-- **Heading hierarchy**: exactly one `<h1>` (the §1 heading `The arc`). Sections 2 and 3 render as `<h2>`. No `<h3>` or deeper. Hero region carries no `<h1>` (A9). Standards R-026 (HARD) — no level skipped, all `<h2>`s descend cleanly from the single `<h1>`.
+- **OG description**: matches meta description (146 chars, well under 200 OG cap).
+- **OG image**: reuses `public/og.png` (spec §6.2 — `/about`-specific OG card deferred to v3).
+- **Canonical**: `https://pouk.ai/about` (trailing-slash policy matches existing pages).
+- **JSON-LD**: standalone `schema.org/Person` schema only (A15 holds in v2.1). Fields: `name`, `jobTitle`, `url`. No `worksFor`, no `sameAs`. The schema is now the **only** structured surface where Arian's name + role appear outside the portrait alt and caption; under v2.1 the JSON-LD carries the load that v2.0 split across JSON-LD + body operator line.
+- **Heading hierarchy**: exactly one `<h1>` (the display statement); exactly one `<h2>` (Pouākai). No `<h3>` or deeper. No `<h2>` above the story body. Standards R-026 (HARD) — no level skipped.
 
 ---
 
@@ -217,16 +264,25 @@ The page is prose-led — no figures, no badges in the hero, no inline links ins
 
 Anchored per significant line so future revisions argue against reasons, not vibes.
 
-- **Hero lede — `Who you'd be writing into if you sent the email below.`** Second-person, mid-register. Names the reader's actual question (who is on the other end) and the artifact that brought them here (the email link). Avoids "Hi, I'm Arian" (personal-blog frame), "Meet the founder" (agency trope), "About me" (redundant with the eyebrow). Sets up the §1 first-person without prefiguring its voice.
-- **§1 opening — `I came up writing frontend code…`** Operator-grade specificity. "Came up" implies origin, "writing frontend code" names the verb and the surface. Skips role-title cliché ("As a Frontend Engineer at…"). The next clause ("building interfaces, shipping product, sitting close enough to engineering decisions to learn which ones held up") triples the artifact density before the reader can disengage.
-- **§1 closing — `When you email hello@pouk.ai, I am the person who replies.`** Single load-bearing sentence. Tells the prospect there is no team-of-twenty pretending. The verb *am* is the operator-grade move; "the person who replies" is the noun phrase the prospect actually cares about. The mailto inside the body is intentional once (only once on the page outside the end-CTA) because the sentence's meaning requires it.
-- **§2 opening — `The reason I started pouk.ai instead of going back to a staff engineering role is that the tools changed underneath me.`** Founder-posture without slogan. Names the counterfactual ("instead of going back to a staff engineering role") and the cause ("the tools changed underneath me"). Avoids "I founded pouk.ai because I believe…" (banned register per spec §10 / agent §4.4).
-- **§2 middle — `the same modern AI tools that show up in every founder's Twitter feed … actually do the boring thing they claim to do, when an engineer holds them correctly.`** This is the section's claim. "Actually do the boring thing they claim to do" is a precise piece of restraint: it neither dismisses nor inflates the tools. "When an engineer holds them correctly" names the operator's role without claiming heroism.
-- **§2 closing — `the seam pouk.ai operates in`** Names the founding-posture noun ("seam") rather than asserting a stance ("we ship not deck"). The seam framing came from the spec (§4 IA item 4); this draft makes it the section's terminal phrase rather than its opener.
-- **§3 sentence 1** — migrated R27 verbatim. No rationale needed beyond the migration discipline.
-- **§3 sentence 2 — `The name comes from Māori tradition; the bird is real, extinct for around six hundred years, and the spelling carries the macron it was given.`** Names the source culture, the bird's reality, and the macron-preservation discipline in one breath. The semicolon-then-comma rhythm is deliberate — three short clauses, no comma-spliced run-on. The detail "the spelling carries the macron it was given" doubles as an acknowledgment to a Māori reader that the brand did its homework. "Around six hundred years" is approximate (Haast's eagle is dated to ~1400 CE for extinction; round-numbers register reads as respect rather than precision).
-- **§3 sentence 3 — `no Māori visual motifs in the brand, no claim to the culture, no metaphor stretched past the one-line origin.`** Stated as a discipline list, not as virtue-signaling. The phrase "metaphor stretched past the one-line origin" surfaces the *exact* boundary that the prior site lede already honored — the brand earns the name by not over-explaining it.
-- **End CTA — `If the inbox sounds right, hello@pouk.ai.`** Conditional-fit shape (inherited from `/principles`), inbox-as-noun pivot (unique to this page). The wry register is intentional — the body just spent ~340 words characterizing who you'd be writing into; the CTA closes the loop on that exact noun. If the wryness reads off-brand on revision, swap for `If this sounds like the inbox you want, hello@pouk.ai.` (Option 2 in §5).
+- **Display statement — `pouk.ai builds AI that ships.`** Preserved verbatim from v2.0. Capability-led declarative. Subject is `pouk.ai`, verb is `builds`, object is `AI that ships`. Zero size-claim, zero staffing reference. The line is peer-grade with any consultancy of any size that wants to make the same capability claim — the difference is whether the body backs it. v2.1's story body backs it without invoking staffing.
+
+- **Supporting line — `Custom AI builds. Automations. Advisory engagements.`** v2.1 rewrite. Three short period-separated declaratives, one deliverable category per clause. Mirrors `/` lede sentence 1's triple (`custom AI systems, automations, and advisory engagements`). The compressed staccato register survives from v2.0; the substantive content shifts from staffing-claim to work-claim. Each clause is falsifiable on click — the story body names what each engagement looks like in shape.
+
+- **Story body paragraph 1 — `pouk.ai builds custom AI systems, automations, and advisory engagements…`** Preserved from v2.0 with one word struck (`small` removed from sentence 3). The substantive claim survives intact (modern AI tools collapse months into days; a consultancy that has wired these tools into production can do it again). The v2.1 version reads peer-grade — `A consultancy that has wired these tools…` is a category claim about pouk.ai's capability, not a self-description of scale.
+
+- **Story body paragraph 2 — `The work is engineered, shipped, and supported. Engagements deliver systems an in-house team can run, not decks that need translation. pouk.ai operates at company-grade depth and chases the kind of work that proves the discipline.`** v2.1 rewrite. Three sentences, each carrying one job. **Sentence 1** is the lifecycle claim — `engineered, shipped, and supported` is a verb-led triple that names the full engagement arc (build, deliver, sustain) without naming a team. Peer-grade with any consultancy of any size; the verbs do the credentialing. **Sentence 2** preserves the v2.0 anti-decker framing (`systems an in-house team can run, not decks that need translation`) in declarative third-person — pouk.ai names what it delivers and what it doesn't, both without first-person and without staffing reference. **Sentence 3** is the load-bearing v2.1 line — `operates at company-grade depth` signals peer-grade-with-larger-firms; `chases the kind of work that proves the discipline` signals trajectory (the company is happy to chase growth, per founder positioning); `the discipline` references the operating discipline `/principles` documents (cross-page register coherence). The closing sentence carries the founder's company-maturity positioning verbatim in posture (not in literal language).
+
+- **Operator line — RETIRED v2.1.** v2.0 carried `Founded and run by Arian Zargaran. Direct contact at hello@pouk.ai.` as the page's named-individual identification surface. v2.1 retires the body surface entirely; the founder-identification load transfers to portrait caption + portrait alt + JSON-LD `Person` schema. The retirement is positioning-led: the page reads as a company, not as an operator-with-a-brand. PM is amending spec §5 + §8 ACs to reflect.
+
+- **Pouākai unit body** — verbatim from v1 and v2.0. Rationale carried forward.
+
+- **End CTA — `For inbound work, hello@pouk.ai.`** Preserved verbatim from v2.0. `inbound work` is mature register — peer-grade with larger consultancies that distinguish inbound from outbound. No first-person, no staffing reference, no size-claim. Differentiated from `/principles` (conditional acceptance), `/why-ai` (question), `/roles` (diagnostic), `/about` v1 (conditional fit), `/404` (salvage).
+
+- **Portrait alt — `Arian Zargaran, founder of pouk.ai. Cinematic editorial portrait, head-and-shoulders, saturated orange backdrop.`** Preserved verbatim from v2.0. `founder` is role, not size-claim. The alt now carries widened identification load under v2.1 (it's one of two body-adjacent surfaces, along with the caption, that surface the founder's name).
+
+- **Portrait caption — `Arian Zargaran, founder.`** Preserved verbatim from v2.0. Three-word name + role. Joint identification load with the alt.
+
+- **Meta description — `pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.`** v2.1 rewrite. Three short declaratives. Drops `small` (sentence 1) and `One operator` (sentence 2 in v2.0). Sentence 1 names what pouk.ai *is* (a technical consultancy) and *does* (builds and ships AI work in production); sentence 2 names the three deliverable categories (mirrors the supporting line); sentence 3 carries the address. Peer-grade register; zero staffing claim.
 
 ---
 
@@ -234,121 +290,146 @@ Anchored per significant line so future revisions argue against reasons, not vib
 
 Per agent §6, high-stakes lines ship with three labelled options. Recommended option is the one wired in §2 above.
 
-### Hero lede
+### Display statement (page `<h1>`)
+
+Unchanged from v2.0 alternatives table — `pouk.ai builds AI that ships.` survives v2.1 positioning shift verbatim.
 
 | Option | Copy | Rationale | Risk |
 |---|---|---|---|
-| Safest | `One operator. Frontend engineering background. Currently taking conversations for Q3.` | Three short declaratives. Mirrors the `/` meta description rhythm. | Reads as metadata. The page already does this on the `<meta description>`; the hero lede doing it again is double-spending the same line. |
-| Sharpest (recommended) | `Who you'd be writing into if you sent the email below.` | Second-person, names the reader's actual question, points to the conversion target (the mailto). | Slightly wry; relies on the reader actually being on the page for the email below. Mitigated because the mailto IS rendered below on every variant of the page. |
-| Weirdest | `An introduction. The page that goes with the inbox.` | Two ultra-short sentences. Operates as a structural label for the page. | Cute. "Goes with" reads vaguely literary. Rejected on grounds of restraint slippage. |
+| Safest | `Technical consulting that uses AI to ship.` (7 words) | Direct echo of `/` page title. | Reads as a tagline already in use on `/`. |
+| Sharpest (shipping) | `pouk.ai builds AI that ships.` (5 words) | Capability-led. Subject + verb + object in 5 words. Zero size-claim — peer-grade with any consultancy. | The phrase "AI that ships" risks reading slogan-y at body scale — but at `--fs-display-lg` it reads as a declaration. |
+| Weirdest | `One operator. AI work, in production.` (6 words) | Period-separated declaratives at display scale. | **REJECTED IN v2.1**: `One operator` is now a banned staffing claim per founder positioning shift. Was rejected on losing-the-verb grounds in v2.0; rejected harder in v2.1. |
 
-### §1 heading (`<h1>`)
-
-| Option | Copy | Rationale | Risk |
-|---|---|---|---|
-| Safest | `Background` | One word, accurate, neutral. | Generic. Could be the heading on any consultant's about page. |
-| Sharpest (recommended) | `The arc` | Two words. Names the section's shape (origin → turn → present). The definite article makes it specific without naming what the arc is — the body does that work. | "The arc" is mildly literary; depends on §1's body delivering on the structural promise. The body does. |
-| Weirdest | `How I got here` | Five words; over-cap (spec A12 limits to ≤3 words). Personal-blog register. | Over-cap. Rejected. |
-
-### §2 heading
+### Supporting line (Hero lede) — v2.1 alternatives
 
 | Option | Copy | Rationale | Risk |
 |---|---|---|---|
-| Safest | `The founding` | Two words; names the section's job neutrally. | Doesn't surface *pouk.ai* — the section is about the founding posture *of pouk.ai*, and saying so in the heading reinforces brand presence. |
-| Sharpest (recommended) | `Why pouk.ai` | Two words. Names the section's question. Pulls the brand into the heading rhythm. | None material. Possibly reads as a section in a deck; mitigated by the fact that the body is anti-deck. |
-| Weirdest | `The seam` | Two words. The §2 body terminates on "the seam pouk.ai operates in," so heading and closing line bracket the section. | Risks opacity — a reader skimming headings doesn't know what "the seam" refers to until they read the body. The Sharpest option is more navigable; the seam idea is still the section's terminal phrase. Rejected. |
+| Safest | `Production AI work for serious teams.` (6 words) | Comma-free declarative. Names deliverable shape + audience handle in one breath. | The "serious teams" handle reads as a peer-claim (we work with serious teams) which is on-register but slightly less compressed than the three-deliverable triple. |
+| Sharpest (recommended, shipping) | `Custom AI builds. Automations. Advisory engagements.` (6 words) | Three short declaratives — one deliverable category per clause. Mirrors `/` lede triple. Compressed register preserves v2.0 staccato rhythm. Zero staffing reference. | The triple register is now familiar across `/` and `/about` v2.1 — risks reading as repetition rather than coherence. Mitigated — the triple is the brand's preferred deliverable handle; cross-page consistency is correct. |
+| Weirdest | `Engineered, shipped, supported.` (3 words) | Verb-led triple. The lifecycle posture compressed to its irreducible form. Names what pouk.ai *does* through engagement, not what it delivers as artifact. | Three words at body scale on the orange band reads as a tagline rather than a lede — the band wants the longer lede form. Rejected on grounds of under-supplying the band's first-impression window. |
 
-### §3 heading
+### Story body paragraph 2 closing sentence — v2.1 alternatives
 
-| Option | Copy | Rationale | Risk |
-|---|---|---|---|
-| Safest | `The name` | Two words; quietly accurate. | Buries the actual word "Pouākai" from the table-of-contents / anchor rhythm. A reader scanning section headings doesn't see the brand origin word at all. |
-| Sharpest (recommended) | `Pouākai` | One word. The actual name, with macron preserved. Doubles as the §3 anchor (`#poukai`). | None — this is the heading that does its own job. |
-| Weirdest | `The eagle` | Two words. Foregrounds the bird, not the name. | Risks reading as metaphor-flagging ("the eagle" implies we'll metaphor on it). The section explicitly does not metaphor. Rejected. |
-
-### End CTA
+The load-bearing v2.1 line. Three options for the founder positioning shift's articulation in body copy.
 
 | Option | Copy | Rationale | Risk |
 |---|---|---|---|
-| Safest | `If you'd like to talk, hello@pouk.ai.` | Maximally muted. Five words. No noun-pivot. | Reads as generic. Doesn't earn the page's closing position. |
-| Sharpest (recommended) | `If the inbox sounds right, hello@pouk.ai.` | Inbox-as-noun pivot closes the loop on the hero lede's "Who you'd be writing into." Wry but disciplined. | "Inbox sounds right" is a mild compression that depends on the reader having read the body. If they jumped to the bottom, it reads slightly opaque. Mitigated — `/about` is short enough that bottom-jumpers are rare. |
-| Weirdest | `An inbox, not a funnel — hello@pouk.ai.` | Explicit anti-funnel framing. | Reads as competitive-jab register (banned by A10 implication, agent §4.4). Also too close to the `/why-ai` "Most AI projects fail" register, which belongs on `/why-ai`. Rejected. |
+| Safest | `pouk.ai operates at the level of a larger consultancy.` (9 words) | Direct peer-claim. Names the comparative posture explicitly. | Reads as a competitive jab — the page reaches out to compare itself to larger firms. Founder positioning says peer-grade, not competitive. |
+| Sharpest (recommended, shipping) | `pouk.ai operates at company-grade depth and chases the kind of work that proves the discipline.` (15 words) | Two-clause sentence. Clause 1 (`operates at company-grade depth`) signals peer-grade; clause 2 (`chases the kind of work that proves the discipline`) signals trajectory + proof-by-engagement. Both founder positioning verbs land. | 15 words is the longest sentence in the v2.1 body — risk of over-explanation. Mitigated — the sentence carries the v2.1 load-bearing claim and earns the length. |
+| Weirdest | `The work is the credential.` (5 words) | Five-word maxim. The most compressed possible articulation of "we earn it by doing it." | Reads as slogan; on a serious-company page, a slogan-closing line breaks the brand-voice declarative discipline. Rejected. |
 
-### Meta description
+### End CTA — preserved from v2.0
 
 | Option | Copy | Rationale | Risk |
 |---|---|---|---|
-| Safest | `About pouk.ai — technical consulting for teams shipping with AI. Founded by a frontend engineer.` | 95 chars; reuses the `/` description register verbatim. | Doesn't differentiate the `/about` SERP snippet from the `/` SERP snippet. A reader seeing both would learn nothing new about `/about` from the description. |
-| Sharpest (recommended) | `pouk.ai is one operator. Frontend engineering background, now running technical consulting through the AI tools that collapse months into days.` | 143 chars. Front-loads the substantive fact (one operator). Carries the autobiographical seam framing in compressed form. | "AI tools that collapse months into days" is a claim that needs the body to back it. The body does. |
-| Weirdest | `One operator. One inbox. Technical consulting for teams shipping with AI.` | 73 chars; staccato. | Mirrors the hero lede's inbox noun, which is right; but "One operator. One inbox." reads slogan-y, which is wrong for restraint posture. Rejected. |
+| Safest | `Inbound at hello@pouk.ai.` (3 words + address) | Maximally muted. | Drops the framing word; reader doesn't know what kind of inbound. |
+| Sharpest (shipping) | `For inbound work, hello@pouk.ai.` (5 words + address) | Names the purpose without conditional. Brand-voice neutral; zero staffing reference. | Brevity depends on body doing the qualifying work. The v2.1 body does. |
+| Weirdest | `pouk.ai takes inbound at hello@pouk.ai.` (6 words) | Brand-name-as-subject all the way to CTA. | Repeats `pouk.ai` three times. Rejected. |
+
+### Meta description — v2.1 alternatives
+
+| Option | Copy | Rationale | Risk |
+|---|---|---|---|
+| Safest | `pouk.ai is a technical consultancy. Custom AI builds, automations, advisory. Production work. Direct contact at hello@pouk.ai.` (113 chars) | Compressed; mirrors the supporting line + display statement together. | Slightly choppy at SERP scale; four short sentences instead of three. |
+| Sharpest (recommended, shipping) | `pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.` (146 chars) | Three substantive sentences. Front-loads brand-name + capability. Ends on the address. Peer-grade register; zero staffing. | 146 chars is close to the 155 cap — but well within Google's mobile-truncation window for the substantive first 90 chars. |
+| Weirdest | `A technical consultancy. Custom AI builds, automations, advisory. Production work, shipped. hello@pouk.ai.` (95 chars) | Drops the `pouk.ai is` subject; reads as ad-copy fragments. | Subject-less; reads as a marketing card rather than a description. Rejected. |
+
+### Portrait caption — preserved from v2.0
+
+Unchanged. `Arian Zargaran, founder.` survives v2.1 positioning shift.
 
 ---
 
 ## 6. Composition-fit flags
 
-Flags for `pouk-ai-designer` (in flight on `meta/compositions/pages/about.md`).
+Flags for `pouk-ai-designer` (composition v2 Approved; v2.1 thin revision in flight) and `pouk-ai-engineer` (revising PR #30 build pass against this content draft).
 
-### Flag 1 — Hero region carries no `<h1>` (A9)
+### Flag 1 — Operator-line surface retirement (NEW v2.1, primary composition impact)
 
-- **The constraint**: DS `<Hero>` molecule presumably composes a `<h1>` slot. The spec calls for the page `<h1>` to live in §1 (`The arc`), not in the hero region.
-- **The copy implication**: hero region renders eyebrow (`About`) + lede only. The Designer decides whether `<Hero>` ships with an empty title slot, whether the page skips `<Hero>` entirely, or whether a new DS variant is needed (spec §9 dependency).
-- **Drafter's copy works either way**: the eyebrow and lede are written as standalone strings. If `<Hero>` ships with a usable title slot left empty, the strings slot into the molecule. If the page skips `<Hero>`, the strings render as standalone elements before §1. Composition picks the path; copy does not change.
+- **The constraint**: composition §4 IA item 5 specified the operator line as a continuation, caption band, or dedicated band treatment between the story body and the Pouākai unit. v2.1 retires the surface entirely.
+- **The copy implication**: the story body's bottom margin (`--space-24` per composition §2 Unit 3) now connects directly to the Pouākai unit's top margin. Designer composition resolves whether the existing `--space-24` is the right rhythm or whether the absence of the operator line wants a different breathing value (e.g., `--space-16` for tighter rhythm or `--space-32` for more pronounced section break).
+- **PR #30 impact**: if PR #30 already wired the v2.0 operator line as JSX/Astro template, the engineer removes the element entirely on the v2.1 revision pass. Drafter recommends the engineer treat this as a deletion, not a rewrite — the surface goes, the surrounding composition spacing tightens up.
+- **Spec amendment in flight**: PM amending spec §5 (drop operator-line outcome) + §8 ACs (drop operator-line presence/uniqueness ACs); content draft ships against the amendment.
 
-### Flag 2 — Lede length is 1 sentence, 12 words
+### Flag 2 — Story body word count (UPDATED v2.1)
 
-- **The constraint**: DS `<Hero>` lede cap is 1–3 sentences.
-- **The current copy**: 1 sentence, 12 words.
-- **The flag**: This is the *shortest* hero lede on the site (`/` is 4 sentences; `/why-ai`, `/roles`, `/principles` are 2–3 each). If the composition expects a denser block to balance the absent `<h1>`, the Designer may push back asking for a second sentence. Drafter would resist — the lede is consciously short because §1's `<h1>` should arrive immediately after; adding a second hero-lede sentence delays it.
+- **The constraint**: composition §2 Unit 3 target ~60-90 words; spec §5 target ~60-120 words.
+- **The current copy (v2.1)**: 95 words across 2 paragraphs (was 91 in v2.0; +4 net — paragraph 2 rewrite added 4 words on balance).
+- **The flag**: 5 words over composition's upper target, well within spec's range. The paragraph 2 closing sentence (`pouk.ai operates at company-grade depth and chases the kind of work that proves the discipline.`) at 15 words is the load-bearing v2.1 line — trimming would lose the founder positioning's posture. Drafter recommends keep at 95.
+- **Resolution**: composition's 60-90 target is a recommendation, not a hard cap; spec's 60-120 range is authoritative. 95 words is on-spec.
 
-### Flag 3 — Section heading face
+### Flag 3 — Operator-line treatment options retire (RETIRED v2.1)
 
-- **The constraint**: A12 — section headings set in Instrument Serif italic, distinct from sans body type, ≤3 words each.
-- **All three headings are within the cap**: `The arc` (2), `Why pouk.ai` (2), `Pouākai` (1). No copy-length pressure on the type rule.
-- **The flag**: macron on `Pouākai` must render correctly in Instrument Serif italic. If the type face does not carry the macron glyph, the Designer needs to address (font fallback or alternative weight) before composition lands. This is the only typography risk on the page.
+- **The constraint (v2.0)**: composition §4 IA item 5 named three treatment options. Designer's call.
+- **v2.1 update**: the surface retires entirely (see Flag 1). The three treatment options no longer apply. Composition §4 IA item 5 retires in the parallel composition revision.
 
-### Flag 4 — `<h1>` at the top of §1 is a structural divergence from the other four pages
+### Flag 4 — Mailto count drops from 2 to 1 on body (UPDATED v2.1)
 
-- **The constraint**: every other route (`/`, `/why-ai`, `/roles`, `/principles`) ships its `<h1>` inside `<Hero>`. `/about` ships its `<h1>` as the §1 heading.
-- **The copy implication**: the §1 heading `The arc` must render at `<h1>` size or with the visual weight a page-`<h1>` deserves, even though sections 2 and 3 render at `<h2>` weight. The Designer decides whether this means the §1 heading carries a different type scale than §2 / §3, or whether all three headings render at the same scale and `<h1>` vs `<h2>` is semantic-only.
-- **The drafter's bias**: keep all three section headings at the same visual scale (Instrument Serif italic, same size). The semantic `<h1>` vs `<h2>` distinction is for screen readers and the document outline; the visual hierarchy is "three sections, equally weighted." If the Designer disagrees, the spec's A11y AC (exactly one `<h1>`) still holds; only the type scale shifts.
+- **The constraint (v2.0)**: two body mailtos — operator line (`Direct contact at hello@pouk.ai.`) and end CTA (`For inbound work, hello@pouk.ai.`). Footer mailto carried a third instance.
+- **The current copy (v2.1)**: one body mailto — end CTA only. Operator-line mailto retires with the surface.
+- **The implication**: the end CTA is now the *only* body-level mailto on `/about` v2.1. The footer mailto carries the second instance. v2.1 reduces mailto-redundancy and concentrates the conversion path on a single body line — composition-cleaner, brand-voice-restrained.
+- **Resolution**: no copy-side flag; just confirming the count reduction and recording it.
 
-### Flag 5 — Section 1 paragraph break
+### Flag 5 — Portrait alt-text AI lineage disclosure (preserved from v2.0)
 
-- **The constraint**: agent §4.3 — one blank line between paragraphs.
-- **The current copy**: §1 body is three paragraphs (~165 words). The third paragraph is a single sentence ("When you email `hello@pouk.ai`, I am the person who replies.").
-- **The flag**: the single-sentence third paragraph is intentional. If the composition recipe collapses paragraphs into a denser block (no blank-line breaks), the single-sentence paragraph loses its load-bearing emphasis. Drafter would resist collapse — the line is the section's terminal punch.
+- **The constraint**: spec §6.1 — alt text may carry more disclosure than visible caption.
+- **The current copy**: alt text says `Cinematic editorial portrait` — names the visual register without surfacing AI lineage.
+- **The flag**: v2.1 holds the v2.0 ratified call (Q3 — DO NOT DISCLOSE). The alt's identification load widens slightly under v2.1 (operator line retires; alt + caption now jointly carry the founder-identification signal) but the AI-disclosure question is independent of that load shift.
 
-### Flag 6 — `mailto:hello@pouk.ai` appears twice on the page (once in §1, once in end-CTA)
+### Flag 6 — Banned-word + register clean (UPDATED v2.1 with new bans)
 
-- **The constraint**: no DS rule against multiple mailtos. But composition-wise, the §1 mailto inside body prose may want different treatment (inline, no button) vs the end-CTA mailto (line CTA, link).
-- **The copy implication**: §1's mailto must render as an inline `<a href="mailto:hello@pouk.ai">hello@pouk.ai</a>` inside paragraph prose, NOT as a Button. End-CTA renders as an inline link inside its own muted `<p>`, matching `/principles` precedent. Neither uses the DS `Button` molecule; the `/` Hero CTA is the only `Button`-wrapped mailto on the site.
-- **The flag**: if the Designer's composition standardizes "all mailtos are Buttons", §1's inline mailto becomes a Button mid-paragraph, which would visually break the reading rhythm. Resist this — the §1 mailto is a *referent* (the address being characterized), not a CTA.
+- **The constraint (v2.1)**: agent §4.4 banned marketing-speak + v2.1 voice contract additions — no `small`, `tiny`, `boutique`, `scrappy`, `solo`, `one operator`, `just me`, `small but mighty`, `humble` as self-descriptors. No fake plurality `we`, `our team`, `we believe`.
+- **The current copy**: clean on both axes.
+  - Agent §4.4 ban: no `leverage`, `synergy`, `ecosystem`, `paradigm`, `cutting-edge`, `next-generation`, `revolutionary`, `transformative`, `seamlessly`, `effortlessly`, `robustly`, `empower`, `unlock`, `supercharge`, `unleash`, `elevate`, `passionate about`, `we love`, `journey`, `solutions` (as a noun) anywhere on `/about` v2.1.
+  - v2.1 staffing-ban: no `small`, `tiny`, `boutique`, `scrappy`, `solo`, `one operator`, `just me`, `small but mighty`, `humble`, `our team`, `we believe` in any rendered surface. The word `we` appears zero times in rendered copy. The word `I` appears zero times in rendered copy.
+- **The flag**: v2.0 carried `small` once (paragraph 1 sentence 3: "A small consultancy that has wired…") and `Small consultancy. One operator.` in the supporting line and `small and direct` + `one team at a time` in paragraph 2 and `small technical consultancy. One operator.` in the meta description — total 5 size-claim instances. v2.1 has zero. **The page is clean for both bans.**
+
+### Flag 7 — Color-match QA gate (engineer-side, preserved from v2.0)
+
+- Unchanged. Engineer-side QA fix; copy holds either way.
 
 ---
 
 ## 7. Open questions for Arian
 
-**All four ratified by the founder on 2026-05-18.** Status moves to `Approved`. No copy changes between final-Draft and Approved — the drafter's recommended option was the chosen option on every question.
+Specific decisions that would close the v2.1 draft to `Approved`. Kept tight per agent §6.
 
-- **Q1 — `Pouākai` extinction date** — **RATIFIED (a): KEEP** "extinct for around six hundred years" as drafted in §3 sentence 2. The round number ships. Date-specificity discipline: 2026 - ~1400 CE ≈ 626 years; "around six hundred years" rounds in the respectful direction and avoids false precision. If a future revision wants source-citation, the standard reference is Te Ara — the Encyclopedia of New Zealand (Haast's eagle / *Hieraaetus moorei*).
-- **Q2 — End-CTA register** — **RATIFIED: KEEP wry register**, `If the inbox sounds right, hello@pouk.ai.` Inbox-as-noun pivot closes the loop on the hero lede's "Who you'd be writing into." Differentiated from sibling end-CTAs on /why-ai, /roles, /principles by the noun choice ("inbox"). Future revision lock: do not flatten to "If you'd like to talk…" without re-spec — the wry register is part of the page's signature.
-- **Q3 — Hero lede** — **RATIFIED: KEEP** `Who you'd be writing into if you sent the email below.` Single sentence, 12 words, second-person. The §5 Safest option (triple-declarative metadata-style lede) is rejected on grounds of double-spending the meta description. The §5 Weirdest is rejected on restraint slippage.
-- **Q4 — Title separator** — **RATIFIED: KEEP em-dash**, `About — pouk.ai`. Matches the / title (`pouk.ai — Technical consulting for teams shipping with AI`). Site-wide title-separator consistency.
+- **Q1 — Supporting line: ship the three-deliverable triple, or one of the alternatives?** Drafter ships `Custom AI builds. Automations. Advisory engagements.` (6 words, three declaratives, mirrors `/` lede triple). Alternatives in §5: `Production AI work for serious teams.` (6 words, comma-free single declarative — names audience + deliverable but slightly less compressed) or `Engineered, shipped, supported.` (3 words, verb-led — too tight for the band's first-impression window). Drafter recommends the deliverable triple as shipped.
 
-No remaining open questions. The draft is `Approved`. Designer composes against this copy; engineer wires it into `src/pages/about.astro` (or equivalent surface per engineer's mechanical call per spec §6).
+- **Q2 — Operator-line full retirement: correct, or compromise to a thin caption-band?** Drafter ships full retirement per founder positioning shift. Spec amendment in flight removes the surface. The founder-identification load transfers to portrait caption + portrait alt + JSON-LD. If founder prefers a thinner-than-v2.0 compromise (e.g., a 4-word caption-band somewhere — `Arian Zargaran, founder.` mirroring the portrait caption, but as a body unit rather than a portrait caption), drafter can rewrite. Drafter recommends full retirement — the portrait caption already carries the founder name + role in 3 words; a body-copy duplicate would re-introduce the operator-as-page-focus framing that v2.1 retires.
+
+- **Q3 — Story body paragraph 2 closing sentence**: drafter ships `pouk.ai operates at company-grade depth and chases the kind of work that proves the discipline.` (15 words). The load-bearing v2.1 line. Alternatives in §5: a direct peer-claim version (`pouk.ai operates at the level of a larger consultancy.` — reads as competitive jab) or a five-word maxim (`The work is the credential.` — reads as slogan). Drafter recommends the shipping version — the 15-word two-clause sentence carries both peer-grade and trajectory in one breath without becoming competitive or sloganeering.
+
+- **Q4 — Meta description**: drafter ships `pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.` (146 chars). Alternatives in §5: a shorter 113-char version (`pouk.ai is a technical consultancy. Custom AI builds, automations, advisory. Production work. Direct contact at hello@pouk.ai.` — choppier rhythm) or a subject-less 95-char fragment version (rejected on grounds of reading as marketing-card register). Drafter recommends the shipping version.
+
+- **Q5 — Story body paragraph 2 sentence 1 verbs**: drafter ships `The work is engineered, shipped, and supported.` Three-verb lifecycle. Alternative considered: a two-verb compression (`The work is engineered and shipped.` — drops support, loses the sustain claim that distinguishes pouk.ai from build-and-leave consultancies). Drafter recommends the three-verb version — `supported` is the load-bearing differentiator from drop-and-walk shops.
+
+If Arian confirms Q1-Q5 without changes, the draft moves to `Approved` without copy revision. If any swap, drafter revises in place.
+
+Two PM-side / designer-side items remain open and are flagged for the parallel tracks:
+
+- **PM follow-up — Amend spec §5** to drop the operator-line content requirement and **amend spec §8** to drop the operator-line presence/uniqueness ACs. **Amend spec voice-contract bans** to add `small`, `boutique`, `solo`, `one operator`, `we`, `our team`, etc. per the v2.1 voiceContract.newBansAddedInV2_1 frontmatter list.
+- **Designer follow-up — Revise composition §4 IA item 5** (operator-line treatment options retire) **and §2 Unit 3 brand notes** (operator-line continuation pattern retires; story body bottom margin connects directly to Pouākai unit; designer picks new spacing value).
 
 ---
 
 ## 8. Out of scope
 
-- **Photograph, illustration, signature, or handwritten asset on `/about` v1.** Per spec §10 and A3. Illustration is parked at `meta/proposals/about-illustration-v2.md`.
-- **Named clients, employers, projects, or press references.** Per spec §10. The arc in §1 deliberately uses surfaces ("frontend code", "interfaces", "product") rather than employer names.
-- **A "Selected Work" list, skills list, or CV download.** Per spec §10.
-- **A LinkedIn / X / GitHub link in body, footer, or structured data.** Per spec §10 and A15b/c.
-- **A contact form, scheduling widget, or non-`mailto:` conversion path.** Per spec §10. End-CTA is `mailto:` only.
-- **A reading-time indicator, author byline, table of contents.** Per spec §10.
-- **Translation into other languages.** English-only at v1 per spec §10.
-- **A `/about`-specific OG image.** v1 reuses `public/og.png` per spec §6.
-- **Cross-references to `/about` from other pages' bodies.** Per spec §10. Nav + footer + flow position cover discoverability.
-- **Footer copy specific to `/about`.** `SiteShell` footer is global; no per-page override.
-- **JSON-LD field values beyond confirming they are standalone `Person` with no `worksFor` / `sameAs`.** Engineering-mechanical, not content.
+- **Proudness-of-smallness in any form.** v2.1 voice contract bans `small`, `tiny`, `boutique`, `scrappy`, `solo`, `one operator`, `humble`, `just me`, `small but mighty`, `small but serious` as self-descriptors. The work is named; the staffing is not.
+- **Fake plurality.** No `we`, `our team`, `we believe`, `we love`. Single-operator company writing as `we` is dishonest; v2.1 ships brand-voice declarative (subject = `pouk.ai`) instead.
+- **Founder-arc content.** Per spec §10 + A10 retirement (v2). No "I came up writing frontend code," no "I watched this happen," no past-employer references, no years-of-experience claims.
+- **First-person "I" anywhere on the rendered page.** Per spec §5 + §8 ACs + A5 retirement (v2).
+- **Operator-line body surface.** RETIRED in v2.1 per founder positioning shift. Arian's name surfaces only via portrait caption + portrait alt + JSON-LD `Person` schema. Spec §5 + §8 ACs amended in parallel.
+- **Direct peer-claim language** ("we operate at the level of a larger consultancy"). Reads as competitive jab. Founder positioning is peer-grade, not competitive. v2.1 ships `operates at company-grade depth` (state-of-being, not comparative) instead.
+- **Aspirational verbs.** No `helps`, `enables`, `empowers`, `unlocks`. v2.1 verbs are flat present-tense declaratives: `is`, `builds`, `collapse`, `delivers`, `operates`, `chases`.
+- **A second visual asset.** Per spec §10 + §12. The Direction Y portrait remains the single asset.
+- **Saturation extending onto the page surface as a backdrop band.** Per spec §4 PM position — contained inside portrait asset bounding box.
+- **LinkedIn / X / GitHub URLs anywhere.** Per spec §10 + A15.
+- **A contact form, scheduling widget, or non-`mailto:` conversion path.** Per spec §10.
+- **A reading-time indicator, author byline, table of contents.** Per spec §10 + spec §12.
+- **Translation into other languages.** English-only at v2.1 per spec §10.
+- **A `/about`-specific OG image.** Per spec §6.2 + §12.
+- **Cross-page revisions to `/`, `/why-ai`, `/roles`, `/principles` triggered by v2.1 positioning shift.** Per spec §12 (v2 holds). v2.1 of `/about` retires staffing-as-brand-claim on this page only; other pages may need a voice-pass to align (e.g., `/` lede currently has zero staffing claim and is already on-register; `/why-ai` / `/roles` / `/principles` to be audited separately). Not in scope for this draft.
+- **The Gemini sparkle glyph as a visible page element.** Per spec §10 + §12.
+- **Motion on the portrait.** Per spec §10 + composition §4. Static; only `<Hero entrance="stagger">` on the display statement.
+- **An `/about/v2` archive page or redirect.** Per spec §12. v2.0 was Approved but never shipped; v2.1 replaces v2.0 in the content-draft lane in place.

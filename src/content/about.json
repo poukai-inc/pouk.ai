@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "About — pouk.ai",
-    "description": "pouk.ai is a small technical consultancy that builds and ships AI work in production. One operator. Direct contact at hello@pouk.ai.",
+    "description": "pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.",
     "canonical": "https://pouk.ai/about",
     "ogTitle": "About — pouk.ai",
-    "ogDescription": "pouk.ai is a small technical consultancy that builds and ships AI work in production. One operator. Direct contact at hello@pouk.ai."
+    "ogDescription": "pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai."
   },
   "band": {
     "displayStatement": "pouk.ai builds AI that ships.",
-    "supportingLine": "Small consultancy. One operator. Custom work in production.",
+    "supportingLine": "Custom AI builds. Automations. Advisory engagements.",
     "portrait": {
       "src": "/about-portrait.jpg",
       "alt": "Arian Zargaran, founder of pouk.ai. Cinematic editorial portrait, head-and-shoulders, saturated orange backdrop.",
@@ -19,10 +19,9 @@
   },
   "story": {
     "paragraphs": [
-      "pouk.ai builds custom AI systems, automations, and advisory engagements for teams that need the work to run in production, not in a report. Modern AI tools collapse what used to take a dev team six months into days, sometimes weeks for the harder parts. A small consultancy that has wired these tools into production codebases can do it again on a new team's stack — quickly, without a strategy retreat first.",
-      "Engagements are small and direct. pouk.ai works one team at a time. The output is a system the in-house team can run, not a deck that needs translation."
-    ],
-    "operatorLine": "Founded and run by Arian Zargaran. Direct contact at hello@pouk.ai."
+      "pouk.ai builds custom AI systems, automations, and advisory engagements for teams that need the work to run in production, not in a report. Modern AI tools collapse what used to take a dev team six months into days, sometimes weeks for the harder parts. A consultancy that has wired these tools into production codebases can do it again on a new team's stack — quickly, without a strategy retreat first.",
+      "The work is engineered, shipped, and supported. Engagements deliver systems an in-house team can run, not decks that need translation. pouk.ai operates at company-grade depth and chases the kind of work that proves the discipline."
+    ]
   },
   "poukai": {
     "heading": "Pouākai",

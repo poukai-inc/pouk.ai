@@ -96,11 +96,13 @@ export function AboutBand({ portraitSrc }: AboutBandProps) {
         lede={
           /*
            * Supporting line — Hero lede slot.
-           * Copy: meta/content/drafts/pages/about.md §2 supportingLine (Q2 ratified).
-           * 9 words, three short period-separated declaratives.
-           * Color inherits --fg-on-warm-muted from .about-band cascade.
+           * v2.1 positioning amendment (2026-05-18 evening): drops
+           * "Small consultancy. One operator." Replaces with the
+           * deliverable triple. Same staccato rhythm, zero staffing claim.
+           * Copy: meta/content/drafts/pages/about.md §2 supportingLine (v2.1).
+           * 6 words, three short period-separated declaratives.
            */
-          <>Small consultancy. One operator. Custom work in production.</>
+          <>Custom AI builds. Automations. Advisory engagements.</>
         }
       />
       {/*

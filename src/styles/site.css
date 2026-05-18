@@ -294,12 +294,10 @@
    the viewport-width extension; .about-band provides the orange fill. */
 
 .about-band {
-  background-color: var(--bg-warm-accent);
-  /* Cascade warm foreground tokens into Hero's title and lede slots.
-     Hero reads color: inherit on its title/lede text nodes, so setting
-     these custom properties on the wrapper lets them flow through. */
-  --fg: var(--fg-on-warm);
-  --fg-muted: var(--fg-on-warm-muted);
+  /* Orange backdrop retired 2026-05-18 per founder direction.
+     Wrapper kept as composition anchor (display-clamp + caption styling
+     scope), but background-color and warm foreground cascade removed.
+     Text inherits neutral --fg / --fg-muted from the page default. */
 }
 
 /* ---------- About page v2 — display statement font-size (site-side clamp) ----------
@@ -324,15 +322,12 @@
 }
 
 /* ---------- About page v2 — portrait caption ----------
-   Positioned below the Hero band, still inside .about-band background.
-   Renders at --fs-meta, using --fg-on-warm-muted (inherited via .about-band
-   --fg-muted cascade above). Max-width matches --hero-max text column width.
-   Composition §2 Unit 2: "≤12 words, --fg-muted at meta type".           */
+   Positioned below the Hero band. Renders at --fs-meta, neutral --fg-muted
+   (warm cascade retired 2026-05-18 with the orange backdrop).            */
 
 .about-band__caption {
   font-family: var(--font-sans);
   font-size: var(--fs-meta);
-  /* color resolves to var(--fg-on-warm-muted) via the .about-band cascade */
   color: var(--fg-muted);
   padding-inline: var(--page-pad);
   padding-block: var(--space-4) var(--space-8);

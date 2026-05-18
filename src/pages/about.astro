@@ -45,12 +45,13 @@ import { AboutBand } from "../components/AboutBand";
 const pageTitle = "About — pouk.ai";
 
 /**
- * Meta description — brand-voice, 133 chars (under 155 cap).
- * Rewrites v1's founder-arc framing per spec §6.2 + A14 revision.
- * Copy: meta/content/drafts/pages/about.md §2 pageDescription (v2.0).
+ * Meta description — brand-voice, 146 chars (under 155 cap).
+ * v2.1 positioning amendment (2026-05-18 evening): drops "small" + "One
+ * operator." Replaces staffing claim with the deliverable triple.
+ * Copy: meta/content/drafts/pages/about.md §2 pageDescription (v2.1).
  */
 const pageDescription =
-  "pouk.ai is a small technical consultancy that builds and ships AI work in production. One operator. Direct contact at hello@pouk.ai.";
+  "pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.";
 
 const canonical = "https://pouk.ai/about";
 
@@ -109,11 +110,17 @@ const portraitSrc = "/about-portrait.jpg";
 
     <!--
       Unit 3 — Story body.
-      2 paragraphs, ~91 words total, brand-voice declarative throughout.
+      2 paragraphs, ~95 words total, brand-voice declarative throughout.
       No <h2> heading above (composition §2 Unit 3 — "the display statement
       is the only display moment; adding a heading here would compete").
       No inline mailto link (composition §2 Unit 3 — "CTA lives at end only").
-      Copy: meta/content/drafts/pages/about.md §2 storyBody + operatorLine.
+      v2.1 positioning amendment (2026-05-18 evening): drops "small",
+      "small and direct", "one team at a time" — replaces with peer-grade
+      trajectory language ("engineered, shipped, and supported";
+      "company-grade depth"; "chases the kind of work that proves the
+      discipline"). Operator-line block retired entirely; founder's name
+      now surfaces only in portrait caption + alt + Person JSON-LD.
+      Copy: meta/content/drafts/pages/about.md §2 storyBody (v2.1).
     -->
     <section class="about-story" aria-label="About pouk.ai">
       <div class="about-story__body">
@@ -122,25 +129,15 @@ const portraitSrc = "/about-portrait.jpg";
           engagements for teams that need the work to run in production,
           not in a report. Modern AI tools collapse what used to take a
           dev team six months into days, sometimes weeks for the harder
-          parts. A small consultancy that has wired these tools into
-          production codebases can do it again on a new team&rsquo;s
-          stack &mdash; quickly, without a strategy retreat first.
+          parts. A consultancy that has wired these tools into production
+          codebases can do it again on a new team&rsquo;s stack &mdash;
+          quickly, without a strategy retreat first.
         </p>
         <p>
-          Engagements are small and direct. pouk.ai works one team at a
-          time. The output is a system the in-house team can run, not a
-          deck that needs translation.
-        </p>
-        <!--
-          Operator line — names Arian once, third-person, brand-voice.
-          This is the ONLY surface where the operator's name appears on
-          the page body. Per spec §8 AC and content draft v2.0 §2.
-          Copy: meta/content/drafts/pages/about.md §2 operatorLine (Q4 ratified).
-          Verb-first construction reads as continuation of the story body.
-        -->
-        <p class="about-story__operator">
-          Founded and run by Arian Zargaran. Direct contact at{" "}
-          <a href="mailto:hello@pouk.ai">hello@pouk.ai</a>.
+          The work is engineered, shipped, and supported. Engagements
+          deliver systems an in-house team can run, not decks that need
+          translation. pouk.ai operates at company-grade depth and chases
+          the kind of work that proves the discipline.
         </p>
       </div>
     </section>
