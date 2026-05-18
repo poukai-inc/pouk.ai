@@ -50,7 +50,7 @@ export function HomeHero() {
         </>
       }
       cta={
-        <Button asChild size="sm">
+        <Button asChild size="compact">
           <a href="mailto:hello@pouk.ai">hello@pouk.ai</a>
         </Button>
       }
