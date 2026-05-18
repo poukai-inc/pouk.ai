@@ -78,8 +78,10 @@ describe("HomeHero", () => {
 	it("ends the lede with a single integrated link to /why-ai (D-11 structural lock)", () => {
 		render(<HomeHero />);
 		const lede = screen.getByTestId("hero-lede");
-		// Lede prose must contain the failure-mode hook + Pouākai origin sentence.
-		expect(lede.textContent).toContain("Pouākai");
+		// v1.1 atomic migration: Pouākai origin sentence removed from / lede and
+		// migrated verbatim to /about §3 (closes R14 + R27). Lede is now 3 sentences.
+		// See meta/content/drafts/pages/home.md §6 Flag 1 + Flag 2 for closure record.
+		expect(lede.textContent).not.toContain("Pouākai");
 		expect(lede.textContent).toContain("Most AI projects fail to deliver.");
 		// D-11 lock: a single anchor at the end of the lede, target /why-ai.
 		// Not a separate tertiary line under the CTA (rejected alternative).

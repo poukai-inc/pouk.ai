@@ -282,6 +282,88 @@
   margin-block: var(--space-8);
 }
 
+/* ---------- About page — eyebrow + lede band (no <Hero>) ----------
+   Composition verdict (ii): /about skips <Hero> entirely.
+   Eyebrow + lede are site-side prose elements using DS tokens in their
+   documented roles. No new token values introduced.
+   See meta/compositions/pages/about.md §2 Section 2 and §6.1.       */
+
+.about-eyebrow-band {
+  margin-block-start: 0;
+  margin-block-end: var(--space-16);
+}
+
+.about-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-block: 0;
+}
+
+.about-lede {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--fg-muted);
+  max-width: var(--hero-max);
+  margin-block-start: var(--space-2);
+  margin-block-end: 0;
+}
+
+/* ---------- About page — section headings + body ----------
+   h1 and h2 both render at --fs-tagline-intimate, Instrument Serif italic.
+   Semantic distinction (h1 vs h2) carries WCAG hierarchy; visual flatness
+   carries the editorial premise (three peer essays).
+   See meta/compositions/pages/about.md §2 Sections 3–5 and §3.       */
+
+.about-section {
+  margin-block-end: var(--space-16);
+}
+
+.about-section:last-of-type {
+  margin-block-end: 0;
+}
+
+.about-section-heading {
+  font-family: var(--font-serif);
+  font-style: italic;
+  /* Composition borrows --fs-tagline-intimate token value for the
+     site-side section headings on /about. Documented deliberate divergence
+     per meta/compositions/pages/about.md §3 visual-vs-semantic contract. */
+  font-size: clamp(2rem, 1.25rem + 2.5vw, 3.25rem);
+  line-height: 1.1;
+  color: var(--fg);
+  margin-block: 0 var(--space-6);
+}
+
+.about-body {
+  max-width: var(--content-max);
+}
+
+.about-body p {
+  font-size: var(--fs-body);
+  color: var(--fg);
+  margin-block: 0;
+}
+
+.about-body p + p {
+  margin-block-start: var(--space-4);
+}
+
+/* ---------- About page — end CTA ---------- */
+
+.about-end-cta {
+  margin-block-start: var(--space-16);
+}
+
+.about-end-cta p {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--fg-muted);
+  margin-block: 0;
+}
+
 /* ---------- Visually hidden (a11y) ---------- */
 
 .visually-hidden {

@@ -1,19 +1,36 @@
 ---
 route: /
 status: Approved
-version: 1.0
-lastUpdated: 2026-05-16
+version: 1.1
+lastUpdated: 2026-05-18
 owner: Arian (founder)
 author: pouk-ai-content
 governingSpec: meta/specs/pages/home.md
+revisionHistory:
+  - version: 1.0
+    date: 2026-05-16
+    summary: Ratification-after-the-fact of shipped /. R05 closed. R14 + R27 closed-by-ratification (deliberate, time-bounded over-cap pending /about).
+  - version: 1.1
+    date: 2026-05-18
+    executed: true
+    driver: meta/specs/pages/about.md (Approved 2026-05-18) + meta/content/drafts/pages/about.md (Draft, 2026-05-18 — same PR)
+    summary: Atomic migration with /about ship. Single string removed from / lede — sentence 2 (Pouākai origin). The removed sentence migrates verbatim to /about §3 as that section's opening sentence. R14 and R27 close on the same operation.
+    changes:
+      - Lede sentence 2 ("Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height.") REMOVED from /. Migrates to /about §3 sentence 1.
+      - Lede goes from 4 sentences to 3: positioning → problem → D-11 hand-off.
+      - All other strings on / unchanged (title, description, status badge, hero title, CTA, footer).
+    closures:
+      - R14 (P1 — 4-sentence lede vs DS 1–3-sentence rule): closed-by-migration. Flag 1 in §6 below switches from "deliberate, time-bounded exception" to closed.
+      - R27 (P2 — Pouākai origin treatment): closed-by-migration. The origin lives only on /about §3 from v1.1 forward. Flag 2 in §6 below switches from "ratified exception" to closed.
+    atomicityNote: R14 and R27 close on the same single-sentence removal. One operation, two debts closed. Not two separate edits — one edit, two flags retired.
 decisionsHonoured:
-  - D-11 (integrated lede-extension link sentence to /why-ai)
-  - D-12 (status-line byte-identical to pre-cutover index.html)
+  - D-11 (integrated lede-extension link sentence to /why-ai) — still in force; the D-11 sentence is now lede sentence 3 instead of sentence 4.
+  - D-12 (status-line byte-identical to pre-cutover index.html) — still in force; status badge unchanged.
 backlogClosed:
-  - R05 (P0 — no Approved canonical content draft for /)
-  - R14 (P1 — 4-sentence lede vs DS 1–3-sentence rule)
-  - R27 (P2 — Pouākai origin treatment)
-  - R32 (P2 — H1-only homepage by design)
+  - R05 (P0 — no Approved canonical content draft for /) — closed v1.0.
+  - R14 (P1 — 4-sentence lede vs DS 1–3-sentence rule) — closed-by-ratification v1.0, then closed-by-migration v1.1. Now closed for good.
+  - R27 (P2 — Pouākai origin treatment) — closed-by-ratification v1.0, then closed-by-migration v1.1. Origin now lives at /about §3 only.
+  - R32 (P2 — H1-only homepage by design) — closed v1.0.
 ---
 
 # Content: Home (`/`)
@@ -21,11 +38,24 @@ backlogClosed:
 **Route**: `/`
 **Status**: Approved
 **Owner**: Arian (founder) · Author: pouk-ai-content
-**Last updated**: 2026-05-16
+**Last updated**: 2026-05-18 (v1.1)
 **Governing spec**: `meta/specs/pages/home.md` (section 5 content requirements)
 **Composition reference**: implicit — `HomeHero.tsx` composes `Hero` + `StatusBadge` + `Button` directly; no `meta/compositions/pages/home.md` exists.
 
-This draft is a **ratification-after-the-fact** of the copy currently rendered on `/`. The homepage was built by the engineer directly from the PM spec, skipping the content-stage approval gate. This draft now closes that gate so future revisions have a canonical record to diverge from. No copy changes are proposed here; every string below is the exact string shipping in production as of 2026-05-16, captured so the words are owned in the content lane, not buried in JSX.
+This draft was originally a **ratification-after-the-fact** of the copy rendered on `/` (v1.0, 2026-05-16). The homepage was built by the engineer directly from the PM spec, skipping the content-stage approval gate; v1.0 closed that gate so future revisions have a canonical record to diverge from.
+
+**v1.1 (2026-05-18) — atomic migration with `/about` ship**. Per `meta/specs/pages/about.md` (Approved 2026-05-18) and `meta/content/drafts/pages/about.md` (Draft, same date, same PR), one string is removed from `/` lede:
+
+- Sentence 2 of the v1.0 lede (Pouākai origin: *"Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height."*) is **removed from `/`** and **migrates verbatim to `/about` §3** as that section's opening sentence.
+- The remaining three lede sentences stay verbatim. Their numbering shifts because sentence 2 leaves:
+  - v1.0 sentence 1 (positioning) → v1.1 sentence 1 (unchanged).
+  - v1.0 sentence 3 (problem, *"Most AI projects fail to deliver."*) → v1.1 sentence 2 (unchanged).
+  - v1.0 sentence 4 (D-11 integrated link, *"Here's why →"*) → v1.1 sentence 3 (unchanged).
+- The lede returns to **3 sentences total**, restoring DS `<Hero>` 1–3-sentence cap compliance.
+- All other strings on `/` are unchanged: title, description, status badge, hero title, hero CTA, footer.
+- **R14 (4-sentence over-cap) and R27 (Pouākai origin treatment) close on the same operation**. One sentence leaves; two debts close. Not two edits — one edit, two flags retired. See §6 Flag 1 + Flag 2 below for the closure detail; their statuses switch from "deliberate, time-bounded exception" / "ratified exception" to closed.
+
+Status stays `Approved` post-v1.1: Arian ratified the migration scope when approving `meta/specs/pages/about.md` on 2026-05-18 (the spec's atomic-migration AC names this revision as the in-scope work). The engineer wires the trimmed lede into `src/components/HomeHero.tsx` in the same PR that lands `/about`.
 
 ---
 
@@ -79,14 +109,14 @@ The page is a single `Hero` block inside `BaseLayout` + `SiteShell`. There are n
 
 ### Block: heroLede (spec §5 + §8 — D-11 lede-extension AC)
 
-The lede is a single paragraph composed of four rendered sentences. The fourth-and-final sentence is the D-11 integrated link sentence.
+The lede is a single paragraph composed of three rendered sentences. The third-and-final sentence is the D-11 integrated link sentence. (v1.1: the v1.0 Pouākai origin sentence — formerly sentence 2 — has migrated to `/about` §3 verbatim. The lede now sits within the DS `<Hero>` 1–3-sentence cap.)
 
 - **Sentence 1**: `pouk.ai builds custom AI systems, automations, and advisory engagements for operators who'd rather ship than speculate.`
-- **Sentence 2**: `Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height.`
-- **Sentence 3**: `Most AI projects fail to deliver.`
-- **Sentence 4** (D-11 integrated link): `[Here's why →](/why-ai)` — anchor text `Here's why →` linked to `/why-ai`.
-- **Total sentence count**: 4.
-- **Locked by**: **D-11** — single integrated link sentence at the end of the lede, *not* a tertiary line under the CTA (rejected alternative per spec §5 and §8). Anchor text and href are structural-lock per the decisions log.
+- **Sentence 2**: `Most AI projects fail to deliver.`
+- **Sentence 3** (D-11 integrated link): `[Here's why →](/why-ai)` — anchor text `Here's why →` linked to `/why-ai`.
+- **Total sentence count**: 3 (down from 4 in v1.0).
+- **Migrated out (v1.0 sentence 2)**: `Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height.` — now lives at `meta/content/drafts/pages/about.md` §3 sentence 1. Engineer treats this string as a structural lock on the `/about` side; on `/` it is simply absent.
+- **Locked by**: **D-11** — single integrated link sentence at the end of the lede, *not* a tertiary line under the CTA (rejected alternative per spec §5 and §8). Anchor text and href are structural-lock per the decisions log. D-11 survives the v1.1 migration unchanged: the integrated link sentence is still the lede's final sentence, only its numbering shifts (4 → 3).
 
 ### Block: heroCtaLabel + heroCtaHref (spec §8 — email link AC)
 
@@ -123,9 +153,9 @@ Anchors per significant line so future revisions have to argue against a reason,
 
 - **Tagline — `Technical consulting for teams shipping with AI.`** Chosen over "AI consulting for…" (which would put pouk.ai in the deck-builder bucket) and over "Engineering consulting that uses AI" (which would understate the AI specialization). "Teams shipping with AI" is the operator self-identifier — engineering-led, post-curiosity, already-building. The italic `<em>AI</em>` on the serif face is a brand cue: the tool is named but not foregrounded; the noun *consulting* is the credential.
 - **Lede sentence 1 — `pouk.ai builds custom AI systems, automations, and advisory engagements for operators who'd rather ship than speculate.`** "Operators who'd rather ship than speculate" is the audience handle. It rejects two adjacent personas: the executive looking for a deck and the AI enthusiast looking for a movement. The verb *builds* (not "delivers", not "creates", not "leverages") is a specific shipping verb per agent §4.6.
-- **Lede sentence 2 — `Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height.`** This is the brand-origin line, ratified despite agent §4.5's "respectful, sparing" caution (see R27 in §6 below). The justification is structural: `/about` doesn't exist yet, and the origin sentence has to live somewhere visible if it lives at all. The phrasing — fact-led ("the largest eagle that ever flew"), behavior-led ("hunting by stooping from height") — avoids the forbidden metaphor pattern ("we soar above competitors") and treats Pouākai as a real animal, not a marketing device. The macron on `Pouākai` is preserved (HTML entity `&#257;`) per agent §4.5.
-- **Lede sentence 3 — `Most AI projects fail to deliver.`** Four-word claim that does the hand-off setup. Declarative, no hedge, no source-citation in the lede — the citation lives on `/why-ai` where the claim is supported. The sentence's job is to earn the click on sentence 4.
-- **Lede sentence 4 — `[Here's why →](/why-ai)`** D-11 structural lock. The arrow → is the affordance; the verb *here's* points at the destination; the noun *why* names the question. Anchor text fits inside the lede prose rather than appearing as a tertiary CTA line (rejected alternative per spec §5). The link makes sentence 3 falsifiable by clicking — operator-grade rigor.
+- **Lede sentence 2 — `Most AI projects fail to deliver.`** (v1.1 numbering; v1.0 sentence 3.) Four-word claim that does the hand-off setup. Declarative, no hedge, no source-citation in the lede — the citation lives on `/why-ai` where the claim is supported. The sentence's job is to earn the click on sentence 3 (the D-11 link).
+- **Lede sentence 3 — `[Here's why →](/why-ai)`** (v1.1 numbering; v1.0 sentence 4.) D-11 structural lock. The arrow → is the affordance; the verb *here's* points at the destination; the noun *why* names the question. Anchor text fits inside the lede prose rather than appearing as a tertiary CTA line (rejected alternative per spec §5). The link makes sentence 2 falsifiable by clicking — operator-grade rigor.
+- **Migrated-out (v1.0 lede sentence 2)** — `Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height.` This rationale is preserved as a historical record of the v1.0 ratification. In v1.0 the sentence was the brand-origin line, ratified despite agent §4.5's "respectful, sparing" caution because `/about` did not yet exist. The phrasing — fact-led ("the largest eagle that ever flew"), behavior-led ("hunting by stooping from height") — avoided the forbidden metaphor pattern and treated Pouākai as a real animal, not a marketing device. **As of v1.1 this sentence is removed from `/` and lives at `/about` §3 sentence 1 verbatim.** The macron preservation discipline transfers with it; the rationale chain is continued in `meta/content/drafts/pages/about.md` §4.
 - **CTA — `hello@pouk.ai`** The address *is* the label per the rationale in §2 above. This breaks the DS Button-label "specific verb" guideline by using a noun, but the noun is the conversion target. Operator audience reads an email address as a direct invitation.
 
 ---
@@ -167,32 +197,29 @@ Three flags. Two are deliberate over-caps documented for future revision; one is
 ### Flag 1 — R14: Lede sentence count exceeds DS `Hero` rule
 
 - **The constraint**: DS `llms-full.txt` (Hero component): *"lede: 1-3 sentences at most."*
-- **The current shipping copy**: 4 sentences.
-- **The over-cap**: by one sentence.
-- **The structure**:
+- **The v1.1 shipping copy**: 3 sentences. Within cap.
+- **The v1.0 structure (historical)**: 4 sentences — positioning, brand origin, problem, hand-off. Over-cap by one sentence; the over-cap was ratified as a deliberate, time-bounded exception pending `/about`.
+- **The v1.1 structure**:
   1. Positioning ("pouk.ai builds…")
-  2. Brand origin ("Named for Pouākai…")
-  3. Problem ("Most AI projects fail to deliver.")
-  4. Hand-off ("Here's why →")
-- **Decision (ratified by shipping)**: ratify the over-cap as a **deliberate, time-bounded** exception. The sentence creating the over-cap is sentence 2 (Pouākai origin). It exists on the homepage *only* because `/about` does not yet exist. When `/about` ships and absorbs the origin sentence, the homepage lede drops to 3 sentences and falls within the DS cap.
-- **Why not collapse origin into a clause now**: a comma-spliced origin clause inside sentence 1 ("pouk.ai, named for Pouākai…, builds custom AI systems…") would break agent §4.1 ("one idea per sentence; two clauses max") and would bury the audience handle ("operators who'd rather ship than speculate") behind a parenthetical. The standalone origin sentence keeps sentence 1 clean.
-- **Why not move origin to a future `/about` now**: `/about` is not in the canonical four routes (`/`, `/why-ai`, `/roles`, `/principles`) per `meta/masterplan.md` §4.1 and is not on the launch path. Removing the origin sentence pre-emptively would leave the brand without an origin surface for an unknown window.
-- **Trade-off recorded**: the DS Hero rule prefers 1–3 sentences for visual density / scan-ability. The site is intentionally over-spending one sentence to preserve the brand-origin until a dedicated home exists. The Designer (`pouk-ai-designer`) accepted the composition implicitly when `HomeHero.tsx` shipped; a future revision pass that adds `/about` MUST trigger a homepage lede trim.
-- **Migration trigger**: when an `/about` (or equivalent origin-surface) spec lands in `meta/specs/pages/`, this draft revises to status `Draft`, sentence 2 is removed, and the lede goes to 3 sentences (positioning, problem, hand-off).
-- **Status**: ratified as-is for 2026-05-16. R14 closed.
+  2. Problem ("Most AI projects fail to deliver.")
+  3. Hand-off ("Here's why →")
+- **The operation that closed R14**: removing v1.0 sentence 2 (Pouākai origin) and migrating it verbatim to `/about` §3 sentence 1. One string left `/`; the lede dropped from 4 to 3.
+- **Why this is the right close (not collapsing the origin into a clause)**: a comma-spliced origin clause inside sentence 1 ("pouk.ai, named for Pouākai…, builds custom AI systems…") would break agent §4.1 ("one idea per sentence; two clauses max") and would bury the audience handle behind a parenthetical. Migration to `/about` preserves the origin where it belongs (a dedicated surface) and keeps sentence 1 of the homepage lede clean.
+- **Trade-off recorded historically**: the v1.0 over-cap was tolerated for ~two days (2026-05-16 to 2026-05-18) while `/about` was specced and drafted. The atomic-migration discipline (A2) closed the over-cap in the same PR that introduced `/about`.
+- **Status (v1.0, 2026-05-16)**: ratified as deliberate, time-bounded exception. Closed-by-ratification.
+- **Status (v1.1, 2026-05-18)**: **closed-by-migration**. Lede is 3 sentences. DS cap compliant. The migration trigger fired and was executed. No further revision pending.
+- **Voice-shift note (executed)**: the migrated sentence is third-person brand-voice. It opens `/about` §3 (Pouākai origin section), which is also brand-voice declarative (not first-person — see `meta/content/drafts/pages/about.md` voiceShifts.§3). Verbatim migration was grammatically clean as predicted.
 
 ### Flag 2 — R27: Pouākai origin treatment
 
 - **The constraint**: agent §4.5 — *"Pouākai reference: respectful, sparing. Permitted: a one-line origin note on `/about` or in a longer-form post."*
-- **The current shipping copy**: 1 sentence, 2 clauses joined by em-dash — `Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height.`
-- **The tension**: "one-line origin note on `/about`" — but `/about` doesn't exist; the origin currently lives on `/`.
-- **Decision (ratified by shipping)**: ratify the current treatment.
-  - It IS a **one-line origin note** (single sentence, no second sentence on Pouākai).
-  - It IS **respectful**: fact-led ("the largest eagle that ever flew"), behavior-led ("hunting by stooping from height"). It is not used as metaphor or appropriation.
-  - It IS **sparing**: appears exactly once on the entire site (no recurrence in copy, no second mention).
-  - The location (`/` rather than `/about`) is justified by Flag 1 — `/about` doesn't yet exist.
-- **Forbidden patterns NOT triggered**: no "we soar above competitors" metaphor; no compression of the macron (`Pouākai` not `Pouakai`); no Māori visual motif suggestions.
-- **Status**: ratified. R27 closed. When `/about` ships, the origin sentence migrates and is removed from `/`.
+- **The v1.1 shipping copy on `/`**: none. The origin sentence has migrated to `/about` §3.
+- **The v1.0 shipping copy (historical)**: 1 sentence, 2 clauses joined by em-dash — `Named for Pouākai — the largest eagle that ever flew, hunting by stooping from height.` Lived on `/` as v1.0 lede sentence 2 because `/about` did not yet exist. Ratified as a one-line, respectful, sparing origin note in v1.0.
+- **The migration**: per spec `meta/specs/pages/about.md` (Approved 2026-05-18) §5 + atomic-migration AC, the v1.0 sentence migrates verbatim to `/about` §3 sentence 1. The string itself is unchanged; only its surface moved.
+- **Why migration honors agent §4.5 more cleanly than v1.0 ratification**: §4.5 explicitly permits the origin on `/about`. v1.0 carried the origin on `/` as a deliberate, time-bounded exception (R14 + R27 paired). v1.1 puts the origin on the permitted surface and removes it from `/`. The brand now matches the brand contract verbatim — no exception remains.
+- **Forbidden patterns NOT triggered (v1.0 or v1.1)**: no "we soar above competitors" metaphor; no compression of the macron (`Pouākai` not `Pouakai`); no Māori visual motif suggestions. `/about` §3 extends the respect posture explicitly with sentences 2 and 3 acknowledging the Māori source and stating the no-motif / no-claim discipline.
+- **Status (v1.0, 2026-05-16)**: ratified-by-shipping. Closed-by-ratification.
+- **Status (v1.1, 2026-05-18)**: **closed-by-migration**. Origin lives only on `/about` §3 from v1.1 forward. `/` carries no Pouākai reference. R14 and R27 close on the same single-sentence removal; one operation, two debts retired.
 
 ### Flag 3 — R32: Homepage is H1-only by design
 
@@ -207,11 +234,16 @@ Three flags. Two are deliberate over-caps documented for future revision; one is
 
 ## 7. Open questions for Arian
 
-None. This is a ratification draft. The three lower-priority backlog items (R14, R27, R32) are closed with documented rationale in §6 above; the P0 (R05) is closed by the existence of this Approved draft itself.
+None. All four backlog items (R05, R14, R27, R32) are closed:
+
+- R05 closed v1.0 by the existence of an Approved canonical content draft.
+- R14 closed-by-migration v1.1 (lede now 3 sentences; DS cap compliant).
+- R27 closed-by-migration v1.1 (origin lives only on `/about` §3).
+- R32 closed v1.0 (H1-only by design, R-026 honored).
 
 Future revision triggers (recorded so a future Content pass knows when to reopen):
 
-- If an `/about` (or equivalent origin-surface) page enters the IA, this draft revises: sentence 2 of the lede migrates to that page, and the homepage lede trims to 3 sentences.
+- The `/about` migration trigger has **fired and executed** (v1.1, 2026-05-18). No further `/about`-related revision pending on this file.
 - If the status-line copy needs to change post-Q3 (cycle close, new availability state), a new draft revises §2 `statusBadge`. D-12 only locks the *cutover-day* copy; post-launch evolution is permitted.
 - If Arian wants to introduce a second section to the homepage, that decision changes the doorway-pattern thesis and forces a re-spec. The right path is to raise it with PM (`pouk-ai-pm`), not to revise this draft.
 

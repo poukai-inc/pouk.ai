@@ -26,11 +26,12 @@ const routes = [
   { name: "why-ai", path: "/why-ai/" },
   { name: "roles", path: "/roles/" },
   { name: "principles", path: "/principles/" },
+  { name: "about", path: "/about/" },
 ];
 
 const MAX_TABS = 80;
 const MIN_STOPS = 3;
-const PRIMARY_NAV_LABELS = ["Why AI", "Roles", "Principles"];
+const PRIMARY_NAV_LABELS = ["Why AI", "Roles", "Principles", "About"];
 
 type FocusedElement = {
   tag: string;

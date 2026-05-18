@@ -36,6 +36,10 @@ export function ShellWrapper({ currentRoute, routes, year, children }: ShellWrap
       footer={
         <p>
           {"© "}{year}{" pouk.ai · "}
+          <a href="/why-ai">Why AI</a>{" · "}
+          <a href="/roles">Roles</a>{" · "}
+          <a href="/principles">Principles</a>{" · "}
+          <a href="/about">About</a>{" · "}
           <a href="mailto:hello@pouk.ai">hello@pouk.ai</a>
         </p>
       }
