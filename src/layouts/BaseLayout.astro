@@ -52,6 +52,13 @@ export interface Props {
   jsonLd?: Record<string, unknown>;
   /** The href of the currently active route — passed to SiteShell for aria-current. */
   currentRoute: string;
+  /**
+   * Optional path to a page-critical image that should be preloaded for LCP.
+   * When set, BaseLayout emits a <link rel="preload" as="image"> in <head>.
+   * Used by /about to preload the above-fold portrait asset.
+   * Spec: meta/specs/pages/about.md §6.1 (preload strategy — above-the-fold portrait).
+   */
+  portraitPreload?: string;
 }
 
 const {
@@ -60,6 +67,7 @@ const {
   canonical,
   jsonLd,
   currentRoute,
+  portraitPreload,
 } = Astro.props;
 
 const ogImageUrl = "https://pouk.ai/og.png";
@@ -169,6 +177,21 @@ const bugsinkScript = hasBugsinkConfig
       href={instrumentSerifRegularUrl}
       crossorigin=""
     />
+
+    <!--
+      Portrait preload — emitted only when portraitPreload is set (currently /about only).
+      Preloads the above-fold portrait asset for LCP. The JPEG is served from public/
+      directly; the browser's AVIF/WebP negotiation happens at the <picture> level.
+      Spec: meta/specs/pages/about.md §6.1 + composition §6.7 preload strategy.
+    -->
+    {portraitPreload ? (
+      <link
+        rel="preload"
+        as="image"
+        href={portraitPreload}
+        type="image/jpeg"
+      />
+    ) : null}
 
     <!--
       JSON-LD structured data (serialised in frontmatter; set:html injects verbatim).

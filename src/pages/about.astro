@@ -1,53 +1,81 @@
 ---
 /**
- * /about — Founder introduction. Trust-loop sibling to /principles.
+ * /about — v2. Orange band + portrait + brand-voice body.
  *
- * IA per meta/specs/pages/about.md §4 and meta/compositions/pages/about.md §2.
- * Copy verbatim from meta/content/drafts/pages/about.md (Approved 2026-05-18).
+ * Supersedes v1 (composition verdict (ii) — no <Hero>, first-person prose).
+ * v2 re-adopts <Hero> for the opening band per composition v2 Approved verdict.
  *
- * Composition verdict (ii): page skips <Hero> entirely. Eyebrow + lede are
- * site-side prose elements using DS tokens. Single <h1> at the top of section
- * 1 ("The arc"); sections 2 and 3 are <h2>. Zero motion, zero client JS.
- * See meta/compositions/pages/about.md §2 Section 2 (verdict justification)
- * and §6.1 (DS-gap proposal filed forward — not blocking v1).
+ * Composition recipe: meta/compositions/pages/about.md v2 (Approved 2026-05-18).
+ * PM spec: meta/specs/pages/about.md v2 (Approved 2026-05-18).
+ * Content: meta/content/drafts/pages/about.md v2.0 (Approved 2026-05-18).
+ *
+ * Page structure (5 units, composition §2):
+ *   Unit 1 — <SiteShell> header chrome (via BaseLayout + ShellWrapper)
+ *   Unit 2 — <AboutBand> — full-bleed orange Hero band (display statement +
+ *             portrait). The page's <h1> lives inside <Hero>'s title slot.
+ *   Unit 3 — Story body (2 paragraphs, ~91 words, brand-voice declarative)
+ *             + operator line (names Arian once, third-person)
+ *   Unit 4 — Pouākai section (<h2> + 3-sentence verbatim body, 75 words)
+ *   Unit 5 — End CTA (muted line, mailto link) + <SiteShell> footer chrome
  *
  * Decisions honoured:
  *   A4  — four-item nav: Why AI → Roles → Principles → About
- *   A5  — explicit first person throughout sections 1 and 2
- *   A7  — section 3 opens with R27 verbatim; ~80 words; brand-voice declarative
- *   A9  — no <h1> in hero region; <h1> moves to section 1 ("The arc")
+ *   A9  — <h1> is the display statement (moves from section 1 in v1 to the
+ *          Hero title slot in v2)
  *   A11 — /principles-style brand-voice end-CTA; differentiated wording
- *   A12 — Instrument Serif italic section headings, ≤3 words each
- *   A14 — <title> "About — pouk.ai"; meta description brand-voice; ≤155 chars
+ *   A14 — <title> "About — pouk.ai" (em-dash); meta description brand-voice
  *   A15 — standalone Person JSON-LD; no worksFor; no sameAs
+ *   v2 reversals: A5 retired (no first-person), A6 retired (≤250 words),
+ *                 A10 retired (no autobiographical framing)
  *
- * Voice-shift documentation (spec §5 locked shifts):
- *   §3 Pouākai — first-person body → brand-voice declarative (A7)
- *   End CTA    — first-person body → brand-voice / second-person invitational (A11)
- *   Meta       — first-person body → brand-voice declarative (A14)
- *   These shifts are spec-locked; future revisions may NOT normalize them.
- *
- * Atomic migration: Pouākai sentence removed from HomeHero.tsx (R14 + R27 closed).
+ * Quality contracts:
+ *   - Zero client:* directives. Motion = <Hero entrance="stagger"> CSS only.
+ *   - Exactly one <h1> (display statement via Hero title slot).
+ *   - Exactly one <h2> (Pouākai section heading).
+ *   - No first-person "I" anywhere on the rendered page.
+ *   - Operator name (Arian Zargaran) appears exactly once — in the operator line.
+ *   - R27 sentence verbatim: "Named for Pouākai — the largest eagle..."
+ *   - axe-clean: substantive portrait alt, landmark structure, heading hierarchy.
+ *   - Lighthouse 100/100/100/100 mobile.
  */
 
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { AboutBand } from "../components/AboutBand";
 
 const pageTitle = "About — pouk.ai";
+
+/**
+ * Meta description — brand-voice, 146 chars (under 155 cap).
+ * v2.1 positioning amendment (2026-05-18 evening): drops "small" + "One
+ * operator." Replaces staffing claim with the deliverable triple.
+ * Copy: meta/content/drafts/pages/about.md §2 pageDescription (v2.1).
+ */
 const pageDescription =
-  "pouk.ai is one operator. Frontend engineering background, now running technical consulting through the AI tools that collapse months into days.";
+  "pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.";
+
 const canonical = "https://pouk.ai/about";
 
 /**
- * Standalone Person JSON-LD — spec §6 / A15b.
- * No worksFor relation. No sameAs block (no social URLs in structured data).
+ * Standalone Person JSON-LD — spec §6.2 / A15 (holds from v1).
+ * Fields: name, jobTitle, url only. No worksFor. No sameAs.
+ * No fields surfacing the portrait or its AI provenance.
+ * jobTitle revised from v1's "Founder, pouk.ai" to "Founder" (cleaner schema).
  */
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Arian Zargaran",
-  jobTitle: "Founder, pouk.ai",
+  jobTitle: "Founder",
   url: "https://pouk.ai/about",
 };
+
+/**
+ * Portrait asset path — Astro serves public/ assets at root.
+ * Source: public/about-portrait.jpg (1024×1024, 78KB JPEG).
+ * DS <Portrait> molecule generates AVIF/WebP/JPEG srcset at build time
+ * from this URL path.
+ */
+const portraitSrc = "/about-portrait.jpg";
 ---
 
 <BaseLayout
@@ -56,134 +84,100 @@ const jsonLd = {
   canonical={canonical}
   jsonLd={jsonLd}
   currentRoute="/about"
+  portraitPreload={portraitSrc}
 >
-  <div class="site-page">
+  <!--
+    Unit 2 — Portrait band.
+    AboutBand.tsx wraps <Hero bleed="full" illustration={<Portrait>} entrance="stagger">.
+    The band breaks out of .site-page's max-width via <Hero bleed="full">.
+    Orange surface: var(--bg-warm-accent) applied on .about-band wrapper (site.css).
+    The page's single <h1> lives inside Hero's title slot.
+    No client:* directive — static render, CSS-only entrance animation.
+  -->
+  <!--
+    AboutBand renders as static HTML at build time — no hydration directive.
+    Zero client JS. Astro statically renders the React component tree via
+    @astrojs/react's server renderer. Motion is CSS-only (entrance="stagger").
+  -->
+  <AboutBand portraitSrc={portraitSrc} />
+
+  <!--
+    Units 3–5 — Story body, Pouākai section, end CTA.
+    Returns to .site-page container (max-width: var(--content-max)) after the band.
+    No DS primitives needed here — plain semantic HTML with DS token classes.
+  -->
+  <div class="site-page about-tail">
 
     <!--
-      Hero region — eyebrow + lede, NO <Hero> molecule, NO <h1>.
-      Composition verdict (ii): /about skips <Hero> entirely.
-      Two prose elements only; the page's single <h1> lives in section 1 below.
-      See meta/compositions/pages/about.md §2 Section 2.
+      Unit 3 — Story body.
+      2 paragraphs, ~95 words total, brand-voice declarative throughout.
+      No <h2> heading above (composition §2 Unit 3 — "the display statement
+      is the only display moment; adding a heading here would compete").
+      No inline mailto link (composition §2 Unit 3 — "CTA lives at end only").
+      v2.1 positioning amendment (2026-05-18 evening): drops "small",
+      "small and direct", "one team at a time" — replaces with peer-grade
+      trajectory language ("engineered, shipped, and supported";
+      "company-grade depth"; "chases the kind of work that proves the
+      discipline"). Operator-line block retired entirely; founder's name
+      now surfaces only in portrait caption + alt + Person JSON-LD.
+      Copy: meta/content/drafts/pages/about.md §2 storyBody (v2.1).
     -->
-    <div class="about-eyebrow-band">
-      <!-- Eyebrow: page label. <p> not <h1>/<h2> — no heading role here. -->
-      <p class="about-eyebrow">About</p>
-      <!--
-        Hero lede — 1 sentence, second-person, 12 words.
-        Copy: meta/content/drafts/pages/about.md §2 heroLede (Q3 ratified).
-      -->
-      <p class="about-lede">Who you&rsquo;d be writing into if you sent the email below.</p>
-    </div>
-
-    <!--
-      Section 1 — "The arc"
-      The page's single <h1>. First-person throughout (A5).
-      ~165 words across three paragraphs; third paragraph is a single
-      load-bearing sentence.
-      Copy: meta/content/drafts/pages/about.md §2 section1.
-    -->
-    <section class="about-section" aria-labelledby="arc">
-      <h1 id="arc" class="about-section-heading">The arc</h1>
-      <div class="about-body">
+    <section class="about-story" aria-label="About pouk.ai">
+      <div class="about-story__body">
         <p>
-          I came up writing frontend code &mdash; building interfaces, shipping
-          product, sitting close enough to engineering decisions to learn which
-          ones held up and which ones rotted in six months. The conversations on
-          those teams kept turning toward AI, first as a curiosity, then as a
-          tool people were quietly using to do parts of their job, then as a
-          question the engineering org couldn&rsquo;t answer on its own: where
-          does this actually go in production?
+          pouk.ai builds custom AI systems, automations, and advisory
+          engagements for teams that need the work to run in production,
+          not in a report. Modern AI tools collapse what used to take a
+          dev team six months into days, sometimes weeks for the harder
+          parts. A consultancy that has wired these tools into production
+          codebases can do it again on a new team&rsquo;s stack &mdash;
+          quickly, without a strategy retreat first.
         </p>
         <p>
-          I stopped writing frontend full-time to answer that question for the
-          teams asking it. pouk.ai is what I do now &mdash; technical consulting
-          for operators who&rsquo;d rather ship something they can measure than
-          commission a report on what they might build. I take a small number of
-          engagements at a time. I write the code I recommend. I leave behind
-          systems an in-house team can run, not slide decks that need
-          translation.
-        </p>
-        <p>
-          When you email <a href="mailto:hello@pouk.ai">hello@pouk.ai</a>, I am
-          the person who replies.
+          The work is engineered, shipped, and supported. Engagements
+          deliver systems an in-house team can run, not decks that need
+          translation. pouk.ai operates at company-grade depth and chases
+          the kind of work that proves the discipline.
         </p>
       </div>
     </section>
 
     <!--
-      Section 2 — "Why pouk.ai"
-      <h2> (semantic; same visual weight as section 1 h1 — composition §3).
-      First-person, founding-posture, autobiographical only (A10).
-      ~175 words. No competitive language, no stance slogans.
-      Copy: meta/content/drafts/pages/about.md §2 section2.
+      Unit 4 — Pouākai section.
+      <h2> heading — only heading rank below the display statement <h1>.
+      Instrument Serif italic at --fs-tagline-intimate per composition §2 Unit 4.
+      Body: 3 sentences, 75 words, verbatim from v1 (R27 verbatim + 2 sentences).
+      Macron: literal Unicode U+0101 (ā) — canonical per existing v1 pattern.
+      Anchor: id="poukai" per content draft §2.
+      Copy: meta/content/drafts/pages/about.md §2 poukaiUnit (Q5 ratified —
+            verbatim carry-forward; no compression).
     -->
-    <section class="about-section" aria-labelledby="why">
-      <h2 id="why" class="about-section-heading">Why pouk.ai</h2>
-      <div class="about-body">
-        <p>
-          The reason I started pouk.ai instead of going back to a staff
-          engineering role is that the tools changed underneath me. The same
-          modern AI tools that show up in every founder&rsquo;s Twitter feed
-          &mdash; the ones the press keeps calling transformative &mdash;
-          actually do the boring thing they claim to do, when an engineer holds
-          them correctly. They collapse what used to take a dev team six months
-          into days, sometimes weeks for the harder parts. I watched this happen
-          on projects I was on and projects I wasn&rsquo;t.
-        </p>
-        <p>
-          The work that follows from that is specific. Most teams don&rsquo;t
-          need a strategy retreat about AI; they need someone who has already
-          wired these tools into a production codebase and can do it again on
-          theirs. That is the seam pouk.ai operates in. I take on the build, the
-          automation, or the advisory engagement that gets a team across the gap
-          between &ldquo;we should be doing something with AI&rdquo; and
-          &ldquo;we are running this in production this quarter.&rdquo;
-        </p>
-      </div>
+    <section class="about-poukai" aria-labelledby="poukai">
+      <h2 id="poukai" class="about-poukai__heading">Pou&#257;kai</h2>
+      <p class="about-poukai__body">
+        Named for Pou&#257;kai &mdash; the largest eagle that ever flew,
+        hunting by stooping from height. The name comes from M&#257;ori
+        tradition; the bird is real, extinct for around six hundred
+        years, and the spelling carries the macron it was given.
+        pouk.ai borrows the name as a reference point &mdash; a hunter
+        that worked by altitude and timing &mdash; and stops there: no
+        M&#257;ori visual motifs in the brand, no claim to the culture,
+        no metaphor stretched past the one-line origin.
+      </p>
     </section>
 
     <!--
-      Section 3 — "Pouākai"
-      <h2>. Brand-voice declarative (NOT first-person) — A7 voice-shift locked.
-      ~75 words, three sentences.
-      Sentence 1: R27 verbatim migration from / lede (atomic migration closes R14 + R27).
-      Sentence 2: Māori source acknowledgment.
-      Sentence 3: respect posture — no visual motifs, no cultural claim.
-      Copy: meta/content/drafts/pages/about.md §2 section3.
-      VOICE-SHIFT NOTE: this section is brand-voice declarative, not first-person.
-      Do NOT normalize to first-person on future revision (spec §5 locked shift).
+      Unit 5 — End CTA.
+      Single muted line with mailto link. Brand-voice / second-person invitational.
+      Hairline above for rhythm parity with /principles end-CTA pattern.
+      Differentiated from sibling CTAs per composition §2 Unit 5 + content draft §2.
+      Copy: meta/content/drafts/pages/about.md §2 endCta.
+      "For inbound work" names the purpose; display statement + story body have
+      done the qualifying work so the CTA just points.
     -->
-    <section class="about-section" aria-labelledby="poukai">
-      <!--
-        Pouākai: macron rendered via literal Unicode character (U+0101).
-        HTML entity equivalent: &#257; — either form is acceptable per composition §5.
-      -->
-      <h2 id="poukai" class="about-section-heading">Pou&#257;kai</h2>
-      <div class="about-body">
-        <p>
-          Named for Pou&#257;kai &mdash; the largest eagle that ever flew,
-          hunting by stooping from height. The name comes from M&#257;ori
-          tradition; the bird is real, extinct for around six hundred years, and
-          the spelling carries the macron it was given. pouk.ai borrows the name
-          as a reference point &mdash; a hunter that worked by altitude and
-          timing &mdash; and stops there: no M&#257;ori visual motifs in the
-          brand, no claim to the culture, no metaphor stretched past the
-          one-line origin.
-        </p>
-      </div>
-    </section>
-
-    <!--
-      End CTA — single muted line, brand-voice / second-person invitational.
-      Shape: /principles-style conditional ("If <condition>, <address>").
-      Noun: "the inbox" — unique to /about; closes the loop on the hero lede.
-      VOICE-SHIFT NOTE: body first-person → CTA brand-voice / second-person.
-      Do NOT normalize (spec §5 locked shift).
-      Copy: meta/content/drafts/pages/about.md §2 endCta (Q2 ratified).
-    -->
-    <div class="about-end-cta">
+    <div class="end-cta">
       <p>
-        If the inbox sounds right,{" "}
+        For inbound work,{" "}
         <a href="mailto:hello@pouk.ai">hello@pouk.ai</a>.
       </p>
     </div>
