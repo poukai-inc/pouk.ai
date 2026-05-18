@@ -267,6 +267,7 @@ jobs:
             http://localhost:4321/why-ai/ \
             http://localhost:4321/roles/ \
             http://localhost:4321/principles/ \
+            --load-delay 1500 \
             --save .axe-reports/results.json \
             --exit
 
