@@ -42,9 +42,7 @@ export function HomeHero() {
          */
         <>
           pouk.ai builds custom AI systems, automations, and advisory
-          engagements for operators who&rsquo;d rather ship than speculate.
-          Named for Pou&#257;kai &mdash; the largest eagle that ever flew,
-          hunting by stooping from height.{" "}
+          engagements for operators who&rsquo;d rather ship than speculate.{" "}
           Most AI projects fail to deliver.{" "}
           <a href="/why-ai">Here&rsquo;s why &rarr;</a>
         </>
