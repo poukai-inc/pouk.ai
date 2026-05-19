@@ -14,6 +14,7 @@
 
 import "@poukai-inc/ui/tokens.css";
 import "../styles/site.css";
+import { ClientRouter } from "astro:transitions";
 import { ShellWrapper } from "../components/ShellWrapper";
 // Vercel Web Analytics — basic-tier signal.
 //
@@ -228,6 +229,16 @@ const bugsinkScript = hasBugsinkConfig
       TODO: O-012 — decide self-hosted vs. Bugsink Cloud before wiring DSN.
     -->
     {bugsinkScript ? <script is:inline defer set:html={bugsinkScript} /> : null}
+
+    <!--
+      Subtle cross-page view transitions.
+      Astro's <ClientRouter /> upgrades navigation to client-side swaps and
+      drives the native View Transitions API (Chromium/Safari) with a
+      graceful no-animation fallback in Firefox. The default root animation
+      is overridden in site.css to a brief opacity-only fade tuned to
+      --dur-fast, and disabled under prefers-reduced-motion (R-030).
+    -->
+    <ClientRouter />
   </head>
   <body>
     <!-- SiteShell renders as static HTML — no hydration directive (R-079). -->

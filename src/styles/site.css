@@ -482,6 +482,38 @@
   }
 }
 
+/* ---------- View transitions (cross-page) ----------
+   Driven by Astro's <ClientRouter /> in BaseLayout. Overrides the default
+   root pseudo animations with a subtle opacity-only fade tuned to DS
+   --dur-fast. Disabled under prefers-reduced-motion per R-030. Browsers
+   without the View Transitions API (Firefox) ignore these rules and the
+   navigation falls back to an instant swap — acceptable per R-053. */
+
+@keyframes site-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes site-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+::view-transition-old(root) {
+  animation: site-fade-out var(--dur-fast) ease both;
+}
+
+::view-transition-new(root) {
+  animation: site-fade-in var(--dur-fast) ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
 /* ---------- Visually hidden (a11y) ---------- */
 
 .visually-hidden {
