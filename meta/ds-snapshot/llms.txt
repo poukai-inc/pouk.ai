@@ -4,7 +4,7 @@
 
 Poukai is a React component library organised by Atomic Design (tokens → atoms → molecules → organisms).
 
-Version: `0.16.1`
+Version: `0.17.0`
 
 ## LLM context
 
@@ -18,8 +18,8 @@ cat node_modules/@poukai-inc/ui/dist/llms-full.txt
 
 Import tokens once at the app root: `import "@poukai-inc/ui/tokens.css"`. Then import components:
 
-**atoms:** `<Wordmark>`, `<StatusBadge>`, `<Button>`, `<Stat>`
-**molecules:** `<Hero>`, `<RoleCard>`, `<Principle>`, `<FailureMode>`, `<Statement>`, `<Portrait>`
+**atoms:** `<Wordmark>`, `<StatusBadge>`, `<Button>`, `<Stat>`, `<Eyebrow>`, `<EmailLink>`
+**molecules:** `<Hero>`, `<RoleCard>`, `<Principle>`, `<FailureMode>`, `<Statement>`, `<Portrait>`, `<Section>`, `<Pull>`, `<LinkCard>`, `<TeamCard>`, `<FeatureCard>`
 **organisms:** `<SiteShell>`
 
 ## Tokens
