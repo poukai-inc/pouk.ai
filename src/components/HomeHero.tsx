@@ -1,55 +1,72 @@
 /**
  * HomeHero.tsx
  *
- * Thin React wrapper that assembles the homepage Hero with its complex JSX slots.
- * Lives in the site repo because passing JSX as a prop from an .astro file to a
- * React component causes esbuild to parse the .astro template as TypeScript, which
- * breaks on HTML attributes in the <head>. By wrapping here, index.astro passes
- * only scalar props across the boundary (same pattern as ShellWrapper.tsx).
+ * React wrapper assembling the homepage Hero. All copy passes in via scalar
+ * props (sourced from src/content/home.json, validated by
+ * src/content/_schemas/home.ts). R-076 HARD: no hardcoded copy in component
+ * templates.
  *
  * Decisions honoured:
  *   D-11 — integrated lede-extension link sentence at end of lede, href="/why-ai".
- *           Structural form locked. Exact wording is Draft: Arian approves final copy.
- *   D-12 — status-line text verbatim from public/index.html (now deleted):
- *           "Currently taking conversations for Q3."
+ *   D-12 — status-line text from public/index.html ("Currently taking conversations for Q3.").
+ *
+ * Hero posture: editorial-doorway → size="intimate" + entrance="stagger" per
+ * meta/decisions/2026-05-19-hero-stagger-scope.md.
  *
  * Rendered as static HTML at build time — no hydration directive (R-079).
  */
 
 import { Hero, StatusBadge, Button } from "@poukai-inc/ui";
 
-export function HomeHero() {
+interface HomeHeroProps {
+  status: string;
+  titleBefore: string;
+  titleEm: string;
+  titleAfter: string;
+  ledeSentence1: string;
+  ledeSentence2: string;
+  ledeAnchorText: string;
+  ledeAnchorHref: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+export function HomeHero({
+  status,
+  titleBefore,
+  titleEm,
+  titleAfter,
+  ledeSentence1,
+  ledeSentence2,
+  ledeAnchorText,
+  ledeAnchorHref,
+  ctaLabel,
+  ctaHref,
+}: HomeHeroProps) {
   return (
     <Hero
       size="intimate"
       entrance="stagger"
       status={
-        /* D-12: byte-identical to the former public/index.html status line */
-        <StatusBadge status="available">Currently taking conversations for Q3.</StatusBadge>
+        <StatusBadge status="available">{status}</StatusBadge>
       }
       title={
-        /* Verbatim tagline from public/index.html — <em>AI</em> preserved */
-        <>Technical consulting for teams shipping with <em>AI</em>.</>
+        <>
+          {titleBefore}
+          <em>{titleEm}</em>
+          {titleAfter}
+        </>
       }
       lede={
-        /*
-         * Lede verbatim from public/index.html, with the D-11 integrated link
-         * sentence appended as the final sentence of the lede.
-         *
-         * Draft: per D-11 — Arian approves final copy.
-         * Structural lock: single integrated link sentence, href="/why-ai",
-         * not a tertiary line below the CTA (rejected alternative per spec §5).
-         */
         <>
-          pouk.ai builds custom AI systems, automations, and advisory
-          engagements for operators who&rsquo;d rather ship than speculate.{" "}
-          Most AI projects fail to deliver.{" "}
-          <a href="/why-ai">Here&rsquo;s why &rarr;</a>
+          {ledeSentence1}{" "}
+          {ledeSentence2}{" "}
+          <a href={ledeAnchorHref}>{ledeAnchorText}</a>
         </>
       }
       cta={
         <Button asChild size="compact">
-          <a href="mailto:hello@pouk.ai">hello@pouk.ai</a>
+          <a href={ctaHref}>{ctaLabel}</a>
         </Button>
       }
     />

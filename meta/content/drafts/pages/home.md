@@ -87,10 +87,12 @@ The page is a single `Hero` block inside `BaseLayout` + `SiteShell`. There are n
 
 ### Block: pageDescription (spec §8 — `<meta description>` AC)
 
-- **Copy**: `Custom AI builds, automations, and advisory for teams that need to ship. Founded by a frontend engineer. Currently taking conversations for Q3.`
-- **Character count**: 145 (under 155 SEO cap per agent §5.2).
+- **Copy (v2.1, 2026-05-18 evening)**: `Custom AI builds, automations, and advisory for teams that need to ship. Currently taking conversations for Q3.`
+- **Character count**: 113 (well under 155 SEO cap per agent §5.2).
+- **v2.1 amendment**: Drops the middle credential sentence `Founded by a frontend engineer.` — the founder-arc clause retired sitewide alongside the /about v2.1 positioning shift (which banned references to Arian's prior employment, frontend background, or career transition). The home meta description now reads two sentences: what pouk.ai does + current availability. The credential register lives in operator-grade discipline tags inside the body ("custom AI builds, automations, and advisory"), not in a separate founder sentence.
+- **Prior copy (v2.0, retired 2026-05-18)**: `Custom AI builds, automations, and advisory for teams that need to ship. Founded by a frontend engineer. Currently taking conversations for Q3.` (145 chars; three sentences).
 - **Locked by**: D-12 — final sentence is byte-identical to the rendered status-line copy. Agent §5.2 — declarative, no CTA verbs ("learn more!"), front-loads the substantive nouns ("custom AI builds, automations, and advisory").
-- **Voice rationale**: "Founded by a frontend engineer" is the credential sentence — operator-grade specificity (a discipline, not a title) that signals shipping-first orientation without claiming expertise. Three sentences, three jobs: what we do, who we are, current availability.
+- **Voice rationale**: Two sentences, two jobs: what we do, current availability. The deliverable triple ("custom AI builds, automations, and advisory") is the credential, expressed as discipline tags rather than career biography. Matches the /about v2.1 supportingLine register ("Custom AI builds. Automations. Advisory engagements.") at meta-description scale.
 
 ### Block: statusBadge (spec §5 + §8 — D-12 parity AC)
 
@@ -138,9 +140,9 @@ The lede is a single paragraph composed of three rendered sentences. The third-a
 ## 3. Page-level SEO copy
 
 - **`<title>`**: `pouk.ai — Technical consulting for teams shipping with AI` (56 chars)
-- **`<meta name="description">`**: `Custom AI builds, automations, and advisory for teams that need to ship. Founded by a frontend engineer. Currently taking conversations for Q3.` (145 chars)
+- **`<meta name="description">`** (v2.1, 2026-05-18 evening): `Custom AI builds, automations, and advisory for teams that need to ship. Currently taking conversations for Q3.` (113 chars; founder-arc clause retired — see §2 pageDescription block for the amendment audit log)
 - **OG title**: matches `<title>` — `pouk.ai — Technical consulting for teams shipping with AI`. The line is already in voice and survives social-share truncation.
-- **OG description**: matches `<meta description>` — 145 chars, well under the 200-char OG soft cap.
+- **OG description**: matches `<meta description>` — 113 chars, well under the 200-char OG soft cap.
 - **Canonical**: `https://pouk.ai/`
 - **JSON-LD**: `Organization` schema with `name`, `url`, `email`, `description`, `sameAs` (LinkedIn, X, Instagram, GitHub). Owned by `index.astro` frontmatter; copy fields are byte-identical to pre-cutover `public/index.html` per D-12 parity matrix.
 - **Heading hierarchy**: exactly one H1 (the Hero `<h1>` rendering the tagline). No H2, H3, H4. Standards R-026 (HARD) — "must not skip heading levels" — is honored: there are no skipped levels because there are no sub-sections. See R32 closure in §4 below.

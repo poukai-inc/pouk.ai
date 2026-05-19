@@ -1,0 +1,84 @@
+---
+/**
+ * /404 — Page not found. Salvage surface.
+ *
+ * PM spec: meta/specs/pages/404.md v1.0 (Approved 2026-05-18 evening).
+ * Composition: meta/compositions/pages/404.md v1.1 (Approved 2026-05-18 evening).
+ * Content: meta/content/drafts/pages/404.md v1.1 (Approved 2026-05-18 evening).
+ *
+ * Page structure (4 units per composition §2):
+ *   Unit 1 — <SiteShell> header chrome (via BaseLayout)
+ *   Unit 2 — <Hero size="intimate" align="center"> with eyebrow, title, lede, CTA
+ *   Unit 3 — Body link list (3 routes, descriptor-bearing) — added per founder
+ *             Q4 override of spec §0 row 3 (2026-05-18 evening)
+ *   Unit 4 — <SiteShell> footer chrome (via BaseLayout)
+ *
+ * Crawler contract (spec §6):
+ *   - <meta name="robots" content="noindex,follow">
+ *   - NO <link rel="canonical">
+ *   - NO JSON-LD
+ *   - NOT listed in sitemap.xml (excluded via astro.config.mjs sitemap filter)
+ *   - HTTP 404 status code (Astro + Vercel handle automatically for 404.astro)
+ *
+ * Content (verbatim from content draft §2):
+ *   - eyebrow "404"
+ *   - h1 "This page doesn't exist."
+ *   - lede "The link is broken, or the URL was typed wrong. Try the nav above, or return home."
+ *   - CTA "Return to pouk.ai →" → /
+ *   - link list rows:
+ *       Roles — What kind of help → /roles
+ *       Why AI — Why most AI projects fail → /why-ai
+ *       Principles — How pouk.ai works → /principles
+ */
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { NotFoundHero } from "../components/NotFoundHero";
+
+const pageTitle = "Page not found — pouk.ai";
+const pageDescription =
+  "This page doesn't exist on pouk.ai. Use the nav above, or return to the homepage.";
+
+// canonical is required by BaseLayout's prop type but omitCanonicalLink
+// suppresses the <link rel="canonical"> emit per spec §6. The value is still
+// used for og:url so social-share previews resolve to something coherent.
+const canonical = "https://pouk.ai/404";
+
+const suggestions = [
+  { label: "Roles", descriptor: "What kind of help", href: "/roles" },
+  { label: "Why AI", descriptor: "Why AI projects fail", href: "/why-ai" },
+  { label: "Principles", descriptor: "How pouk.ai works", href: "/principles" },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={canonical}
+  currentRoute="/404"
+  robots="noindex,follow"
+  omitCanonicalLink={true}
+>
+  <div class="site-page not-found">
+    <NotFoundHero
+      title="This page doesn't exist."
+      lede="The link is broken, or the URL was typed wrong. Try the nav above, or return home."
+      ctaText="Return to pouk.ai →"
+      ctaHref="/"
+    />
+
+    <hr class="not-found-rule" />
+
+    <nav class="not-found-suggestions" aria-label="Suggested routes">
+      <ul role="list">
+        {suggestions.map((row) => (
+          <li>
+            <a href={row.href}>
+              <span class="not-found-suggestions__label">{row.label}</span>
+              <span class="not-found-suggestions__descriptor">{row.descriptor}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</BaseLayout>

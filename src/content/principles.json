@@ -1,66 +1,66 @@
 {
-  "intro": "The tools matter. The systems matter. But what matters most, what separates great consultants from everyone else, is how they think and operate. These ten principles aren't tactics or hacks. They're the foundations for doing great work. Learn them. Practice them. Build from them.",
-  "conclusion": "You can't fake these principles. They're built one project, one decision, one late night at a time. Tools will change, trends will fade, but how you operate — how you think, communicate, and carry yourself — will always define the quality of your work. These principles are your compass.",
+  "intro": "The tools matter. The systems matter. What matters more is the operating discipline behind both. These ten principles are how pouk.ai works — what a partner team should expect when the engagement starts, when something goes sideways, when the work needs to ship. They are the compass. The work is what proves them.",
+  "conclusion": "These principles are not faked. They are built — one project, one decision at a time — and the work is the only thing that proves them. If this is the kind of partner you want in the room, the rest is a conversation.",
   "principles": [
     {
       "numeral": "i.",
       "title": "Ownership",
       "anchor": "ownership",
-      "body": "Working for yourself doesn't make life easier. It makes it 10× harder. Everything starts and ends with you: every relationship, deliverable, deadline, and outcome. When something goes wrong, there's nowhere to point but inward. That's the trade: no safety net, but full control. Once you accept that, you stop waiting for permission and start building momentum. Ownership is what turns uncertainty into action."
+      "body": "An engagement at pouk.ai has one accountable owner: pouk.ai itself. Every relationship, deliverable, deadline, and outcome lands in the same place. When something goes wrong, there is no vendor chain to point at — the fix lands inside the same conversation that committed to the work. That is the trade pouk.ai makes for the control it asks for: full ownership of the outcome, not divided responsibility across a stack of subcontractors."
     },
     {
       "numeral": "ii.",
       "title": "Integrity",
       "anchor": "integrity",
-      "body": "AI consulting runs on trust. Clients rarely understand every technical detail, so they trust your word, your process, and your judgment. That means doing what you say you'll do, even when it's inconvenient, especially when no one's watching. Integrity compounds quietly: one honest conversation at a time, one promise kept after another. Over time, it becomes your reputation. And your moat."
+      "body": "Custom AI work runs on trust. A partner team rarely owns every technical detail, so they end up trusting a word, a process, a judgment call. pouk.ai treats integrity as the operating default: doing what was said, even when it is inconvenient, especially when no one is checking. Honest conversations and kept commitments compound quietly — one engagement at a time — into a reputation that does not need to be claimed."
     },
     {
       "numeral": "iii.",
       "title": "Reliability",
       "anchor": "reliability",
-      "body": "The best consultants make clients feel safe. Reliability means showing up prepared, meeting deadlines, and staying composed when things go sideways. It's not glamorous, but it's the backbone of every great engagement. You communicate early, document clearly, and fix problems before they spread. Clients might not notice when you're reliable, but they always notice when you're not. Consistency is credibility."
+      "body": "The best partner teams make the in-house team feel safe. Reliability at pouk.ai means showing up prepared, meeting deadlines, and staying composed when things go sideways. Not glamorous, but the backbone of every serious engagement. Communicate early. Document clearly. Fix problems before they spread. The signal of reliability is mostly invisible when it is working — and unmistakable when it is not."
     },
     {
       "numeral": "iv.",
       "title": "Systems Thinking",
       "anchor": "systems-thinking",
-      "body": "Every problem is part of a larger system: a web of people, processes, tools, and incentives. Weak consultants treat symptoms. Strong ones zoom out to treat root causes. Systems thinking means designing solutions that last: automations that evolve, workflows that scale, insights that keep paying off. The more you think in loops, not lines, the more durable your impact becomes."
+      "body": "Every problem is part of a larger system — a web of people, processes, tools, and incentives. Weak engagements treat symptoms. Serious ones zoom out, find the root cause, and design from there. Systems thinking at pouk.ai means automations that evolve as the business does, workflows that scale without rewrite, and AI systems that keep paying off after the engagement closes. The closer the work gets to root cause, the more durable the result becomes."
     },
     {
       "numeral": "v.",
       "title": "Intellectual Curiosity",
       "anchor": "intellectual-curiosity",
-      "body": "AI changes weekly. The habit that separates professionals from tourists is staying genuinely interested, not just in tools but in ideas. Intellectual curiosity is the muscle of asking why: why this process exists, why a result happened, why something might work better another way. The more interested you are, the more leverage you create, because you see what others don't."
+      "body": "AI changes weekly. The discipline that separates serious AI work from tourist AI work is staying genuinely interested — not just in tools, but in ideas. pouk.ai operates on the muscle of asking why: why this process exists, why a result happened, why something might work better another way. Curiosity is what makes the diagnosis sharper before the build starts. It is also what makes the build itself less likely to repeat the field's recent mistakes."
     },
     {
       "numeral": "vi.",
       "title": "Obsession",
       "anchor": "obsession",
-      "body": "To be great at this, you have to care more than most people think is reasonable. Obsession means caring about the details: the UX of your workflows, the wording of your prompts, the reliability of your systems. You experiment after hours because you want to see what's possible. That kind of energy can't be faked. Clients can feel it. Obsession is what turns skill into mastery."
+      "body": "To do this work well takes more care than is reasonable. Obsession at pouk.ai shows up in the details — the UX of a workflow, the wording of a prompt, the reliability of a system under load. The experiments happen after hours because the question is interesting, not because the hours are billable. That kind of energy is hard to fake, and a partner team can feel it. Obsession is what turns competent execution into work that holds up."
     },
     {
       "numeral": "vii.",
       "title": "Range",
       "anchor": "range",
-      "body": "Range is the ability to think and operate across disciplines. You're strategic enough to scope a project and technical enough to build it. You can talk business with executives and tokens with developers — often in the same meeting. Range gives you adaptability; it's what lets you stay valuable as the landscape shifts. In AI consulting, depth gets you in the room, but range keeps you relevant."
+      "body": "Range is the ability to think and operate across disciplines. pouk.ai is strategic enough to scope a project, technical enough to build it, and able to switch registers inside the same meeting — business with executives, tokens with engineers. Range is what lets the engagement stay valuable as the AI landscape shifts. Depth gets pouk.ai in the room; range is what keeps the engagement relevant to the in-house team six months in."
     },
     {
       "numeral": "viii.",
       "title": "Momentum",
       "anchor": "momentum",
-      "body": "Momentum beats perfection every time. Every draft, demo, and deliverable teaches you something — but only if you ship it. Momentum means valuing iteration over polish, learning in public, and letting progress create confidence. The faster your feedback loops, the faster you grow. The consultants who win aren't the ones with perfect plans. They're the ones who keep moving."
+      "body": "Momentum is the default operating tempo at pouk.ai. A draft, a demo, a deliverable — each one teaches something, but only if it ships. Engagements run on short feedback loops: build a thin slice, put it in front of the team, adjust against real signal, repeat. The faster the loop, the faster the engagement compounds. Plans matter; movement matters more, because the AI tools the work uses change too quickly to plan around for long."
     },
     {
       "numeral": "ix.",
       "title": "Willingness to Fail",
       "anchor": "willingness-to-fail",
-      "body": "Failure isn't an obstacle; it's part of the rhythm. You'll write prompts that break, run pilots that flop, pitch clients who ghost. What matters is how quickly you rebound and what you learn. Most people retreat when things go wrong; professionals get curious. The willingness to fail, to feel discomfort without losing momentum, is the single fastest way to level up your craft."
+      "body": "Failure is part of the rhythm of serious AI work, not an obstacle to it. Prompts break. Pilots flop. Approaches that worked on the last engagement do not always survive the new stack. pouk.ai operates on the assumption that the first cut will be partly wrong — and that the speed of the second cut is what matters. Discomfort without lost momentum is how the work gets sharper; the engagements that hold up are the ones run by a partner willing to fail in public and fix in public."
     },
     {
       "numeral": "x.",
       "title": "Good Nature",
       "anchor": "good-nature",
-      "body": "Skill might open the door, but character keeps it open. Good nature means being calm under pressure, generous with your knowledge, and easy to work with. You don't need to be everyone's best friend, but people should leave interactions with more clarity and energy than they came in with. Clients remember how you made them feel, and that memory is often what turns a project into a partnership."
+      "body": "Skill might open the door; character keeps it open. Good nature at pouk.ai means staying calm under pressure, being generous with what is known, and being easy to work with under deadline. A partner team should leave each interaction with more clarity and more energy than they walked in with. The work is remembered; the way the work felt is remembered longer. The engagements that become partnerships are the ones that are also good company."
     }
   ]
 }

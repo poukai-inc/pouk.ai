@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "pouk.ai — Technical consulting for teams shipping with AI",
+    "description": "Custom AI builds. Automations. Advisory engagements. Currently taking conversations for Q3.",
+    "canonical": "https://pouk.ai/"
+  },
+  "hero": {
+    "status": "Currently taking conversations for Q3.",
+    "title": {
+      "before": "Technical consulting for teams shipping with ",
+      "em": "AI",
+      "after": "."
+    },
+    "lede": {
+      "sentence1": "pouk.ai builds custom AI systems, automations, and advisory engagements for operators who'd rather ship than speculate.",
+      "sentence2": "Most AI projects fail to deliver.",
+      "anchor": {
+        "text": "Here's why →",
+        "href": "/why-ai"
+      }
+    },
+    "cta": {
+      "label": "hello@pouk.ai",
+      "href": "mailto:hello@pouk.ai"
+    }
+  },
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "pouk.ai",
+    "url": "https://pouk.ai",
+    "email": "hello@pouk.ai",
+    "description": "Technical consulting for teams shipping with AI.",
+    "sameAs": [
+      "https://linkedin.com/company/poukai",
+      "https://x.com/pouk_ai",
+      "https://instagram.com/pouk.ai",
+      "https://github.com/pouk-ai"
+    ]
+  }
+}

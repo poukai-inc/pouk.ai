@@ -3,7 +3,7 @@
     "id": "builder",
     "eyebrow": "The Builder",
     "title": "Builder",
-    "body": "Builds custom solutions when off-the-shelf tools fall short — dashboards, agents, internal tools, client-facing products. Modern tools (Lovable, Claude, Supabase) collapsed what used to take a dev team six months into days or weeks.",
+    "body": "Builds custom solutions when off-the-shelf tools fall short — dashboards, internal tools, client-facing products. Modern tools (Lovable, Claude, Supabase) collapsed what used to take a dev team six months into days or weeks.",
     "hiredBy": "Founders needing prototypes, product leads testing ideas fast, teams unlocking budget with a proof-of-concept.",
     "icon": "hammer"
   },
@@ -27,7 +27,7 @@
     "id": "creator",
     "eyebrow": "The Creator",
     "title": "Creator",
-    "body": "Streamlines creative workflows that are time and cost intensive. Creators don't run full-service agencies with agents. They identify where concept iteration, motion graphics, post-production, and other parts of the creative process get faster and cheaper with the right tools.",
+    "body": "Streamlines creative workflows that are time and cost intensive. Creators don't run full-service agencies. They identify where concept iteration, motion graphics, post-production, and other parts of the creative process get faster and cheaper with the right tools.",
     "hiredBy": "Chief Marketing / Chief Creative Officers who are feeling their budgets constrain and their timelines accelerate.",
     "icon": "clapperboard"
   }

@@ -9,7 +9,12 @@ export default defineConfig({
 
   integrations: [
     react(),
-    sitemap(),
+    // Exclude /404 from sitemap — meta/specs/pages/404.md §6 requires the
+    // 404 route to be absent from sitemap.xml (listing an error page is a
+    // crawler-confusion anti-pattern).
+    sitemap({
+      filter: (page) => !page.endsWith("/404/") && !page.endsWith("/404"),
+    }),
     // CSS is already minified by Vite's rollup pipeline (single-line, no whitespace).
     // The double-pass through astro-compress's csso/lightningcss chokes on the
     // already-minified Astro chunks and prints "Error: Cannot compress file …" to

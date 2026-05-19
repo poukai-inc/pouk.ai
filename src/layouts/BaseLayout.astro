@@ -43,7 +43,7 @@ export interface Props {
   title: string;
   /** <meta name="description"> — 70–160 chars. */
   description: string;
-  /** Absolute canonical URL for this page. */
+  /** Absolute canonical URL for this page. Used for OG url and (unless suppressed) <link rel="canonical">. */
   canonical: string;
   /**
    * JSON-LD structured data object for this page.
@@ -59,6 +59,17 @@ export interface Props {
    * Spec: meta/specs/pages/about.md §6.1 (preload strategy — above-the-fold portrait).
    */
   portraitPreload?: string;
+  /**
+   * Override for <meta name="robots">. Default: "index,follow".
+   * /404 passes "noindex,follow" per meta/specs/pages/404.md §6.
+   */
+  robots?: string;
+  /**
+   * When true, suppresses <link rel="canonical">. Used by /404, which must
+   * not declare a canonical URL (meta/specs/pages/404.md §6 — adding one would
+   * either self-reference or deceive the crawler).
+   */
+  omitCanonicalLink?: boolean;
 }
 
 const {
@@ -68,6 +79,8 @@ const {
   jsonLd,
   currentRoute,
   portraitPreload,
+  robots = "index,follow",
+  omitCanonicalLink = false,
 } = Astro.props;
 
 const ogImageUrl = "https://pouk.ai/og.png";
@@ -131,8 +144,8 @@ const bugsinkScript = hasBugsinkConfig
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    <meta name="robots" content="index,follow" />
+    {omitCanonicalLink ? null : <link rel="canonical" href={canonical} />}
+    <meta name="robots" content={robots} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "title": "Why AI projects fail — pouk.ai",
+    "description": "Only 12–18% of companies deploying AI capture meaningful ROI. Here are the five failure modes — data readiness, wrong use case, integration, governance, and change management — and what to do about each.",
+    "canonical": "https://pouk.ai/why-ai"
+  },
+  "hero": {
+    "title": "Why AI projects fail — and what to do about it",
+    "lede": "Only 12–18% of companies deploying AI are capturing meaningful ROI. The rest are stuck in one of five failure modes. Here they are — and what to do about each."
+  },
+  "openingArgument": {
+    "intro": "The headline stat from every major consulting firm in 2026 is the same: only ",
+    "stats": [
+      { "highlight": "12–18% of companies deploying AI are capturing meaningful ROI", "citation": 1 },
+      { "highlight": "85% of AI projects fail to meet business goals", "citation": 2 },
+      { "highlight": "15% of AI decision-makers reported a positive impact on profitability", "citation": 3 },
+      { "highlight": "$300B in AI venture funding in Q1 2026 alone", "citation": 4 }
+    ],
+    "connectors": [
+      ". Gartner says ",
+      ". PwC's 2026 AI predictions report finds only ",
+      " in the last 12 months. Despite ",
+      ", the deployment gap between \"launched an AI pilot\" and \"AI is delivering measurable business value\" is enormous."
+    ],
+    "statsRow": [
+      { "value": "12–18%", "caption": "of companies deploying AI capture meaningful ROI", "source": "Gartner, 2026" },
+      { "value": "85%", "caption": "of AI projects fail to meet business goals", "source": "Gartner, 2026" },
+      { "value": "15%", "caption": "of AI decision-makers report positive profitability impact", "source": "PwC, 2026" },
+      { "value": "$300B", "caption": "in AI venture funding in Q1 2026 alone", "source": "CT Labs, 2026" }
+    ]
+  },
+  "pivot": "This is the gap pouk.ai works in.",
+  "failureModesIntro": {
+    "heading": "Why projects fail — the five failure modes",
+    "paragraph": "Most AI initiatives don't fail because the model isn't good enough. They fail before the model is ever really tested. Here's the pattern:"
+  },
+  "leaders": {
+    "heading": "What the leaders do differently",
+    "intro": "The companies delivering the best AI returns share a pattern:",
+    "items": [
+      { "title": "Top-down strategy", "body": "Senior leadership identifies a focused set of workflows with high economic value, then allocates resources specifically for those." },
+      { "title": "Vertical specialization", "body": "Domain-specific agents in a few key processes, not a horizontal AI layer across everything." },
+      { "title": "Measurement from day one", "body": "ROI baseline before deployment, not after; clear metrics (time saved, error reduction, revenue influenced)." },
+      { "title": "Iterative rollout", "body": "Start with one team, measure, adjust, then expand." }
+    ],
+    "outro": "The quantified gap is significant: companies in the top quartile on AI deployment show:",
+    "stats": [
+      { "value": "1.7×", "caption": "revenue growth vs. laggards" },
+      { "value": "3.6×", "caption": "three-year total shareholder return" },
+      { "value": "2.7×", "caption": "return on invested capital" }
+    ]
+  },
+  "whereWorks": {
+    "heading": "Where pouk.ai works — business knowledge meets AI tooling",
+    "body": "The failure modes above are mostly not technical problems. They are organizational, strategic, and operational. A team that has tried a generic AI tool and been disappointed does not need a better model. They need a partner who can diagnose which failure mode the work is in and fix it — at the intersection of business knowledge and AI tooling.",
+    "discoveryIntro": "Four questions pouk.ai walks through before recommending anything:",
+    "questions": [
+      "\"What specific workflow are we trying to improve, and what is the current unit cost of that workflow?\"",
+      "\"Who owns the data this AI would need, and what does it look like today?\"",
+      "\"Who inside the organization will champion this after deployment?\"",
+      "\"What does success look like in 90 days, and how will we measure it?\""
+    ],
+    "closing": "The diagnosis comes before the build. That is the order pouk.ai works in."
+  },
+  "endCta": {
+    "primary": {
+      "lead": "Want to start that conversation?",
+      "email": "hello@pouk.ai",
+      "href": "mailto:hello@pouk.ai"
+    },
+    "secondary": {
+      "lead": "Or read about the four shapes of help pouk.ai delivers:",
+      "anchor": {
+        "text": "Roles →",
+        "href": "/roles"
+      }
+    }
+  },
+  "references": [
+    {
+      "index": 1,
+      "title": "AI ROI: Why Only 5% of Enterprises See Real Returns",
+      "source": "Master of Code",
+      "url": "https://masterofcode.com/blog/ai-roi/"
+    },
+    {
+      "index": 2,
+      "title": "2026: The Year AI ROI Gets Real",
+      "source": "Wndyr",
+      "url": "https://www.wndyr.com/blog/2026-the-year-ai-roi-gets-real-and-forces-a-strategic-fork-in-the-road/"
+    },
+    {
+      "index": 3,
+      "title": "How to maximize AI ROI in 2026",
+      "source": "IBM",
+      "url": "https://www.ibm.com/think/insights/ai-roi/"
+    },
+    {
+      "index": 4,
+      "title": "AI Agent ROI in 2026: Benchmarks, Formulas & Case Studies",
+      "source": "CT Labs",
+      "url": "https://ctlabs.ai/blog/ai-agent-roi-in-2026-calculation-methods-industry-benchmarks-and-u-s-business-impact/"
+    }
+  ],
+  "referencesNote": "Source URLs cleaned from email click-trackers to canonical destinations.",
+  "lastReviewed": {
+    "date": "2026-05-13",
+    "lead": "Stats and sources reviewed annually; ping",
+    "email": "hello@pouk.ai",
+    "href": "mailto:hello@pouk.ai",
+    "suffix": "if you spot an outdated reference."
+  },
+  "jsonLd": {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why AI projects fail — and what to do about it",
+    "description": "Only 12–18% of companies deploying AI capture meaningful ROI. Here are the five failure modes — data readiness, wrong use case, integration, governance, and change management — and what to do about each.",
+    "url": "https://pouk.ai/why-ai",
+    "author": { "@type": "Organization", "name": "pouk.ai", "url": "https://pouk.ai" },
+    "publisher": { "@type": "Organization", "name": "pouk.ai", "url": "https://pouk.ai" },
+    "dateModified": "2026-05-13"
+  }
+}

@@ -5,7 +5,8 @@
 **Owner**: Arian (founder) · Author: pouk-ai-designer
 **Last updated**: 2026-05-17
 **Governing spec**: `meta/specs/pages/home.md` (Approved) + `meta/specs/pages/home-amendment-illustration-and-density.md` (in flight; this revision implements the design side of its §4 criteria)
-**DS version targeted**: `@poukai-inc/ui@0.6.1` (with three pending DS-gap proposals — see §6)
+**DS version targeted (original)**: `@poukai-inc/ui@0.6.1` (with three pending DS-gap proposals — see §6).
+**DS version shipped (current, 2026-05-19)**: `@poukai-inc/ui@0.15.0`. The three §6 proposals shipped between 0.7.0 and 0.9.0: `<Hero size="intimate">` (0.7.0), `<Button size="compact">` (0.9.0), `<Hero entrance="stagger">` (0.8.0; consumed on `/` per D-17 + this composition's §2). The illustration-slot proposal stays open via [poukai-ui#40](https://github.com/poukai-inc/poukai-ui/issues/40); deferral note above remains in force.
 **Ratifies**: shipped implementation in `src/pages/index.astro`, `src/components/HomeHero.tsx`, `src/components/ShellWrapper.tsx`, `src/layouts/BaseLayout.astro` as of 2026-05-16, **plus** the four deltas introduced by Arian's 2026-05-17 direction-pick (engraving Pouākai in-flight, `<Hero size="intimate">`, `<Button size="sm">` on the Hero CTA, `.site-page` padding-block reduced to `--space-12`).
 **Supersedes**: the ratified 2026-05-16 revision of this file. Every ratified clause that is not delta'd below remains binding.
 

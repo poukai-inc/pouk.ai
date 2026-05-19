@@ -102,7 +102,7 @@ jobs:
             echo 'table<<SIZES_END'
             echo '| Route | Raw bytes | Gzipped bytes |'
             echo '|---|---:|---:|'
-            for f in dist/index.html dist/why-ai/index.html dist/roles/index.html dist/principles/index.html; do
+            for f in dist/index.html dist/why-ai/index.html dist/roles/index.html dist/principles/index.html dist/about/index.html; do
               if [ -f "$f" ]; then
                 raw=$(wc -c < "$f" | tr -d ' ')
                 gz=$(gzip -c "$f" | wc -c | tr -d ' ')

@@ -1,186 +1,70 @@
 ---
 /**
- * /about — v2. Orange band + portrait + brand-voice body.
- *
- * Supersedes v1 (composition verdict (ii) — no <Hero>, first-person prose).
- * v2 re-adopts <Hero> for the opening band per composition v2 Approved verdict.
+ * /about — v2.1. Portrait band + brand-voice body. All copy sourced from
+ * src/content/about.json (R-076 HARD — content JSON is the only place copy
+ * lives) and validated at build time via src/content/_schemas/about.ts (R-074
+ * HARD).
  *
  * Composition recipe: meta/compositions/pages/about.md v2 (Approved 2026-05-18).
- * PM spec: meta/specs/pages/about.md v2 (Approved 2026-05-18).
- * Content: meta/content/drafts/pages/about.md v2.0 (Approved 2026-05-18).
+ * PM spec: meta/specs/pages/about.md v2.1 (Approved 2026-05-18 evening).
+ * Content: meta/content/drafts/pages/about.md v2.1.
  *
- * Page structure (5 units, composition §2):
+ * Page structure (4 units, post-v2.1 operator-line retirement):
  *   Unit 1 — <SiteShell> header chrome (via BaseLayout + ShellWrapper)
- *   Unit 2 — <AboutBand> — full-bleed orange Hero band (display statement +
- *             portrait). The page's <h1> lives inside <Hero>'s title slot.
- *   Unit 3 — Story body (2 paragraphs, ~91 words, brand-voice declarative)
- *             + operator line (names Arian once, third-person)
- *   Unit 4 — Pouākai section (<h2> + 3-sentence verbatim body, 75 words)
+ *   Unit 2 — <AboutBand> — Hero band (display statement + portrait). The
+ *             page's <h1> lives inside <Hero>'s title slot.
+ *   Unit 3 — Story body (2 paragraphs, brand-voice declarative)
+ *   Unit 4 — Pouākai section (<h2> + verbatim body)
  *   Unit 5 — End CTA (muted line, mailto link) + <SiteShell> footer chrome
  *
- * Decisions honoured:
- *   A4  — four-item nav: Why AI → Roles → Principles → About
- *   A9  — <h1> is the display statement (moves from section 1 in v1 to the
- *          Hero title slot in v2)
- *   A11 — /principles-style brand-voice end-CTA; differentiated wording
- *   A14 — <title> "About — pouk.ai" (em-dash); meta description brand-voice
- *   A15 — standalone Person JSON-LD; no worksFor; no sameAs
- *   v2 reversals: A5 retired (no first-person), A6 retired (≤250 words),
- *                 A10 retired (no autobiographical framing)
- *
- * Quality contracts:
- *   - Zero client:* directives. Motion = <Hero entrance="stagger"> CSS only.
- *   - Exactly one <h1> (display statement via Hero title slot).
- *   - Exactly one <h2> (Pouākai section heading).
- *   - No first-person "I" anywhere on the rendered page.
- *   - Operator name (Arian Zargaran) appears exactly once — in the operator line.
- *   - R27 sentence verbatim: "Named for Pouākai — the largest eagle..."
- *   - axe-clean: substantive portrait alt, landmark structure, heading hierarchy.
- *   - Lighthouse 100/100/100/100 mobile.
+ * v2.1 retired: orange band, sole-operator framing, operator-line block.
+ * Founder name now surfaces only in portrait caption + alt + Person JSON-LD.
  */
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { AboutBand } from "../components/AboutBand";
+import aboutRaw from "../content/about.json";
+import { aboutSchema } from "../content/_schemas/about";
 
-const pageTitle = "About — pouk.ai";
-
-/**
- * Meta description — brand-voice, 146 chars (under 155 cap).
- * v2.1 positioning amendment (2026-05-18 evening): drops "small" + "One
- * operator." Replaces staffing claim with the deliverable triple.
- * Copy: meta/content/drafts/pages/about.md §2 pageDescription (v2.1).
- */
-const pageDescription =
-  "pouk.ai is a technical consultancy that builds and ships AI work in production. Custom builds, automations, advisory. Direct contact at hello@pouk.ai.";
-
-const canonical = "https://pouk.ai/about";
-
-/**
- * Standalone Person JSON-LD — spec §6.2 / A15 (holds from v1).
- * Fields: name, jobTitle, url only. No worksFor. No sameAs.
- * No fields surfacing the portrait or its AI provenance.
- * jobTitle revised from v1's "Founder, pouk.ai" to "Founder" (cleaner schema).
- */
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Arian Zargaran",
-  jobTitle: "Founder",
-  url: "https://pouk.ai/about",
-};
-
-/**
- * Portrait asset path — Astro serves public/ assets at root.
- * Source: public/about-portrait.jpg (1024×1024, 78KB JPEG).
- * DS <Portrait> molecule generates AVIF/WebP/JPEG srcset at build time
- * from this URL path.
- */
-const portraitSrc = "/about-portrait.jpg";
+const about = aboutSchema.parse(aboutRaw);
+const { meta, band, story, poukai, endCta, jsonLd } = about;
 ---
 
 <BaseLayout
-  title={pageTitle}
-  description={pageDescription}
-  canonical={canonical}
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
   jsonLd={jsonLd}
   currentRoute="/about"
-  portraitPreload={portraitSrc}
+  portraitPreload={band.portrait.src}
 >
-  <!--
-    Unit 2 — Portrait band.
-    AboutBand.tsx wraps <Hero bleed="full" illustration={<Portrait>} entrance="stagger">.
-    The band breaks out of .site-page's max-width via <Hero bleed="full">.
-    Orange surface: var(--bg-warm-accent) applied on .about-band wrapper (site.css).
-    The page's single <h1> lives inside Hero's title slot.
-    No client:* directive — static render, CSS-only entrance animation.
-  -->
-  <!--
-    AboutBand renders as static HTML at build time — no hydration directive.
-    Zero client JS. Astro statically renders the React component tree via
-    @astrojs/react's server renderer. Motion is CSS-only (entrance="stagger").
-  -->
-  <AboutBand portraitSrc={portraitSrc} />
+  <AboutBand
+    portraitSrc={band.portrait.src}
+    portraitAlt={band.portrait.alt}
+    portraitAspect={band.portrait.aspect}
+    portraitWidth={band.portrait.width}
+    portraitCaption={band.portrait.caption}
+    displayStatement={band.displayStatement}
+    supportingLine={band.supportingLine}
+  />
 
-  <!--
-    Units 3–5 — Story body, Pouākai section, end CTA.
-    Returns to .site-page container (max-width: var(--content-max)) after the band.
-    No DS primitives needed here — plain semantic HTML with DS token classes.
-  -->
   <div class="site-page about-tail">
-
-    <!--
-      Unit 3 — Story body.
-      2 paragraphs, ~95 words total, brand-voice declarative throughout.
-      No <h2> heading above (composition §2 Unit 3 — "the display statement
-      is the only display moment; adding a heading here would compete").
-      No inline mailto link (composition §2 Unit 3 — "CTA lives at end only").
-      v2.1 positioning amendment (2026-05-18 evening): drops "small",
-      "small and direct", "one team at a time" — replaces with peer-grade
-      trajectory language ("engineered, shipped, and supported";
-      "company-grade depth"; "chases the kind of work that proves the
-      discipline"). Operator-line block retired entirely; founder's name
-      now surfaces only in portrait caption + alt + Person JSON-LD.
-      Copy: meta/content/drafts/pages/about.md §2 storyBody (v2.1).
-    -->
     <section class="about-story" aria-label="About pouk.ai">
       <div class="about-story__body">
-        <p>
-          pouk.ai builds custom AI systems, automations, and advisory
-          engagements for teams that need the work to run in production,
-          not in a report. Modern AI tools collapse what used to take a
-          dev team six months into days, sometimes weeks for the harder
-          parts. A consultancy that has wired these tools into production
-          codebases can do it again on a new team&rsquo;s stack &mdash;
-          quickly, without a strategy retreat first.
-        </p>
-        <p>
-          The work is engineered, shipped, and supported. Engagements
-          deliver systems an in-house team can run, not decks that need
-          translation. pouk.ai operates at company-grade depth and chases
-          the kind of work that proves the discipline.
-        </p>
+        {story.paragraphs.map((p) => <p>{p}</p>)}
       </div>
     </section>
 
-    <!--
-      Unit 4 — Pouākai section.
-      <h2> heading — only heading rank below the display statement <h1>.
-      Instrument Serif italic at --fs-tagline-intimate per composition §2 Unit 4.
-      Body: 3 sentences, 75 words, verbatim from v1 (R27 verbatim + 2 sentences).
-      Macron: literal Unicode U+0101 (ā) — canonical per existing v1 pattern.
-      Anchor: id="poukai" per content draft §2.
-      Copy: meta/content/drafts/pages/about.md §2 poukaiUnit (Q5 ratified —
-            verbatim carry-forward; no compression).
-    -->
-    <section class="about-poukai" aria-labelledby="poukai">
-      <h2 id="poukai" class="about-poukai__heading">Pou&#257;kai</h2>
-      <p class="about-poukai__body">
-        Named for Pou&#257;kai &mdash; the largest eagle that ever flew,
-        hunting by stooping from height. The name comes from M&#257;ori
-        tradition; the bird is real, extinct for around six hundred
-        years, and the spelling carries the macron it was given.
-        pouk.ai borrows the name as a reference point &mdash; a hunter
-        that worked by altitude and timing &mdash; and stops there: no
-        M&#257;ori visual motifs in the brand, no claim to the culture,
-        no metaphor stretched past the one-line origin.
-      </p>
+    <section class="about-poukai" aria-labelledby={poukai.anchor}>
+      <h2 id={poukai.anchor} class="about-poukai__heading">{poukai.heading}</h2>
+      <p class="about-poukai__body">{poukai.body}</p>
     </section>
 
-    <!--
-      Unit 5 — End CTA.
-      Single muted line with mailto link. Brand-voice / second-person invitational.
-      Hairline above for rhythm parity with /principles end-CTA pattern.
-      Differentiated from sibling CTAs per composition §2 Unit 5 + content draft §2.
-      Copy: meta/content/drafts/pages/about.md §2 endCta.
-      "For inbound work" names the purpose; display statement + story body have
-      done the qualifying work so the CTA just points.
-    -->
     <div class="end-cta">
       <p>
-        For inbound work,{" "}
-        <a href="mailto:hello@pouk.ai">hello@pouk.ai</a>.
+        {endCta.text}{" "}
+        <a href={endCta.href}>{endCta.email}</a>.
       </p>
     </div>
-
   </div>
 </BaseLayout>

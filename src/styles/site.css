@@ -14,6 +14,16 @@
  * prefers-reduced-motion, per the a11y exception documented there).
  */
 
+/* ---------- Site-side named values ----------
+   Page-composition values that aren't covered by DS tokens. Each is
+   documented inline; if a value finds a second consumer, file a DS
+   proposal rather than letting it drift across the codebase. */
+:root {
+  /* TOC sidebar width on `/why-ai` desktop layout (≥ 1024px). Single-consumer
+     value; if a second TOC surface ships, file a DS proposal for --toc-width. */
+  --site-toc-width: 14rem;
+}
+
 /* ---------- Global reset ----------
    `box-sizing: border-box` makes `width: 100% + padding` stay within the
    container instead of overflowing it. Several DS layout primitives
@@ -51,7 +61,7 @@
 @media (min-width: 1024px) {
   .why-ai-layout {
     display: grid;
-    grid-template-columns: 1fr 14rem;
+    grid-template-columns: 1fr var(--site-toc-width);
     gap: var(--space-16);
     align-items: start;
   }
@@ -257,13 +267,20 @@
 
 /* ---------- Principles page — bookend serif italic ---------- */
 
+/* The principles intro + conclusion bookends sit at an editorial type rung
+   between --fs-body and --fs-tagline-intimate. The DS does not currently
+   ship a token at this ramp; the clamp is a site-side exception (matches the
+   .about-band h1 precedent at §about — site clamps locally for one-shot use).
+   If a second editorial bookend surface ever needs this scale, file a DS
+   proposal for --fs-editorial-mid (or similar). Max-width uses the DS-shipped
+   --hero-max (38rem) for column-axis parity with Hero text. */
 .principles-bookend {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
   line-height: 1.5;
   color: var(--fg-muted);
-  max-width: 38rem;
+  max-width: var(--hero-max);
   margin-block: var(--space-8);
 }
 
@@ -293,12 +310,13 @@
    Hero root element. The Hero's internal --bleed="full" mechanics handle
    the viewport-width extension; .about-band provides the orange fill. */
 
-.about-band {
-  /* Orange backdrop retired 2026-05-18 per founder direction.
-     Wrapper kept as composition anchor (display-clamp + caption styling
-     scope), but background-color and warm foreground cascade removed.
-     Text inherits neutral --fg / --fg-muted from the page default. */
-}
+/* .about-band wrapper retained as composition anchor (scope for the display
+   statement font-size clamp at .about-band h1, and the caption styling at
+   .about-band__caption below). The orange backdrop + warm foreground cascade
+   were retired on 2026-05-18 per founder direction; the wrapper now declares
+   no surface or color of its own — text inherits neutral --fg / --fg-muted
+   from the page default. Selector survives because the .about-band h1 +
+   .about-band__caption descendant rules below depend on the scope. */
 
 /* ---------- About page v2 — display statement font-size (site-side clamp) ----------
    DS counter-proposal resolution §6.3 path (b): "site can clamp locally for
@@ -398,6 +416,70 @@
   font-size: var(--fs-body);
   color: var(--fg);
   margin-block: 0;
+}
+
+/* ---------- /404 — body link list ----------
+   Composition: meta/compositions/pages/404.md v1.1 §3 (Approved 2026-05-18).
+   Hairline rule above + 3-row two-tier link list below. Centered with Hero
+   text column at max-width: var(--hero-max). Label sans body, descriptor
+   sans meta muted. Inline desktop, stacked mobile (<480px). Zero JS. */
+
+.not-found-rule {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  max-width: var(--hero-max);
+  margin: var(--space-12) auto var(--space-8);
+}
+
+.not-found-suggestions {
+  max-width: var(--hero-max);
+  margin-inline: auto;
+}
+
+.not-found-suggestions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.not-found-suggestions li {
+  margin: 0;
+}
+
+.not-found-suggestions a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  background-image: none;
+  padding-bottom: 0;
+}
+
+.not-found-suggestions__label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--fg);
+}
+
+.not-found-suggestions__descriptor {
+  font-family: var(--font-sans);
+  font-size: var(--fs-meta);
+  color: var(--fg-muted);
+  transition: color var(--dur-fast) ease;
+}
+
+.not-found-suggestions a:hover .not-found-suggestions__descriptor,
+.not-found-suggestions a:focus-visible .not-found-suggestions__descriptor {
+  color: var(--fg);
+}
+
+@media (max-width: 480px) {
+  .not-found-suggestions a {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
 }
 
 /* ---------- Visually hidden (a11y) ---------- */

@@ -12,6 +12,10 @@
  *     The DS has its own test suite in its repo.
  *   - Verify visual styles, accessibility, or motion — those live in axe/lhci
  *     against `pnpm preview` (R-029, R-013).
+ *
+ * Post-R-076 (2026-05-19): HomeHero now takes copy via scalar props sourced
+ * from src/content/home.json. mockProps fixture mirrors the production JSON
+ * verbatim — D-11/D-12 lock holds at the JSON layer + the prop-passing layer.
  */
 
 import { describe, it, expect, vi } from "vitest";
@@ -49,14 +53,33 @@ vi.mock("@poukai-inc/ui", () => ({
 		asChild ? <>{children}</> : <button>{children}</button>,
 }));
 
+/**
+ * mockProps — fixture mirroring src/content/home.json. If home.json changes,
+ * update this fixture atomically. The locked strings (D-11 / D-12) are
+ * preserved verbatim so the assertions below test the right contract.
+ */
+const mockProps = {
+	status: "Currently taking conversations for Q3.",
+	titleBefore: "Technical consulting for teams shipping with ",
+	titleEm: "AI",
+	titleAfter: ".",
+	ledeSentence1:
+		"pouk.ai builds custom AI systems, automations, and advisory engagements for operators who'd rather ship than speculate.",
+	ledeSentence2: "Most AI projects fail to deliver.",
+	ledeAnchorText: "Here's why →",
+	ledeAnchorHref: "/why-ai",
+	ctaLabel: "hello@pouk.ai",
+	ctaHref: "mailto:hello@pouk.ai",
+};
+
 describe("HomeHero", () => {
 	it("renders without crashing", () => {
-		render(<HomeHero />);
+		render(<HomeHero {...mockProps} />);
 		expect(screen.getByTestId("hero")).toBeTruthy();
 	});
 
 	it("renders the D-12 status-line copy verbatim", () => {
-		render(<HomeHero />);
+		render(<HomeHero {...mockProps} />);
 		const badge = screen.getByTestId("status-badge");
 		// D-12 locks this string byte-identical to the pre-cutover holding page.
 		expect(badge.textContent).toBe("Currently taking conversations for Q3.");
@@ -66,7 +89,7 @@ describe("HomeHero", () => {
 	});
 
 	it("renders the brand tagline with <em>AI</em> preserved", () => {
-		render(<HomeHero />);
+		render(<HomeHero {...mockProps} />);
 		const title = screen.getByTestId("hero-title");
 		// The tagline is the brand's typographic credential; <em> on AI is part of it.
 		expect(title.textContent).toBe("Technical consulting for teams shipping with AI.");
@@ -76,7 +99,7 @@ describe("HomeHero", () => {
 	});
 
 	it("ends the lede with a single integrated link to /why-ai (D-11 structural lock)", () => {
-		render(<HomeHero />);
+		render(<HomeHero {...mockProps} />);
 		const lede = screen.getByTestId("hero-lede");
 		// v1.1 atomic migration: Pouākai origin sentence removed from / lede and
 		// migrated verbatim to /about §3 (closes R14 + R27). Lede is now 3 sentences.
@@ -94,7 +117,7 @@ describe("HomeHero", () => {
 	});
 
 	it("renders the email CTA as a mailto: anchor (no form, no scheduler)", () => {
-		render(<HomeHero />);
+		render(<HomeHero {...mockProps} />);
 		const cta = screen.getByTestId("hero-cta");
 		const anchors = cta.querySelectorAll("a");
 		expect(anchors.length).toBe(1);
