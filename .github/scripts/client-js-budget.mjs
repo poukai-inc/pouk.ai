@@ -27,13 +27,7 @@
  */
 
 import { readFileSync, existsSync } from "node:fs";
-import { createGzip } from "node:zlib";
-import { pipeline } from "node:stream/promises";
-import { Readable } from "node:stream";
-import { createWriteStream } from "node:fs";
-import { tmpdir } from "node:os";
 import { join, resolve, dirname } from "node:path";
-import { glob } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import zlib from "node:zlib";
 
