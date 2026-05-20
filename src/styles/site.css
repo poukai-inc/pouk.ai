@@ -514,6 +514,25 @@
   }
 }
 
+/* ---------- Smooth in-page scrolling ----------
+   Applies to every fragment-link click on the site — most visibly the
+   sticky right-rail TOC on /why-ai (D-02), but also footnote ↔ reference
+   round-trips (D-01) and any future in-page anchor. `scroll-padding-block-start`
+   reserves headroom above the target so the section title doesn't land flush
+   against the viewport top. Disabled under prefers-reduced-motion per R-030
+   so users with vestibular triggers get an instant jump. */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-block-start: var(--space-8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* ---------- Visually hidden (a11y) ---------- */
 
 .visually-hidden {
